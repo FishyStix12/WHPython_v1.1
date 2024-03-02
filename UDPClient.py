@@ -1,5 +1,11 @@
 #! /usr/bin/python
-
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 3rd 2024
+# Description of Script
+# This script is used to help Pentesters to whip up a UDP client. The user inputs an IPv4 address
+# or hostname and UDP Port to establish the client connection. Runs on Python 3.
+#################################################################################################
 #Imports the python socket module
 import socket
 

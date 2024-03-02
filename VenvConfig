@@ -1,4 +1,14 @@
 #!/bin/bash
+#!/bin/bash
+#################################################################################################
+#	Author: Nicholas Fisher
+#	Date: March 2nd 2024
+#	Description of Script
+#	This script is used to create new python 3.0 Venv Environments in Kali Linux. In order for this
+# script to work please download venv by using the following command in quotes "sudo apt-get install 
+# python3-venv". This code will also install up to one module for python, and test to make sure you
+# are using python3.
+#################################################################################################
 #upgrades python
 sudo apt-get upgrade python3
 
@@ -28,3 +38,15 @@ source $env_var/bin/activate
 
 #launches python to ensure we are using python 3
 python
+
+#Exits python
+exit()
+
+#Reads user input to search for python 3 module
+echo "Please enter one module you would like to install for python3: "
+
+#Saves user input as a variable named "mod_var"
+read mod_var
+
+#Installs the module
+pip install $mod_var

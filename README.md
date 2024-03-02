@@ -1,4 +1,6 @@
-# WHPython
-<br />
-# VenvConfig.sh <br />
-1. Venvconfig.sh is a script to configure and create new python3 environments. It will configure a directory, name the environment, and load one module into the environment based on the users input. Please ensure to have the venv tool to make the script work. The command to install venv is in the description of the code.
+# White Hat Python
+# By: Nicholas Fisher
+This is a repository of White hat python codes to be used for Pentesting. <br />
+
+**The Following List gives a short description of all the scripts in this repository:** <br />
+1. VenvConfig.sh - This script creates new python3 environments,loads one module, and tests to see if the enviroment is using python3. To esnire that this script works please install the venv tool. The command to install venv is in the description of this script. <br /> 

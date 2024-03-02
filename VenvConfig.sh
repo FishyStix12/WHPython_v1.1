@@ -1,10 +1,9 @@
 #!/bin/bash
-#!/bin/bash
 #################################################################################################
-#	Author: Nicholas Fisher
-#	Date: March 2nd 2024
-#	Description of Script
-#	This script is used to create new python 3.0 Venv Environments in Kali Linux. In order for this
+# Author: Nicholas Fisher
+# Date: March 2nd 2024
+# Description of Script
+# This script is used to create new python 3.0 Venv Environments in Kali Linux. In order for this
 # script to work please download venv by using the following command in quotes "sudo apt-get install 
 # python3-venv". This code will also install up to one module for python, and test to make sure you
 # are using python3.

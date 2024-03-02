@@ -11,7 +11,7 @@ import socket
 
 # These lines establish what the target host and target port for the TCP client will be.
 target_host = input("Please enter an IPv4 address or Hostname: ")
-target_port = input("Please enter the appropriate TCP Port: ")X
+target_port = int(input("Please enter the appropriate TCP Port: "))
 
 # this line creates a socket object.
 # The AF_INET parameter indicates we will be using a standard IPv4 address or hostname.

@@ -1,4 +1,11 @@
 #! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 3rd 2024
+# Description of Script
+# This script is used to help Pentesters to whip up a TCP client. The user inputs an IPv4 address
+# or hostname to establish the client connection. Runs on Python 3.
+#################################################################################################
 #Importants the socket module for python 3.
 import socket
 

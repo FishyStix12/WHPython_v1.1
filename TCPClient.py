@@ -10,7 +10,6 @@
 import socket
 
 # These lines establish what the target host and target port for the TCP client will be.
-#In this case the target host is google.com and the target port is port 80 for HTTP.
 target_host = input("Please enter an IPv4 address or Hostname: ")
 target_port = input("Please enter the appropriate TCP Port: ")X
 

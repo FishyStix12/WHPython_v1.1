@@ -1,5 +1,7 @@
 # White Hat Python
 # By: Nicholas Fisher
+# 
+**The creator is not resposible for any damage caused by these programs because YOU AGREE TO THE CONSEQUENCES IF YOU RUN These SCRIPTS!!!!!** <br />
 This is a repository of White hat python codes to be used for Pentesting. <br />
 
 **The Following List gives a short description of all the scripts in this repository:** <br />

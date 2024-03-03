@@ -56,10 +56,10 @@ Host: google.com <br />
 # Packet Sniffer/Port Scanner <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/faa2eb23-9d2f-4a7e-911a-84fc0b379440) <br />
 **Important Note: For mapscan.py to work please install the scapy and nmap python libraries in linux using the following commands below:** <br />
-   pip install scapy <br />
+   pip3 install scapy <br />
    sudo apt-get update <br />
    sudo apt-get install nmap <br />
-   pip install python-nmap <br />
+   pip3 install python-nmap <br />
 
 **The Following List gives a short description of all the scripts in this repository:** <br />
 mapscan.py - This script is a Python tool for sniffing network packets and automatically initiating Nmap  port scans on newly discovered hosts. This tool uses the scapy library to sniff packets and the python-nmap library to perform Nmap scans. When a packet with an IP destination different from localhost is captured, NetScanPy checks if the destination IP has already been scanned.  If not, it adds the IP to the list of scanned hosts and launches an Nmap scan for that host. This tool is useful for monitoring network traffic and identifying potentially vulnerable hosts on the network. <br />
@@ -77,8 +77,10 @@ mapscan.py - This script is a Python tool for sniffing network packets and autom
 
 # Scapy Unleashed: Conquer the Network <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/21d15755-bd6b-496b-8f76-7e624c0b65c1) <br />
-**Important Note: For mapscan.py to work please install the scapy!** <br />
-   pip install scapy <br />
+**Important Note: For arg.pois.py to work please install the multiprocessing library using the command below:** <br />
+pip3 install multiprocessing <br />
+**Important Note: For mapscan.py to work please install the scapy library using the command below:!** <br />
+   pip3 install scapy <br />
 **The Following List gives a short description of all the scripts in this repository:** <br />
 1. tport_sniffer.py - # This Python script utilizes the Scapy library to sniff network packets and detect potential email credentials being transmitted in plaintext. It allows the user to specify TCP port filters to focus on specific network traffic. When a packet containing 'user' or 'pass' in its payload is detected, the script prints the destination IP address and the payload, which may include email credentials. This tool can be used for network security auditing or monitoring purposes to identify and mitigate potential credential leaks. <br />
 

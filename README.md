@@ -55,4 +55,10 @@ Host: google.com <br />
 
 # Packet Sniffers <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/faa2eb23-9d2f-4a7e-911a-84fc0b379440) <br />
-**(Coming Soon!)** <br />
+** Important Note: For mapscan.py to work please install the scapy and nmap python libraries in linux using the following commands below: ** <br />
+   pip install scapy <br />
+   sudo apt-get update <br />
+   sudo apt-get install nmap <br />
+   pip install python-nmap <br />
+
+**The Following List gives a short description of all the scripts in this repository:** <br />

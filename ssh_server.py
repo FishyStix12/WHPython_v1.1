@@ -3,7 +3,7 @@
 # Author: Nicholas Fisher
 # Date: March 4th 2024
 # Description of Script
-# The provided Python script sets up an SSH server using the Paramiko library, enabling users to 
+# This script sets up an SSH server using the Paramiko library, enabling users to 
 # remotely execute commands. It begins by prompting the user for the server's IP address and TCP port. 
 # Once configured, the script listens for incoming connections and authenticates users based on their 
 # provided username and password. Once authenticated, users can enter commands to be executed on the server. 

@@ -1,3 +1,23 @@
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# This script allows you to execute commands on a remote server over SSH. 
+# It prompts the user for the server's IP address, port number, and the command to execute. 
+# The script then establishes an SSH connection to the server, sends the command, 
+# executes it on the server, and returns the output to the client.
+# Example Usage:
+# 1. Enter Server IP: 192.168.1.10
+# 2. Enter port: 22
+# 3. Enter your password: ********
+# 4. The command to execute on the server: ls
+# Example Output:
+# file1
+# file2
+# file3
+"""
+#################################################################################################
 import paramiko
 import shlex
 import subprocess

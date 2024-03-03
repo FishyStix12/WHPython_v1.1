@@ -1,5 +1,24 @@
 #! /usr/bin/python
-
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# The provided Python script sets up an SSH server using the Paramiko library, enabling users to 
+# remotely execute commands. It begins by prompting the user for the server's IP address and TCP port. 
+# Once configured, the script listens for incoming connections and authenticates users based on their 
+# provided username and password. Once authenticated, users can enter commands to be executed on the server. 
+# The script continues to accept and execute commands until the user enters 'exit' to close the connection. 
+# This script provides a simple way to implement an SSH server for remote command execution.
+# Example Usage:
+# Input Server IP Address: localhost
+# Please input TCP Port: 2222
+# Example Output:
+# [+] Listening for connection ...
+# [+] Got a connection! <socket>, ('127.0.0.1', 12345)
+# [+] Authenticated!
+# Welcome to bh_ssh
+# Enter command:
+#################################################################################################
 import os
 import paramiko
 import socket

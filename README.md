@@ -15,6 +15,7 @@ This is a repository of White hat python codes to be used for Pentesting. <br />
    a flexible command-line interface for both client and server modes, allowing for easy network operations and troubleshooting. <br />
 7. proxy.py - This script implements a basic TCP proxy. It listens on a specified local host and port, forwards incoming connections to a remote host and port, and relays data between the client and the remote server. It can be used for various purposes such as debugging, monitoring, or modifying network traffic. <br />
 8. ssh_cmd.py - This script allows the user to execute a command on a remote server over SSH. It prompts the user for their username, password, server IP, port, and command. If no input is provided for the IP, port, or command, default values are used. Please install the paramiko library for Python 3. <br />
+9. ssh_remd.py - This script allows you to execute commands on a remote server over SSH. It prompts the user for the server's IP address, port number, and the command to execute. The script then establishes an SSH connection to the server, sends the command, executes it on the server, and returns the output to the client. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. TCPServer.py output: <br />
@@ -32,3 +33,7 @@ Host: google.com <br />
     Enter command or <CR>: id <br />
     --- Output --- <br />
    uid=0(root) gid=0(root) groups=0(root) <br />
+4. ssh_remd.py output: <br />
+     file1 <br />
+     file2 <br />
+     file3 <br />

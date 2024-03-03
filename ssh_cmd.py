@@ -1,5 +1,21 @@
 #!/usr/bin/python
-
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# This script allows the user to execute a command on a remote server over SSH.
+# It prompts the user for their username, password, server IP, port, and command.
+# If no input is provided for the IP, port, or command, default values are used.
+# Example usage: python script.py
+# Example output:
+# Username: user
+# Password: 
+# Enter Server IP: 192.168.1.203
+# Enter port or <CR>: 2222
+# Enter command or <CR>: id
+# --- Output ---
+# uid=0(root) gid=0(root) groups=0(root)
+#################################################################################################
 # Import the paramiko library for SSH connections
 import paramiko
 

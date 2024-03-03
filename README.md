@@ -11,6 +11,8 @@ This is a repository of White hat python codes to be used for Pentesting. <br />
 3. TCPClient.py - This script is used to help Pentesters to whip up a TCP client. The user inputs an IPv4 address or hostname and TCP port to establish the client connection. <br />
 4. UDPClient.py - This script is used to help Pentesters to whip up a UDP client. The user inputs an IPv4 address or hostname and UDP Port to establish the client connection. Runs on Python 3. <br />
 5. TCPServer.py - This script is used to help Pentesters to whip up a Threaded TCP Server on python 3. Please provide an IPv4 Address or hostname and the appropriate TCP port for this script to work. <br />
+6. netcat.py - A Python implementation of the NetCat tool, offering file transfer, command execution, and interactive command shell functionalities over TCP/IP connections. This tool provides <br />
+   a flexible command-line interface for both client and server modes, allowing for easy network operations and troubleshooting. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. TCPServer.py output: <br />

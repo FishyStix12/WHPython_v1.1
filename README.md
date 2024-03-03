@@ -14,6 +14,7 @@ This is a repository of White hat python codes to be used for Pentesting. <br />
 6. netcat.py - A Python implementation of the NetCat tool, offering file transfer, command execution, and interactive command shell functionalities over TCP/IP connections. This tool provides <br />
    a flexible command-line interface for both client and server modes, allowing for easy network operations and troubleshooting. <br />
 7. proxy.py - This script implements a basic TCP proxy. It listens on a specified local host and port, forwards incoming connections to a remote host and port, and relays data between the client and the remote server. It can be used for various purposes such as debugging, monitoring, or modifying network traffic. <br />
+8. ssh_cmd.py - This script allows the user to execute a command on a remote server over SSH. It prompts the user for their username, password, server IP, port, and command. If no input is provided for the IP, port, or command, default values are used. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. TCPServer.py output: <br />
@@ -23,3 +24,11 @@ This is a repository of White hat python codes to be used for Pentesting. <br />
 Host: google.com <br />
 2. proxy.py output: <br />
    ./proxy.py 127.0.0.1 9000 10.21.132.1 9000 True <br />
+3. ssh_cmd.py output: <br />
+    Username: user <br />
+    Password: <br />
+    Enter Server IP: 192.168.1.203 <br />
+    Enter port or <CR>: 2222 <br />
+    Enter command or <CR>: id <br />
+    --- Output --- <br />
+   uid=0(root) gid=0(root) groups=0(root) <br />

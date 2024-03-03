@@ -1,4 +1,25 @@
 #! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# This script implements a reverse SSH tunneling mechanism using the Paramiko library. This script 
+# allows users to establish a secure connection to a remote SSH server and forward a local port to 
+# a port on a remote host, effectively creating a tunnel for secure communication. The script takes 
+# command-line arguments for the SSH server, the remote host, and the ports to forward, and it supports 
+# authentication methods including password and key-based authentication. An example use case would be 
+# to securely access a service running on a remote host that is not directly accessible from the local 
+# machine due to firewall restrictions. To use the script, simply run it from the command line and follow 
+# the prompts to enter the required information. The script will then establish the SSH connection and start 
+# forwarding the specified ports. 
+# An example output would be:
+#  Connecting to ssh host ssh_server:22...
+#  Now forwarding remote port 8080 to remote_host:80...
+#  Connected! Tunnel open ('127.0.0.1', 8080) -> ('remote_host', 80) (remote_host:80)
+#  Tunnel closed from ('127.0.0.1', 8080)
+# This output indicates that the script successfully connected to the SSH server, established the tunnel, 
+# and then closed the tunnel upon completion.
+#################################################################################################
 import getpass  # For securely getting the password
 import os  # For operating system operations
 import paramiko  # For SSH operations

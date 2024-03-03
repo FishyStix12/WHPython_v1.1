@@ -53,7 +53,7 @@ Host: google.com <br />
    Connected! Tunnel open ('127.0.0.1', 8080) -> ('remote_host', 80) (remote_host:80) <br />
    Tunnel closed from ('127.0.0.1', 8080) <br />
 
-# Packet Sniffers <br />
+# Packet Sniffer/Port Scanner <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/faa2eb23-9d2f-4a7e-911a-84fc0b379440) <br />
 **Important Note: For mapscan.py to work please install the scapy and nmap python libraries in linux using the following commands below:** <br />
    pip install scapy <br />
@@ -62,3 +62,15 @@ Host: google.com <br />
    pip install python-nmap <br />
 
 **The Following List gives a short description of all the scripts in this repository:** <br />
+mapscan.py - This script is a Python tool for sniffing network packets and automatically initiating Nmap  port scans on newly discovered hosts. This tool uses the scapy library to sniff packets and the python-nmap library to perform Nmap scans. When a packet with an IP destination different from localhost is captured, NetScanPy checks if the destination IP has already been scanned.  If not, it adds the IP to the list of scanned hosts and launches an Nmap scan for that host. This tool is useful for monitoring network traffic and identifying potentially vulnerable hosts on the network. <br />
+
+**Example outputs of some of the scripts!** <br />
+1. mapscan.py output: <br />
+   IP source: 192.168.1.10, IP destination: 8.8.8.8 <br />
+   Starting Nmap scan for host: 8.8.8.8 <br />
+   Nmap scan results for host:  8.8.8.8 <br />
+   Host: 8.8.8.8 <br />
+   Protocol: tcp < br />
+   Port: 53	State: open <br />
+   Protocol: udp <br />
+   Port: 53	State: open <br />

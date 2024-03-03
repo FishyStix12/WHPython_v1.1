@@ -1,3 +1,33 @@
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# This script is a Python tool for sniffing network packets and automatically initiating Nmap 
+# port scans on newly discovered hosts. This tool uses the scapy library to sniff packets and 
+# the python-nmap library to perform Nmap scans. When a packet with an IP destination different 
+# from localhost is captured, NetScanPy checks if the destination IP has already been scanned. 
+# If not, it adds the IP to the list of scanned hosts and launches an Nmap scan for that host. 
+# This tool is useful for monitoring network traffic and identifying potentially vulnerable hosts 
+# on the network.
+# Important Note please run the following commands to have the appropriate libraries for this
+# script:
+# pip install scapy
+# sudo apt-get update
+# sudo apt-get install nmap
+# pip install python-nmap
+# Example usage:
+# python netscanpy.py
+# Example output:
+# IP source: 192.168.1.10, IP destination: 8.8.8.8
+# Starting Nmap scan for host: 8.8.8.8
+# Nmap scan results for host:  8.8.8.8
+# Host: 8.8.8.8
+# Protocol: tcp
+# Port: 53	State: open
+# Protocol: udp
+# Port: 53	State: open
+#################################################################################################
 # Import necessary libraries
 from scapy.all import *
 import nmap

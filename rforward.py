@@ -10,7 +10,7 @@
 # authentication methods including password and key-based authentication. An example use case would be 
 # to securely access a service running on a remote host that is not directly accessible from the local 
 # machine due to firewall restrictions. To use the script, simply run it from the command line and follow 
-# the prompts to enter the required information. The script will then establish the SSH connection and start 
+# the prompts to enter the required information. The script will then establish the SSH connection and start.
 # forwarding the specified ports. 
 # An example output would be:
 #  Connecting to ssh host ssh_server:22...

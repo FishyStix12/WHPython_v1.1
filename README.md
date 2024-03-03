@@ -77,4 +77,12 @@ mapscan.py - This script is a Python tool for sniffing network packets and autom
 
 # Scapy Unleashed: Conquer the Network <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/21d15755-bd6b-496b-8f76-7e624c0b65c1) <br />
-**(Coming Soon!)**
+**Important Note: For mapscan.py to work please install the scapy!** <br />
+   pip install scapy <br />
+**The Following List gives a short description of all the scripts in this repository:** <br />
+1. tport_sniffer.py - # This Python script utilizes the Scapy library to sniff network packets and detect potential email credentials being transmitted in plaintext. It allows the user to specify TCP port filters to focus on specific network traffic. When a packet containing 'user' or 'pass' in its payload is detected, the script prints the destination IP address and the payload, which may include email credentials. This tool can be used for network security auditing or monitoring purposes to identify and mitigate potential credential leaks. <br />
+
+**Example outputs of some of the scripts!** <br />
+1. tport_sniffer output: <br />
+   [*] Destination: 192.168.1.1 <br />
+   [*] USER myemail@example.com <br />

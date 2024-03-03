@@ -1,5 +1,13 @@
 #! /usr/bin/python
-# This script creates a simple Netcat tool using Python, allowing for file uploads, command execution, and interactive shells.
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 3rd 2024
+# Description of Script
+# A Python implementation of the NetCat tool, offering file transfer, command execution,
+# and interactive command shell functionalities over TCP/IP connections. This tool provides
+# a flexible command-line interface for both client and server modes, allowing for easy
+# network operations and troubleshooting.
+#################################################################################################
 
 # Import necessary modules
 import argparse  # For parsing command-line arguments

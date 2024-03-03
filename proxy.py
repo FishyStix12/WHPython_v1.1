@@ -1,5 +1,15 @@
 #!/usr/bin/python
-
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 3rd 2024
+# This script implements a basic TCP proxy. It listens on a specified local host and port, forwards incoming
+# connections to a remote host and port, and relays data between the client and the remote server.
+# It can be used for various purposes such as debugging, monitoring, or modifying network traffic.
+# Usage:
+# ./proxy.py [localhost] [localport] [remotehost] [remoteport] [receive_first]
+# Example:
+# ./proxy.py 127.0.0.1 9000 10.21.132.1 9000 True
+#################################################################################################
 import sys
 import socket
 import threading

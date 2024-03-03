@@ -12,7 +12,7 @@ import threading
 
 #Asks the user for the IP Address and TCP port the user wants the server to listen on.
 IP = input("Please enter the IP address you want the TCP Server to listen on: ")
-PORT = int(input("Please enter the TCP you want the TCP Server to listen on: "))
+PORT = int(input("Please enter the TCP port you want the TCP Server to listen on: "))
 
 # To start we pass the IPv4 Address or Hostname and TCP port we want the server to listen on.
 # Then we tell the server to start listening, with a maz back-log of connection set to 5.

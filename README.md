@@ -13,6 +13,7 @@ This is a repository of White hat python codes to be used for Pentesting. <br />
 5. TCPServer.py - This script is used to help Pentesters to whip up a Threaded TCP Server on python 3. Please provide an IPv4 Address or hostname and the appropriate TCP port for this script to work. <br />
 6. netcat.py - A Python implementation of the NetCat tool, offering file transfer, command execution, and interactive command shell functionalities over TCP/IP connections. This tool provides <br />
    a flexible command-line interface for both client and server modes, allowing for easy network operations and troubleshooting. <br />
+7. proxy.py - This script implements a basic TCP proxy. It listens on a specified local host and port, forwards incoming connections to a remote host and port, and relays data between the client and the remote server. It can be used for various purposes such as debugging, monitoring, or modifying network traffic. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. TCPServer.py output: <br />
@@ -20,3 +21,5 @@ This is a repository of White hat python codes to be used for Pentesting. <br />
 [*] Accepted Connection from 127.0.0.1:49704 <br />
 [*] Received: GET / HTTP/1.1 <br />
 Host: google.com <br />
+2. proxy.py output: <br />
+   ./proxy.py 127.0.0.1 9000 10.21.132.1 9000 True <br />

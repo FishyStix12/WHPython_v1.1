@@ -77,7 +77,7 @@ mapscan.py - This script is a Python tool for sniffing network packets and autom
 
 # Scapy Unleashed: Conquer the Network <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/21d15755-bd6b-496b-8f76-7e624c0b65c1) <br />
-**Important Note: For arg.pois.py to work please install the multiprocessing library using the command below:** <br />
+**Important Note: For arg_poiser.py to work please install the multiprocessing library using the command below:** <br />
 pip3 install multiprocessing <br />
 
 **Important Note: For mapscan.py to work please install the scapy library using the command below:!** <br />

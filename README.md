@@ -83,6 +83,7 @@ mapscan.py - This script is a Python tool for sniffing network packets and autom
   pip install multiprocessing <br />
   pip install scapy <br />
   pip install opencv-python <br />
+  
 **Important Note: For mapscan.py to work please install the scapy library using the command below:** <br />
    pip install scapy <br />
    

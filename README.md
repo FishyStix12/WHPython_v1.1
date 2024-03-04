@@ -80,7 +80,7 @@ mapscan.py - This script is a Python tool for sniffing network packets and autom
 **Important Note: For arg_poiser.py to work please install the multiprocessing library using the command below:** <br />
   pip install multiprocessing <br />
 
-**Important Note: For mapscan.py to work please install the scapy library using the command below:!** <br />
+**Important Note: For mapscan.py to work please install the scapy library using the command below:** <br />
    pip install scapy <br />
    
 **Important Note: When using arp.poiser.py use the following syntax to run the code:** <br />

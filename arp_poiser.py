@@ -1,6 +1,18 @@
 #! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# The provided Python script implements an ARP poisoning attack tool using Scapy. ARP poisoning 
+# is a technique used to intercept traffic on a switched network. The script takes three 
+# command-line arguments: the IP address of the victim machine, the IP address of the gateway 
+# router, and the network interface to use. It then initiates an ARP poisoning attack by sending 
+# spoofed ARP packets to the victim and the gateway, tricking them into sending their traffic 
+# through the attacker's machine. The attacker can then sniff the traffic passing through 
+# and potentially intercept sensitive information such as passwords or credentials. 
 # Please use the script in the following syntax below
 # python script.py <victim_ip> <gateway_ip> <interface>
+#################################################################################################
 # Import necessary modules
 from multiprocessing import Process  # For creating separate processes
 from scapy.all import (ARP, Ether, conf, send, sniff, srp, wrpcap)  # Scapy modules for packet manipulation

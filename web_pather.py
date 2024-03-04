@@ -1,3 +1,21 @@
+#! /usr/bin/python
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# This script prompts the user to input a URL and a list of file extensions 
+# separated by spaces. It constructs a URL using the input, sets the number of threads to 10, 
+# and creates a list of file extensions based on the user input. The script then prints out the 
+# constructed URL, the number of threads, and the list of filtered file extensions. This script 
+# can be used to quickly set up a web scraping or downloading task with customizable file type 
+# filters. For example, after running the script and providing "example.com" as the URL and ".jpg 
+# .png .pdf" as the file extensions, the output would be:
+# Copy code
+# URL: http://example.com
+# Threads: 10
+# Filtered extensions: ['.jpg', '.png', '.pdf']
+#################################################################################################
 import os  # Importing the os module for interacting with the operating system
 import queue  # Importing the queue module for implementing queues
 import requests  # Importing the requests module for sending HTTP requests

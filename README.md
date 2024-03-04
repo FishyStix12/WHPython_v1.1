@@ -135,4 +135,4 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 
 # Command and Control Center <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/239280f9-d78f-4e2d-aace-6fb0b4e59177) <br />
-**Please Head to the ShadowReaper Repository!**
+**Please Head to the ShadowReaper_Trojan Repository!**

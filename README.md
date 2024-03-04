@@ -115,9 +115,17 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. web_pather.py - The provided Python script prompts the user to input a URL and a list of file extensions separated by spaces. It constructs a URL using the input, sets the number of threads to 10, and creates a list of file extensions based on the user input. The script then prints out the constructed URL, the number of threads, and the list of filtered file extensions. This script can be used to quickly set up a web scraping or downloading task with customizable file type filters. For example, after running the script and providing "example.com" as the URL and ".jpg .png .pdf" as the file extensions. <br />
+2. ravager.py - This script is a simple tool for performing directory busting on a web server using a wordlist of common directory names and file extensions. It takes a target URL and a wordlist file as inputs, and then iterates through the combinations of words and extensions to construct URLs to check. It uses threading to speed up the process by making multiple HTTP requests simultaneously. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. web_pather.py output: <br />
    URL: http://example.com <br />
    Threads: 10 <br />
+2. ravager.py output: <br />
+   Please input URL here: http://example.com <br />
+   Enter path to all.txt file: wordlist.txt <br />
+   Press return to continue. <br />
+   Success (200: http://example.com/admin.php) <br />
+   Success (200: http://example.com/test.bak) <br />
+   404 => http://example.com/notfound.php <br />
    Filtered extensions: ['.jpg', '.png', '.pdf'] <br />

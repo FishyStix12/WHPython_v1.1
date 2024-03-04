@@ -1,3 +1,23 @@
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# The "login_bruteforce.py" script is a Python tool designed to aid in testing the security of 
+# login systems by performing a brute-force attack. It prompts the user to input the URL of 
+# the login form, as well as the paths to files containing lists of usernames and passwords. 
+# The script then iterates through each combination of username and password, attempting to log 
+# in to the specified URL using HTTP POST requests. If successful login credentials are found, 
+# they are printed to the console. An example of using the script would be:
+# $ python login_bruteforce.py
+# Please Enter login URL here: http://example.com/login
+# Please enter the path to your usernames dictionary in Linux: /path/to/usernames.txt
+# Please enter the path to your passwords dictionary in Linux: /path/to/passwords.txt
+# Example output:
+# Successful login with username: admin and password: password123
+# Failed login attempt with username: admin and password: qwerty
+# Failed login attempt with username: admin and password: letmein
+#################################################################################################
 import requests
 
 # Set the target URL of the login form

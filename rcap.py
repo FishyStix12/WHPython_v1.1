@@ -1,3 +1,21 @@
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# The provided Python script is designed to extract and save images from HTTP traffic stored in a 
+# PCAP file. It utilizes the Scapy library for packet manipulation and extraction. The script 
+# reads a PCAP file containing network traffic, filters out HTTP packets, extracts images 
+# from the HTTP responses, and saves them to a specified directory. To use the script, you need 
+# to specify the input PCAP file path and the output directory for the extracted images. For 
+# example, to extract images from a PCAP file named 'example.pcap' located in the 'Downloads' 
+# directory and save them to the 'Pictures' directory on the desktop, you would set 
+# PCAPS to '/root/Downloads' and OUTDIR to '/root/Desktop/pictures'. After running the script,
+# it will process the PCAP file and save the extracted images to the specified output directory. 
+# The output will include one or more image files (e.g., ex_0.jpg, ex_1.png, etc.) containing the 
+# extracted images.
+#################################################################################################
+
 from scapy.all import TCP, rdpcap  # Import necessary modules from scapy
 import collections  # Import collections module for namedtuple
 import os  # Import os module for file operations

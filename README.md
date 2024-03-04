@@ -131,5 +131,5 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
    Filtered extensions: ['.jpg', '.png', '.pdf'] <br />
 
 # Command and Control Center <br />
-![image](https://github.com/FishyStix12/WHPython/assets/102126354/63930103-a8c2-4478-9773-599fc78991e7) <br />
+![image](https://github.com/FishyStix12/WHPython/assets/102126354/239280f9-d78f-4e2d-aace-6fb0b4e59177) <br />
 **(Coming Soon)** <br />

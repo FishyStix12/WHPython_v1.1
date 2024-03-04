@@ -97,7 +97,7 @@ mapscan.py - This script is a Python tool for sniffing network packets and autom
 The provided Python script uses OpenCV to detect faces in images. It takes a directory containing images as input, detects faces in each image using a pre-trained Haar cascade classifier, highlights the detected faces with rectangles, and saves the modified images in a specified output directory. To use the code, simply run the script, ensuring that the paths to the input images and the Haar cascade classifier are correct. For example, if you have a directory pictures containing images, you can use the following command to detect faces and save the modified images in a directory faces <br />
 
 **Example outputs of some of the scripts!** <br />
-1. tport_sniffer output: <br />
+1. tport_sniffer.py output: <br />
    [*] Destination: 192.168.1.1 <br />
    [*] USER myemail@example.com <br />
 
@@ -107,3 +107,13 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
   pip install requests <br />
   pip install lxml <br />
   pip install beautifulsoup4 <br />
+
+**The Following List gives a short description of all the scripts in this repository:** <br />
+1. web_pather.py - 
+The provided Python script prompts the user to input a URL and a list of file extensions separated by spaces. It constructs a URL using the input, sets the number of threads to 10, and creates a list of file extensions based on the user input. The script then prints out the constructed URL, the number of threads, and the list of filtered file extensions. This script can be used to quickly set up a web scraping or downloading task with customizable file type filters. For example, after running the script and providing "example.com" as the URL and ".jpg .png .pdf" as the file extensions. <br />
+
+**Example outputs of some of the scripts!** <br />
+1. web_pather.py output: <br />
+   URL: http://example.com <br />
+   Threads: 10 <br />
+   Filtered extensions: ['.jpg', '.png', '.pdf'] <br />

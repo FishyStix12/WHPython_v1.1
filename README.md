@@ -56,10 +56,10 @@ Host: google.com <br />
 # Packet Sniffer/Port Scanner <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/faa2eb23-9d2f-4a7e-911a-84fc0b379440) <br />
 **Important Note: For mapscan.py to work please install the scapy and nmap python libraries in linux using the following commands below:** <br />
-   pip3 install scapy <br />
+   pip install scapy <br />
    sudo apt-get update <br />
    sudo apt-get install nmap <br />
-   pip3 install python-nmap <br />
+   pip install python-nmap <br />
 
 **The Following List gives a short description of all the scripts in this repository:** <br />
 mapscan.py - This script is a Python tool for sniffing network packets and automatically initiating Nmap  port scans on newly discovered hosts. This tool uses the scapy library to sniff packets and the python-nmap library to perform Nmap scans. When a packet with an IP destination different from localhost is captured, NetScanPy checks if the destination IP has already been scanned.  If not, it adds the IP to the list of scanned hosts and launches an Nmap scan for that host. This tool is useful for monitoring network traffic and identifying potentially vulnerable hosts on the network. <br />
@@ -78,10 +78,10 @@ mapscan.py - This script is a Python tool for sniffing network packets and autom
 # Scapy Unleashed: Conquer the Network <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/21d15755-bd6b-496b-8f76-7e624c0b65c1) <br />
 **Important Note: For arg_poiser.py to work please install the multiprocessing library using the command below:** <br />
-pip3 install multiprocessing <br />
+  pip install multiprocessing <br />
 
 **Important Note: For mapscan.py to work please install the scapy library using the command below:!** <br />
-   pip3 install scapy <br />
+   pip install scapy <br />
    
 **Important Note: When using arp.poiser.py use the following syntax to run the code:** <br />
   python script.py <victim_ip> <gateway_ip> <interface> <br />
@@ -104,6 +104,6 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 # Web Exploitation Unleashed <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/7e294907-a92a-4ff3-aa09-fc3e38c0c2bc) <br />
 **Important Note: For the Web Scripts tp work please use the following linux commands to install the appropriate libraries:** <br />
-  pip3 install requests <br />
-  pip3 install lxml <br />
-  pip3 install beautifulsoup4 <br />
+  pip install requests <br />
+  pip install lxml <br />
+  pip install beautifulsoup4 <br />

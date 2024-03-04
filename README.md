@@ -108,9 +108,13 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
   pip install lxml <br />
   pip install beautifulsoup4 <br />
 
+**Important Note: For the ravager.py script to run please enter the following commands in your terminal:** <br />
+  cd ~/Downloads <br />
+  wget https://www.netsparker.com/s/research/SVNDigger.zip <br />
+  unzip SVNDigger.zip <br />
+
 **The Following List gives a short description of all the scripts in this repository:** <br />
-1. web_pather.py - 
-The provided Python script prompts the user to input a URL and a list of file extensions separated by spaces. It constructs a URL using the input, sets the number of threads to 10, and creates a list of file extensions based on the user input. The script then prints out the constructed URL, the number of threads, and the list of filtered file extensions. This script can be used to quickly set up a web scraping or downloading task with customizable file type filters. For example, after running the script and providing "example.com" as the URL and ".jpg .png .pdf" as the file extensions. <br />
+1. web_pather.py - The provided Python script prompts the user to input a URL and a list of file extensions separated by spaces. It constructs a URL using the input, sets the number of threads to 10, and creates a list of file extensions based on the user input. The script then prints out the constructed URL, the number of threads, and the list of filtered file extensions. This script can be used to quickly set up a web scraping or downloading task with customizable file type filters. For example, after running the script and providing "example.com" as the URL and ".jpg .png .pdf" as the file extensions. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. web_pather.py output: <br />

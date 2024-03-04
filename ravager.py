@@ -1,4 +1,21 @@
 #! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# This Python script is a simple tool for performing directory busting on a web server using a 
+# wordlist of common directory names and file extensions. It takes a target URL and a wordlist 
+# file as inputs, and then iterates through the combinations of words and extensions to construct 
+# URLs to check. It uses threading to speed up the process by making multiple HTTP requests 
+# simultaneously.
+# Example output:
+# Please input URL here: http://example.com
+# Enter path to all.txt file: wordlist.txt
+# Press return to continue.
+# Success (200: http://example.com/admin.php)
+# Success (200: http://example.com/test.bak)
+# 404 => http://example.com/notfound.php
+#################################################################################################
 # Import necessary libraries
 import queue  # For queue data structure
 import requests  # For making HTTP requests

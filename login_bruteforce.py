@@ -8,7 +8,8 @@
 # the login form, as well as the paths to files containing lists of usernames and passwords. 
 # The script then iterates through each combination of username and password, attempting to log 
 # in to the specified URL using HTTP POST requests. If successful login credentials are found, 
-# they are printed to the console. An example of using the script would be:
+# they are printed to the console. 
+# An example of using the script would be:
 # $ python login_bruteforce.py
 # Please Enter login URL here: http://example.com/login
 # Please enter the path to your usernames dictionary in Linux: /path/to/usernames.txt

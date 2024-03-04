@@ -1,4 +1,21 @@
 #! /usr/bin/python
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# The provided Python script uses OpenCV to detect faces in images. It takes a directory containing 
+# images as input, detects faces in each image using a pre-trained Haar cascade classifier, 
+# highlights the detected faces with rectangles, and saves the modified images in a specified output 
+# directory. To use the code, simply run the script, ensuring that the paths to the input images 
+# and the Haar cascade classifier are correct. For example, if you have a directory pictures 
+# containing images, you can use the following command to detect faces and save the modified 
+# images in a directory faces:
+# python detect.py
+# The output will be modified images with highlighted faces saved in the faces directory. 
+# If no faces are detected in an image, a message will be printed indicating that no faces were 
+# found in that image.
+#################################################################################################
 
 import cv2
 import os

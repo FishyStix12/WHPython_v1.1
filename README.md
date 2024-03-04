@@ -3,7 +3,7 @@
 #
 **The creator is not resposible for any damage caused by these programs because YOU AGREE TO THE CONSEQUENCES IF YOU RUN These SCRIPTS!!!!!** <br />
 
-**Important Note: These scripts use Python 3.11.x** <br />
+**Important Note: These scripts use Python 3.11.x and libraries marked in the important notes for each section** <br />
 
 This is a repository of White hat python codes to be used for Pentesting. <br />
 
@@ -79,18 +79,13 @@ mapscan.py - This script is a Python tool for sniffing network packets and autom
 
 # Scapy Unleashed: Conquer the Network <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/21d15755-bd6b-496b-8f76-7e624c0b65c1) <br />
-**Important Note: For arg_poiser.py to work please install the multiprocessing library using the command below:** <br />
+**Important Note: For these scripts to work install the appropriate libraries using the commands below:** <br />
   pip install multiprocessing <br />
-
+  pip install scapy <br />
+  pip install opencv-python <br />
 **Important Note: For mapscan.py to work please install the scapy library using the command below:** <br />
    pip install scapy <br />
    
-**Important Note: When using arp.poiser.py use the following syntax to run the code:** <br />
-  python script.py <victim_ip> <gateway_ip> <interface> <br />
-
-**Important Note: When using detect.py please install the cv2 library using the command below:** <br />
-  pip install opencv-python <br />
-  
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. tport_sniffer.py - # This Python script utilizes the Scapy library to sniff network packets and detect potential email credentials being transmitted in plaintext. It allows the user to specify TCP port filters to focus on specific network traffic. When a packet containing 'user' or 'pass' in its payload is detected, the script prints the destination IP address and the payload, which may include email credentials. This tool can be used for network security auditing or monitoring purposes to identify and mitigate potential credential leaks. <br />
 2. arp_poiser.py - The provided Python script implements an ARP poisoning attack tool using Scapy. ARP poisoning is a technique used to intercept traffic on a switched network. The script takes three command-line arguments: the IP address of the victim machine, the IP address of the gateway router, and the network interface to use. It then initiates an ARP poisoning attack by sending spoofed ARP packets to the victim and the gateway, tricking them into sending their traffic through the attacker's machine. The attacker can then sniff the traffic passing through and potentially intercept sensitive information such as passwords or credentials. <br />

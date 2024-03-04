@@ -3,7 +3,7 @@
 # Author: Nicholas Fisher
 # Date: March 4th 2024
 # Description of Script
-# The "login_bruteforce.py" script is a Python tool designed to aid in testing the security of 
+# This script is a Python tool designed to aid in testing the security of 
 # login systems by performing a brute-force attack. It prompts the user to input the URL of 
 # the login form, as well as the paths to files containing lists of usernames and passwords. 
 # The script then iterates through each combination of username and password, attempting to log 

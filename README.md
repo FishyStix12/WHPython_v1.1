@@ -112,7 +112,6 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
   cd ~/Downloads <br />
   wget https://www.netsparker.com/s/research/SVNDigger.zip <br />
   unzip SVNDigger.zip <br />
-  pip install requests <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. web_pather.py - The provided Python script prompts the user to input a URL and a list of file extensions separated by spaces. It constructs a URL using the input, sets the number of threads to 10, and creates a list of file extensions based on the user input. The script then prints out the constructed URL, the number of threads, and the list of filtered file extensions. This script can be used to quickly set up a web scraping or downloading task with customizable file type filters. For example, after running the script and providing "example.com" as the URL and ".jpg .png .pdf" as the file extensions. <br />

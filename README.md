@@ -7,7 +7,7 @@ This is a repository of White hat python codes to be used for Pentesting. <br />
 
 # Network Tools <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/236dbe23-19e8-47ca-b7ef-f99bebacc27c) <br />
-**The Following List gives a short description of all the scripts in this repository:** <br />
+**The Following List gives a short description of all the scripts in this group:** <br />
 1. VenvConfig.sh - This script creates new python3 environments,loads one module, and tests to see if the enviroment is using python3. To ensure that this script works please install the venv tool. The command to install venv is in the description of this script. <br /> 
 2. IDEConfig.sh - This script is used to install and setup the Visual Studio IDE. <br />
 3. TCPClient.py - This script is used to help Pentesters to whip up a TCP client. The user inputs an IPv4 address or hostname and TCP port to establish the client connection. <br />
@@ -61,7 +61,7 @@ Host: google.com <br />
    sudo apt-get install nmap <br />
    pip install python-nmap <br />
 
-**The Following List gives a short description of all the scripts in this repository:** <br />
+**The Following List gives a short description of all the scripts in this group:** <br />
 mapscan.py - This script is a Python tool for sniffing network packets and automatically initiating Nmap  port scans on newly discovered hosts. This tool uses the scapy library to sniff packets and the python-nmap library to perform Nmap scans. When a packet with an IP destination different from localhost is captured, NetScanPy checks if the destination IP has already been scanned.  If not, it adds the IP to the list of scanned hosts and launches an Nmap scan for that host. This tool is useful for monitoring network traffic and identifying potentially vulnerable hosts on the network. <br />
 
 **Example outputs of some of the scripts!** <br />
@@ -89,7 +89,7 @@ mapscan.py - This script is a Python tool for sniffing network packets and autom
 **Important Note: When using detect.py please install the cv2 library using the command below:** <br />
   pip install opencv-python <br />
   
-**The Following List gives a short description of all the scripts in this repository:** <br />
+**The Following List gives a short description of all the scripts in this group:** <br />
 1. tport_sniffer.py - # This Python script utilizes the Scapy library to sniff network packets and detect potential email credentials being transmitted in plaintext. It allows the user to specify TCP port filters to focus on specific network traffic. When a packet containing 'user' or 'pass' in its payload is detected, the script prints the destination IP address and the payload, which may include email credentials. This tool can be used for network security auditing or monitoring purposes to identify and mitigate potential credential leaks. <br />
 2. arp_poiser.py - The provided Python script implements an ARP poisoning attack tool using Scapy. ARP poisoning is a technique used to intercept traffic on a switched network. The script takes three command-line arguments: the IP address of the victim machine, the IP address of the gateway router, and the network interface to use. It then initiates an ARP poisoning attack by sending spoofed ARP packets to the victim and the gateway, tricking them into sending their traffic through the attacker's machine. The attacker can then sniff the traffic passing through and potentially intercept sensitive information such as passwords or credentials. <br />
 3. rcap.py - The provided Python script is designed to extract and save images from HTTP traffic stored in a PCAP file. It utilizes the Scapy library for packet manipulation and extraction. The script reads a PCAP file containing network traffic, filters out HTTP packets, extracts images from the HTTP responses, and saves them to a specified directory. To use the script, you need to specify the input PCAP file path and the output directory for the extracted images. For example, to extract images from a PCAP file named 'example.pcap' located in the 'Downloads' directory and save them to the 'Pictures' directory on the desktop, you would set PCAPS to '/root/Downloads' and OUTDIR to '/root/Desktop/pictures'. After running the script, it will process the PCAP file and save the extracted images to the specified output directory. The output will include one or more image files (e.g., ex_0.jpg, ex_1.png, etc.) containing the extracted images. <br />
@@ -113,7 +113,7 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
   wget https://www.netsparker.com/s/research/SVNDigger.zip <br />
   unzip SVNDigger.zip <br />
 
-**The Following List gives a short description of all the scripts in this repository:** <br />
+**The Following List gives a short description of all the scripts in this group:** <br />
 1. web_pather.py - The provided Python script prompts the user to input a URL and a list of file extensions separated by spaces. It constructs a URL using the input, sets the number of threads to 10, and creates a list of file extensions based on the user input. The script then prints out the constructed URL, the number of threads, and the list of filtered file extensions. This script can be used to quickly set up a web scraping or downloading task with customizable file type filters. For example, after running the script and providing "example.com" as the URL and ".jpg .png .pdf" as the file extensions. <br />
 
 **Example outputs of some of the scripts!** <br />

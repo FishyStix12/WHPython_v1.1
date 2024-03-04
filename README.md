@@ -97,5 +97,5 @@ pip3 install multiprocessing <br />
    [*] USER myemail@example.com <br />
 
 # Web Scripts <br />
-![image](https://github.com/FishyStix12/WHPython/assets/102126354/7e294907-a92a-4ff3-aa09-fc3e38c0c2bc) <br ?
-**(Coming Soon)**
+![image](https://github.com/FishyStix12/WHPython/assets/102126354/7e294907-a92a-4ff3-aa09-fc3e38c0c2bc) <br />
+**(Coming Soon)** <br />

@@ -199,6 +199,7 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 
 **Configuration:** <br />
 1. modul3s.json - is just a simple list of modules that the remote trojan should run. <br />
+2. github_trojan.py - This script  implements a Trojan horse program that can be used for remote execution of tasks on a target machine. It uses GitHub as a repository for storing configuration files and modules. The program continuously checks for updates in the repository, retrieves new modules or configurations, and executes them. This allows for dynamic and remote control of the Trojan's behavior. To use the code, you would need to set up a GitHub repository with the necessary configuration files and modules. You would also need to generate a personal access token for GitHub API access. An example of using the code would be to create a repository with a configuration file specifying which modules to run and their parameters. The Trojan would then fetch this configuration, run the specified modules, and store the results back in the repository.  !!Belongs in the config module of the Trojan Framework!! <br />
 
 **Example outputs of some of the scripts!** <br />
 1. environment.py output: <br />

@@ -148,7 +148,7 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
   $ touch .gitignore <br />
   $ git add . <br />
   $ git commit -m "Adds repo structure for trojan" <br />
-  $ git remote add origin https://github.com/\<yourusername\>/\<torjan_github_repository\>.git <br />
+  $ git remote add origin https://github.com/<yourusername\>/<torjan_github_repository\>.git <br />
   $ git push origin master <br />
   
 **Please Head to the ShadowReaper_Trojan Repository for the working Trojan!, the scripts for the trojan will be in this repository. In order to created your own Trojan follow the steps above, and install the following scripts into the correct linux directories that are listed above!** <br />

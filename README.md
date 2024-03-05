@@ -3,9 +3,9 @@
 #
 **The creator is not resposible for any damage caused by these programs because YOU AGREE TO THE CONSEQUENCES IF YOU RUN These SCRIPTS!!!!!** <br />
 
-**Please Note: Any of these python scripts can be used as the Trojan's Modules. Just place the scripts in the modules directory of the trojan framework, then edit the trojan .json file in the config directory in the format below:** <br />
-[ <br />
-   { <br />
+**Please Note: Any of these python scripts can be used as the Trojan's Modules. Just place the scripts in the modules directory of the trojan framework, then edit the trojan .json file in the config directory in the format below: (underscores** <br />
+&nbsp[ <br />
+&nbsp{ <br />
       "module" : "script1" <br />
    }, <br />
    { <br />

@@ -149,6 +149,8 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 **Important Note: For this Trojan to work install the appropriate libraries using the commands below, or head to pypi.org/project/github3.py' to automate the process:** <br />
   pip install github3.py <br />
 
+**Please Note: Any of these python scripts can be used as the Trojan's Modules.** <br />
+
 **Important Note: To create the basic structure for this repo enter the following on the Linux Command Line or use the provided configuration Bash file:** <br />
   $ mkdir \<trojan_name\> <br />
   $ cd \<trojan_name\> <br />

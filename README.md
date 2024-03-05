@@ -187,7 +187,7 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 **Please Head to the ShadowReaper_Trojan Repository for the working Trojan the UAH NCAE-C 2024 Red Team used in competition!, the scripts for the trojan will be in this repository. In order to create your own Trojan follow the steps above, and install the following scripts into the correct linux directories that are listed above!** <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
-**1. Set up/ 2. Update/ 3. Pull Data:** <br />
+**1. Set up/ 2. Update/ 3. Pull Data: (Run scripts 2 and 3 in the home directory of your Trojan!)** <br />
 1. trojan_linux_framewrk_conf.sh - This script is used to create the initial structure for the repo. The config directory holds unique configuration files for each trojan, so each Trojan can contain a seperate configuration file. The modules directory contains any modular code that the trojan should pick up and then execute. The data directory is where the trojan will check any collected data. <br />
 2. push_trojan_updates.sh - This script automates the process to push new features into the active Trojan on Github. To ensure this script works please place it in the <trojan_name> directory. You will need your Github username and password to push the Trojan update. <br />
 3. data_pull.sh - This script pulls the results of the running Trojan Modules. <br />

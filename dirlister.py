@@ -1,3 +1,18 @@
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 4th 2024
+# Description of Script
+# This script implements a directory listener module that recursively lists all files in all 
+# directories starting from the current directory. The list_files function uses os.walk to 
+# traverse all directories and collect file paths, which are then returned as a list of strings. 
+# The run function calls list_files with the current directory and returns the list of files as a 
+# string. To use the code, simply import the module and call the run function. For example:
+# import dirlistener
+# result = dirlistener.run()
+# print(result)
+# This will print a string containing the names of all files in all directories starting from the current directory.
+#################################################################################################
 import os
 
 def list_files(directory):

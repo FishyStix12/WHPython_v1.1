@@ -198,7 +198,7 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 3. platformer.py - The provided Python script utilizes the platform module to gather detailed information about the operating system of a target host. This information includes the operating system name (system), network name of the machine (node), operating system release (release), operating system version (version), machine type (machine), and processor type (processor). The get_os_details function collects this information into a dictionary and returns it. When the script is executed, it calls the get_os_details function and then iterates over the dictionary to print each key-value pair in a readable format. <br />
 
 **Configuration:** <br />
-1. modules.json - is just a simple list of modules that the remote trojan should run. <br />
+1. modul3s.json - is just a simple list of modules that the remote trojan should run. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. environment.py output: <br />

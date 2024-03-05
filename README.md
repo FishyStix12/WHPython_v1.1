@@ -190,3 +190,15 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
    version: 10.0.19041 <br />
    machine: AMD64 <br />
    processor: Intel64 Family 6 Model 142 Stepping 11, GenuineIntel <br />
+
+**Example Layout of the JSON script below: (1 underscore + space = 1 tab)**
+[ <br />
+_ { <br />
+_ _ "module" : "script1" <br />
+_ }, <br />
+_ { <br />
+_ _ "module" : "script2" <br />
+_ } <br />
+] <br />
+Important Note: Please run the push_trojan_updates.sh file in the config module to push changes into the active trojan! <br />
+

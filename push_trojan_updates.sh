@@ -1,7 +1,7 @@
 #!/bin/bash
 #################################################################################################
 # Author: Nicholas Fisher
-# Date: March 4th 2024
+# Date: March 5th 2024
 # Description of Script
 # This script automates the process to push new updates into the active Trojan on Github.
 # To ensure this script works please place it in the <trojan_name> directory. You will need your

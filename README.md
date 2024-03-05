@@ -174,6 +174,9 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 2. environment.py - This script defines a function get_environment_variables that retrieves and returns the environment variables of the system. It first prints a message indicating that it is in the environment module, then uses the os.environ dictionary to fetch the environment variables. Finally, it iterates over the dictionary and prints each environment variable along with its corresponding value. This script can be used to quickly view the environment variables set on a system, which can be useful for debugging or understanding the current system configuration. <br />
 3. platformer.py - The provided Python script utilizes the platform module to gather detailed information about the operating system of a target host. This information includes the operating system name (system), network name of the machine (node), operating system release (release), operating system version (version), machine type (machine), and processor type (processor). The get_os_details function collects this information into a dictionary and returns it. When the script is executed, it calls the get_os_details function and then iterates over the dictionary to print each key-value pair in a readable format. <br />
 
+**Configuration:** <br />
+1. modules.json - is just a simple list of modules that the remote trojan should run. <br />
+
 **Example outputs of some of the scripts!** <br />
 1. environment.py output: <br />
    [*] In environment module. <br />

@@ -1,6 +1,6 @@
 # White Hat Python
 # By: Nicholas Fisher
-#
+
 **Import Note: I the creator, Nicholas Fisher, of this Trojan malware am not responsible for the missuse of these scripts. They are malicioius and should only be used in profession White Hat approved scenarios. You are responsible for any results in the misuse of this malware, as well as all fines, fees, and reprucussions. Please reread this statement as by downloading any of the scripts in this repository, you the user take full responsibility for storing, using, and testing these malicious scripts, and guidelines. And you take full responsibility for the misuse of this malware. Keep in mind any data the Trojan extracts will be posted to a github repository, and if that repository is public all the data the trojan extracts will be available for the whole world to see.** <br />
 
 **Please Note: Any of these python scripts can be used as the Trojan's Modules. Just place the scripts in the modules directory of the trojan framework, then edit the trojan .json file in the config directory in the format below: (1 underscore + space = 1 tab)** <br />

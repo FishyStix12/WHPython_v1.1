@@ -3,14 +3,14 @@
 #
 **The creator is not resposible for any damage caused by these programs because YOU AGREE TO THE CONSEQUENCES IF YOU RUN These SCRIPTS!!!!!** <br />
 
-**Please Note: Any of these python scripts can be used as the Trojan's Modules. Just place the scripts in the modules directory of the trojan framework, then edit the trojan .json file in the config directory in the format below: (underscores** <br />
-&nbsp[ <br />
-&nbsp{ <br />
-      "module" : "script1" <br />
-   }, <br />
-   { <br />
-      "module" : "script2" <br />
-   } <br />
+**Please Note: Any of these python scripts can be used as the Trojan's Modules. Just place the scripts in the modules directory of the trojan framework, then edit the trojan .json file in the config directory in the format below: (1 underscore = 1 tab)** <br />
+[ <br />
+_{ <br />
+__"module" : "script1" <br />
+_}, <br />
+_{ <br />
+__"module" : "script2" <br />
+_} <br />
 ] <br />
 
 **Important Note: These scripts use Python 3.11.x and libraries marked in the important notes for each section** <br />

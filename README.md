@@ -148,6 +148,14 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/239280f9-d78f-4e2d-aace-6fb0b4e59177) <br />
 **Important Note: For this Trojan to work install the appropriate libraries using the commands below, or head to pypi.org/project/github3.py' to automate the process:** <br />
   pip install github3.py <br />
+  pip install base64 <br />
+  pip install importlib <br />
+  pip install json <br />
+  pip install random <br />
+  pip install sys <br />
+  pip install threading <br />
+  pip install time <br />
+  pip install datetime <br />
 
 **Please Note: Any of these python scripts can be used as the Trojan's Modules.** <br />
 

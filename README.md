@@ -12,6 +12,7 @@ _ { <br />
 _ _ "module" : "script2" <br />
 _ } <br />
 ] <br />
+**Please run the push_trojan_updates.sh file in the config module to push changes into the active trojan!** <br />
 
 **Important Note: These scripts use Python 3.11.x and libraries marked in the important notes for each section** <br />
 

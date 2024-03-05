@@ -159,6 +159,16 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 
 **Please Note: Any of these python scripts can be used as the Trojan's Modules.** <br />
 
+**Important Note to use github_trojan.py, Please get the necassary token input by doing the following settings:** <br />
+1. Click on user Profile on left hand side. <br />
+2. Click on developer settings. <br />
+3. Click on Personal Access Tokens. <br />
+4. Click on the classic Token. <br />
+5. Click Generate New Token. <br />
+6. Click on the Generate Classic New Token Option. <br />
+7. Finish Generating Token with appropriate settings. <br />
+8. Finally, copy the token, and paste it into a text file. <br />
+
 **Important Note: To create the basic structure for this repo enter the following on the Linux Command Line or use the provided configuration Bash file:** <br />
   $ mkdir \<trojan_name\> <br />
   $ cd \<trojan_name\> <br />

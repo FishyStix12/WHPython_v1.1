@@ -1,7 +1,7 @@
 # White Hat Python
 # By: Nicholas Fisher
 #
-**The creator is not resposible for any damage caused by these programs because YOU AGREE TO THE CONSEQUENCES IF YOU RUN These SCRIPTS!!!!!** <br />
+**Import Note: I the creator, Nicholas Fisher, of this Trojan malware am not responsible for the missuse of these scripts. They are malicioius and should only be used in profession White Hat approved scenarios. You are responsible for any results in the misuse of this malware, as well as all fines, fees, and reprucussions. Please reread this statement as by downloading any of the scripts in this repository, you the user take full responsibility for storing, using, and testing these malicious scripts, and guidelines. And you take full responsibility for the misuse of this malware. Keep in mind any data the Trojan extracts will be posted to a github repository, and if that repository is puyblic all the data on it will be available for the whole world to see.** <br />
 
 **Please Note: Any of these python scripts can be used as the Trojan's Modules. Just place the scripts in the modules directory of the trojan framework, then edit the trojan .json file in the config directory in the format below: (1 underscore + space = 1 tab)** <br />
 [ <br />
@@ -146,6 +146,8 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 
 # Command and Control Center <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/239280f9-d78f-4e2d-aace-6fb0b4e59177) <br />
+**Import Note: I the creator, Nicholas Fisher, of this Trojan malware am not responsible for the missuse of these scripts. They are malicioius and should only be used in profession White Hat approved scenarios. You are responsible for any results in the misuse of this malware, as well as all fines, fees, and reprucussions. Please reread this statement as by downloading any of the scripts in this repository, you the user take full responsibility for storing, using, and testing these malicious scripts, and guidelines. And you take full responsibility for the misuse of this malware. Keep in mind any data the Trojan extracts will be posted to a github repository, and if that repository is puyblic all the data on it will be available for the whole world to see.** <br />
+
 **Important Note: For this Trojan to work install the appropriate libraries using the commands below, or head to pypi.org/project/github3.py' to automate the process:** <br />
   pip install github3.py <br />
   pip install base64 <br />

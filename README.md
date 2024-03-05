@@ -184,7 +184,7 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
   $ git remote add origin https://github.com/<yourusername\>/<torjan_github_repository\>.git <br />
   $ git push origin master <br />
   
-**Please Head to the ShadowReaper_Trojan Repository for the working Trojan the UAH NCAE-C 2024 Red Team used in competition!, the scripts for the trojan will be in this repository. In order to create your own Trojan follow the steps above, and install the following scripts into the correct linux directories that are listed above!** <br />
+**Please Note: the ShadowReaper_Trojan Repository for the working Trojan the UAH NCAE-C 2024 Red Team used in competition is in a private repository to keep the server data private!** <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 **1. Set up/ 2. Update/ 3. Pull Data: (Run scripts 2 and 3 in the home directory of your Trojan!)** <br />

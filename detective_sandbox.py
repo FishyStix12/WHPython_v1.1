@@ -1,5 +1,33 @@
 #! /usr/bin/bash
-
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 5th 2024
+# Important Note:
+# Description of Script
+# The script is a Python program designed to detect user activity on a Windows system, 
+# particularly focusing on mouse clicks and keystrokes. It includes functionalities to check 
+# if the system is running in an Ubuntu Sandbox environment. Once executed, the script continuously 
+# monitors user interactions such as mouse clicks and keyboard input, keeping track of the 
+# frequency of these events. It sets thresholds for the maximum number of mouse clicks, keystrokes, 
+# and double clicks that can occur within a certain time frame. If these thresholds are exceeded, 
+# the script terminates, indicating potential suspicious activity. An example of using the script 
+# would be running it in a Windows environment to monitor user activity, especially in scenarios 
+# where detecting excessive or suspicious user input is necessary.
+# Example output:
+# [*] It has been 15000 milliseconds since the last event.
+# [*] It has been 20000 milliseconds since the last event.
+# [*] It has been 25000 milliseconds since the last event.
+# [*] It has been 30000 milliseconds since the last event.
+# [*] It has been 35000 milliseconds since the last event.
+# [*] It has been 40000 milliseconds since the last event.
+# This output indicates the time elapsed since the last user interaction event, displayed at regular 
+# intervals. If any of the thresholds are exceeded, the script will terminate without further output.
+# The termination of the script due to exceeding activity thresholds doesn't mean we are in a sandbox.
+# It simply suggests that the script detected suspicious user activity, like too many mouse clicks or 
+# keystrokes, which could indicate potentially harmful behavior. Whether the system is in a sandbox 
+# or not is determined separately at the beginning of the script by checking the operating system 
+# and the presence of a specific sandbox configuration file.
+#################################################################################################
 import os
 import platform
 import random

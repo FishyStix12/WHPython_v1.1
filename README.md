@@ -276,42 +276,42 @@ pip install ftplib <br />
   Please input the account password here: ******** <br />
   Please enter the target account address here: receiver@example.com <br />
   Choose an option: <br />
-  1. Send a test email <br />
-  2. Brute force an email password <br />
-  3. Exfiltrate emails from a Gmail account <br />
-  4. Exfiltrate emails from an Outlook account (Windows only) <br />
-  5. Brute force FTP server <br />
-  6. Exit <br />
+  "1. Send a test email" <br />
+  "2. Brute force an email password" <br />
+  "3. Exfiltrate emails from a Gmail account" <br />
+  "4. Exfiltrate emails from an Outlook account (Windows only)" <br />
+  "5. Brute force FTP server" <br />
+  "6. Exit" <br />
   Option: 1 <br />
   Please enter Test Subject Line here: Test Email <br />
   Please enter email content here: This is a test email for demonstration purposes. <br />
   Test email sent successfully. <br />
   Choose an option: <br />
-  1. Send a test email <br />
-  2. Brute force an email password <br />
-  3. Exfiltrate emails from a Gmail account <br />
-  4. Exfiltrate emails from an Outlook account (Windows only) <br />
-  5. Brute force FTP server <br />
-  6. Exit <br />
+  "1. Send a test email" <br />
+  "2. Brute force an email password" <br />
+  "3. Exfiltrate emails from a Gmail account" <br />
+  "4. Exfiltrate emails from an Outlook account (Windows only)" <br />
+  "5. Brute force FTP server" <br />
+  "6. Exit" <br />
   Option: 5 <br />
   Please enter FTP server address: ftp.example.com <br /> 
   Please enter the path to the username dictionary: usernames.txt <br />
   Please enter the path to the password dictionary: passwords.txt <br />
   FTP credentials found: Username - admin, Password - secret123 <br />
   Choose an option: <br />
-  1. Send a test email <br />
-  2. Brute force an email password <br />
-  3. Exfiltrate emails from a Gmail account <br />
-  4. Exfiltrate emails from an Outlook account (Windows only) <br />
-  5. Brute force FTP server <br />
-  6. Exit <br />
+  "1. Send a test email" <br />
+  "2. Brute force an email password" <br />
+  "3. Exfiltrate emails from a Gmail account" <br />
+  "4. Exfiltrate emails from an Outlook account (Windows only)" <br />
+  "5. Brute force FTP server" <br />
+  "6. Exit" <br />
   Option: 6 <br />
   Exiting... <br />
 2. transmittron.py output: <br />
    Main Menu: <br /> 
-   1. Transmit file directly <br />
-   2. Brute force FTP and upload file <br />
-   3. Exit <br />
+   "1. Transmit file directly" <br />
+   "2. Brute force FTP and upload file" <br />
+   "3. Exit" <br />
    Please select an option: 2 <br />
    Enter the name of the file to exfiltrate: confidential_data.txt <br />
    Please enter the FTP server IPv4 address: 192.168.1.100 <br />

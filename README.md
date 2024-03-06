@@ -365,3 +365,7 @@ pip install psutil <br />
    [^^^] Dump Complete. <br />
    [+] Copied C:\WINDOWS\Temp\example.txt <br />
    [+] Pasted C:\Users\User\Desktop\example.txt <br />
+
+# Cyber Sherlock: Investigating Digital Misdeeds <br />
+![image](https://github.com/FishyStix12/WHPython/assets/102126354/78679002-4467-48aa-b43d-72e6e3228d8f) <br />
+**(Coming Soon!)** <br />

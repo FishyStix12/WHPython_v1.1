@@ -12,7 +12,7 @@
 # of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
 # and if that repository is public, all the extracted data will be available for the whole world to see.
 # Description of Script
-# The provided Python script is a versatile tool for executing shellcode on both Windows and Linux
+# This script is a versatile tool for executing shellcode on both Windows and Linux
 # platforms. It offers users three options: executing a command directly in the shell, running 
 # shellcode stored in a local file, or fetching shellcode from a URL and executing it. Users can 
 # interactively choose their preferred option by entering 'cmd', 'file', or 'url' when prompted. 

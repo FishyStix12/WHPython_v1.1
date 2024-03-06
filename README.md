@@ -36,9 +36,9 @@ This is a repository of White hat python codes to be used for Pentesting. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. TCPServer.py output: <br />
-[*] Listening on 0.0.0.0:9998 <br />
-[*] Accepted Connection from 127.0.0.1:49704 <br />
-[*] Received: GET / HTTP/1.1 <br />
+[\*] Listening on 0.0.0.0:9998 <br />
+[\*] Accepted Connection from 127.0.0.1:49704 <br />
+[\*] Received: GET / HTTP/1.1 <br />
 Host: google.com <br />
 2. proxy.py output: <br />
    ./proxy.py 127.0.0.1 9000 10.21.132.1 9000 True <br />

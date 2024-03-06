@@ -261,6 +261,7 @@ Important Note: Please run the push_trojan_updates.sh file in the config module 
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/f92ae210-0c3a-461c-87bb-203b35d92b86) <br />
 **Important Note: For these scripts to work install the appropriate libraries using the commands below:** <br />
 pip install pycryptodomex <br />
+pip install smtplib <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. cryptoraptor.py - This script is a versatile encryption and decryption tool utilizing AES and RSA algorithms. Upon execution, the script presents the user with a menu offering options to either encrypt or decrypt files. For encryption, the script generates new RSA key pairs for each file, encrypts the file using AES, and saves the encrypted data along with the corresponding public and private keys. Decryption requires the user to provide the path to the private key associated with the encrypted file. The script then decrypts the file using the specified private key and outputs the decrypted content. For instance, a user can encrypt a sensitive document by selecting the "Encrypt file(s)" option, providing the file path, and subsequently decrypt it using the "Decrypt file(s)" option with the corresponding private key path. Example output might include messages confirming successful encryption or decryption operations, along with any errors encountered during execution. <br />

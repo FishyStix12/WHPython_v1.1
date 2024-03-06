@@ -1,4 +1,19 @@
 #!/bin/bash
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 6th 2024
+# Description of Script
+# The provided Bash script automates the configuration process for the Volatility Python framework,
+# a powerful tool used for memory forensics analysis. When executed, the script first checks for 
+# the presence of essential dependencies such as Git, Python 3, and pip. If any of these dependencies
+# are missing, the script prompts the user to install them. Next, it installs necessary system 
+# dependencies and clones the Volatility repository from GitHub. After cloning the repository, 
+# the script navigates into the Volatility directory and installs the required Python dependencies
+# using pip. Finally, it displays a completion message indicating that the Volatility configuration
+# is complete. To use the script, simply save it to a file (e.g., `configure_volatility.sh`), make
+# it executable using the command `chmod +x configure_volatility.sh`, and then execute it using
+# `./configure_volatility.sh`.
+#################################################################################################
 
 # Function to display error messages and exit
 function display_error {

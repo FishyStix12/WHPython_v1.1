@@ -259,4 +259,5 @@ Important Note: Please run the push_trojan_updates.sh file in the config module 
 
 # Extract-o-Mania <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/f92ae210-0c3a-461c-87bb-203b35d92b86) <br />
-**(Coming Soon!)** <br />
+**Important Note: For these scripts to work install the appropriate libraries using the commands below:** <br />
+pip install pycryptodomex <br />

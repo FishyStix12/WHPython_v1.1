@@ -228,4 +228,8 @@ Important Note: Please run the push_trojan_updates.sh file in the config module 
 
 # Cyber Surveillance Suite <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/219d6c1a-5281-438a-ab31-695c8d685190) <br />
-**(Coming Soon!)** <br />
+**Important Note: For these scripts to work install the appropriate libraries using the commands below:** <br />
+  pip install pythoncom <br />
+  pip install pyWinhook <br />
+  pip install win32clipboard <br />
+

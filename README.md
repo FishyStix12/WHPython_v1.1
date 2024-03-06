@@ -293,8 +293,8 @@ pip install pywin32 <br />
    Exfiltrating emails from Gmail account... <br />
    Emails exfiltrated successfully. <br />
    Choose an option: <br />
-   \1. Send a test email <br />
-   \2. Brute force an email password <br />
+   1. Send a test email <br />
+   2. Brute force an email password <br />
    3. Exfiltrate emails from a Gmail account <br />
    4. Exfiltrate emails from an Outlook account (Windows only) <br />
    5. Exit <br />

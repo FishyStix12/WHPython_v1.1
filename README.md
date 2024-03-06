@@ -344,11 +344,12 @@ pip install flask <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />
 **Important Note: For these scripts to work install the appropriate libraries using the commands below:** <br />
 pip install pywin32 wmi pyinstaller <br />
-
+pip install psutil <br />
 **Important note: Please visit http://timgolden.me.uk/python/win32_how_do_i/watch_directory_for_changes.html to help you learn how to use filetactician.py**
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. tasktactician.py - This script is a process monitor designed to capture information about running processes on both Windows and Linux operating systems. It utilizes platform-specific methods to gather process details such as command line arguments, creation time, executable path, parent process ID, user, and privileges. The script continuously monitors for new process creations and logs relevant information to a CSV file. It distinguishes between Windows and Linux systems, employing WMI for Windows and the ps command for Linux.  <br />
+2. filetactician.py - This script is a cross-platform file activity monitor written in Python. It leverages system-specific APIs such as the Windows API for Windows systems and the psutil library for Linux systems to track various file operations such as creation, deletion, modification, renaming, copying, and pasting. Additionally, on Windows, it monitors the clipboard for file paste actions. By running the script, users can observe real-time file system changes in the specified directories on both Windows and Linux environments. For instance, users can execute the script with the directories they want to monitor as command-line arguments. Upon execution, the script continuously monitors the specified directories and outputs relevant information about file activities to the console. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. tasktactian.py output: <br />
@@ -356,3 +357,11 @@ pip install pywin32 wmi pyinstaller <br />
    /usr/bin/python3 /path/to/script.py, 00:10, script.py, 1234, 5678, user1, cap_chown,cap_dac_override| <br />
    /bin/bash /path/to/terminal.sh, 01:05, terminal.sh, 5678, 9012, user2, N/A <br />
    /usr/sbin/apache2 -k start, 03:20, apache2, 5678, 3456, root, cap_net_bind_service,cap_net_admin| <br />
+2. filetactician.py output: <br />
+   [+] Created C:\WINDOWS\Temp\example.txt <br />
+   [*] Modified C:\WINDOWS\Temp\example.txt <br />
+   [vvv] Dumping contents ... <br />
+   This is an example file. <br />
+   [^^^] Dump Complete. <br />
+   [+] Copied C:\WINDOWS\Temp\example.txt <br />
+   [+] Pasted C:\Users\User\Desktop\example.txt <br />

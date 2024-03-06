@@ -342,4 +342,5 @@ pip install flask <br />
 
 # Hacky Hierarchy <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />
-**(Coming Soon!)** <br />
+**Important Note: For these scripts to work install the appropriate libraries using the commands below:** <br />
+pip install pywin32 wmi pyinstaller <br />

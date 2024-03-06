@@ -4,7 +4,7 @@
 # Date: March 5th 2024
 # Important Note:
 # Description of Script
-# The script is a Python program designed to detect user activity on a Windows system, 
+# This script is a Python program designed to detect user activity on a Windows system, 
 # particularly focusing on mouse clicks and keystrokes. It includes functionalities to check 
 # if the system is running in an Ubuntu Sandbox environment. Once executed, the script continuously 
 # monitors user interactions such as mouse clicks and keyboard input, keeping track of the 

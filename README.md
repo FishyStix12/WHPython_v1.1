@@ -231,9 +231,6 @@ Important Note: Please run the push_trojan_updates.sh file in the config module 
 **Important Note: For these scripts to work install the appropriate libraries using the commands below:** <br />
   pip install pythoncom <br />
   pip install pyWinhook <br />
-  pip install win32clipboard <br />
-  pip install win32gui <br />
-  pip install win32process <br />
   pip install psutil <br />
   pip install pynput <br />
   pip install ctypes <br />

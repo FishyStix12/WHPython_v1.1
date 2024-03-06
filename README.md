@@ -345,6 +345,8 @@ pip install flask <br />
 **Important Note: For these scripts to work install the appropriate libraries using the commands below:** <br />
 pip install pywin32 wmi pyinstaller <br />
 
+**Important note: Please visit http://timgolden.me.uk/python/win32_how_do_i/watch_directory_for_changes.html to help you learn how to use filetactician.py**
+
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. tasktactician.py - This script is a process monitor designed to capture information about running processes on both Windows and Linux operating systems. It utilizes platform-specific methods to gather process details such as command line arguments, creation time, executable path, parent process ID, user, and privileges. The script continuously monitors for new process creations and logs relevant information to a CSV file. It distinguishes between Windows and Linux systems, employing WMI for Windows and the ps command for Linux.  <br />
 

@@ -339,3 +339,7 @@ pip install flask <br />
     Enter the name of the file to exfiltrate: sensitive_data.txt <br />
     Enter the client IP address to transmit the file: 192.168.1.100 <br />
     File transmitted successfully. <br />
+
+# Hacky Hierarchy <br />
+![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />
+**(Coming Soon!)** <br />

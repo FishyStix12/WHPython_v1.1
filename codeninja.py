@@ -1,3 +1,44 @@
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 6th 2024
+# Important Note:
+#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
+# these scripts. They are malicious and should only be used in professionally approved White Hat 
+# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
+# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
+# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
+# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
+# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
+# and if that repository is public, all the extracted data will be available for the whole world to see.
+# Description of Script
+# This script is a multifunctional tool tailored for tech-savvy users seeking to explore various 
+# cybersecurity and data exfiltration techniques. It seamlessly integrates functionalities from 
+# four separate scripts, offering options to transmit files, brute-force FTP servers, send test 
+# emails, brute-force email passwords, and exfiltrate emails from Gmail and Outlook accounts. 
+# With a user-friendly interactive menu, users can effortlessly navigate through the array of 
+# features and select their desired actions. For instance, a user can choose to exfiltrate a 
+# file via FTP, sending it to a specified IP address, or brute-force an email password to 
+# gain access to an account. Overall, HackyMcHackface empowers users with a comprehensive 
+# suite of tools for cybersecurity experimentation and exploration.
+# Example output:
+# Choose an option:
+# 1. Transmit file directly
+# 2. Brute force FTP and upload file
+# 3. Send a test email
+# 4. Brute force an email password
+# 5. Exfiltrate emails from a Gmail account
+# 6. Exfiltrate emails from an Outlook account (Windows only)
+# 7. Exit
+# Option: 1
+# Enter the name of the file to exfiltrate: sensitive_data.txt
+# Enter the client IP address to transmit the file: 192.168.1.100
+# File transmitted successfully.
+# Example Output (After selecting option 1):
+# Enter the name of the file to exfiltrate: sensitive_data.txt
+# Enter the client IP address to transmit the file: 192.168.1.100
+# File transmitted successfully.
+#################################################################################################
 import os
 import socket
 import platform

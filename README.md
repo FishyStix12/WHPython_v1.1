@@ -107,8 +107,8 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 
 **Example outputs of some of the scripts!** <br />
 1. tport_sniffer.py output: <br />
-   [*] Destination: 192.168.1.1 <br />
-   [*] USER myemail@example.com <br />
+   [\*] Destination: 192.168.1.1 <br />
+   [\*] USER myemail@example.com <br />
 
 # Web Exploitation Unleashed <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/7e294907-a92a-4ff3-aa09-fc3e38c0c2bc) <br />

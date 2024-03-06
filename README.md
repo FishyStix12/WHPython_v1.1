@@ -250,9 +250,9 @@ Important Note: Please run the push_trojan_updates.sh file in the config module 
 4. detective_sandbox - This script is a Python program designed to detect user activity on a Windows system, particularly focusing on mouse clicks and keystrokes. It includes functionalities to check if the system is running in an Ubuntu Sandbox environment. Once executed, the script continuously monitors user interactions such as mouse clicks and keyboard input, keeping track of the frequency of these events. It sets thresholds for the maximum number of mouse clicks, keystrokes, and double clicks that can occur within a certain time frame. If these thresholds are exceeded, the script terminates, indicating potential suspicious activity. An example of using the script would be running it in a Windows environment to monitor user activity, especially in scenarios where detecting excessive or suspicious user input is necessary. <br />
 
 **Example outputs of the detective_sandbox.py script!** <br />
-  [*] It has been 15000 milliseconds since the last event. <br />
-  [*] It has been 20000 milliseconds since the last event. <br />
-  [*] It has been 25000 milliseconds since the last event. <br />
-  [*] It has been 30000 milliseconds since the last event. <br />
-  [*] It has been 35000 milliseconds since the last event. <br />
-  [*] It has been 40000 milliseconds since the last event. <br />
+  [\*] It has been 15000 milliseconds since the last event. <br />
+  [\*] It has been 20000 milliseconds since the last event. <br />
+  [\*] It has been 25000 milliseconds since the last event. <br />
+  [\*] It has been 30000 milliseconds since the last event. <br />
+  [\*] It has been 35000 milliseconds since the last event. <br />
+  [\*] It has been 40000 milliseconds since the last event. <br />

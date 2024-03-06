@@ -1,3 +1,28 @@
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 6th 2024
+# Important Note:
+#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
+# these scripts. They are malicious and should only be used in professionally approved White Hat 
+# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
+# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
+# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
+# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
+# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
+# and if that repository is public, all the extracted data will be available for the whole world to see.
+# Description of Script
+# This script is a versatile encryption and decryption tool utilizing AES and RSA algorithms. 
+# Upon execution, the script presents the user with a menu offering options to either encrypt or 
+# decrypt files. For encryption, the script generates new RSA key pairs for each file, encrypts the 
+# file using AES, and saves the encrypted data along with the corresponding public and private keys. 
+# Decryption requires the user to provide the path to the private key associated with the encrypted file. 
+# The script then decrypts the file using the specified private key and outputs the decrypted content. 
+# For instance, a user can encrypt a sensitive document by selecting the "Encrypt file(s)" option, 
+# providing the file path, and subsequently decrypt it using the "Decrypt file(s)" option with the 
+# corresponding private key path. Example output might include messages confirming successful encryption 
+# or decryption operations, along with any errors encountered during execution.
+#################################################################################################
 from Cryptodome.Cipher import AES, PKCS1_OAEP
 from Cryptodome.PublicKey import RSA
 from Cryptodome.Random import get_random_bytes

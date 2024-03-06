@@ -256,6 +256,8 @@ Important Note: Please run the push_trojan_updates.sh file in the config module 
 
 # Extract-o-Mania <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/f92ae210-0c3a-461c-87bb-203b35d92b86) <br />
+**Important Note: For most of this scripts to work you will need a usernames list and passwords list text files for brute forcing!** <br />
+
 **Important Note: For these scripts to work install the appropriate libraries using the commands below:** <br />
 pip install pycryptodomex <br />
 pip install smtplib <br />
@@ -264,41 +266,56 @@ pip install ftplib <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. cryptoraptor.py - This script is a versatile encryption and decryption tool utilizing AES and RSA algorithms. Upon execution, the script presents the user with a menu offering options to either encrypt or decrypt files. For encryption, the script generates new RSA key pairs for each file, encrypts the file using AES, and saves the encrypted data along with the corresponding public and private keys. Decryption requires the user to provide the path to the private key associated with the encrypted file. The script then decrypts the file using the specified private key and outputs the decrypted content. For instance, a user can encrypt a sensitive document by selecting the "Encrypt file(s)" option, providing the file path, and subsequently decrypt it using the "Decrypt file(s)" option with the corresponding private key path. Example output might include messages confirming successful encryption or decryption operations, along with any errors encountered during execution. <br />
-2. sneakysender.py - This script is a versatile tool for performing various email-related tasks such as sending test emails, brute-forcing email passwords, and exfiltrating emails from both Gmail and Outlook accounts. It leverages Python libraries such as smtplib, imaplib, and win32com.client to interact with SMTP and IMAP servers for sending and fetching emails, as well as accessing Outlook emails specifically in a Windows environment. The script presents the user with an interactive menu, allowing them to choose from a range of options based on their desired action. An example use case would involve a security analyst assessing the security of an email system by attempting to send test emails, perform password brute-forcing, and exfiltrate emails from specified accounts for assessment. <br />
+2. sneakysender.py - This script is a comprehensive tool that offers a range of functionalities for email-related tasks and FTP brute forcing. It allows users to send test emails, brute force email passwords, and exfiltrate emails from both Gmail and Outlook accounts. Additionally, it enables users to perform FTP brute force attacks using provided username and password dictionaries. The script presents an interactive menu, guiding users through various options to choose the desired action. An example use case could involve a cybersecurity professional testing the security of an organization's email system and FTP server by attempting to brute force passwords and exfiltrate sensitive data. <br />
+3. transmittron.py - This script is a versatile tool designed for exfiltrating files from both Windows and Linux systems. It incorporates functionalities to transmit files directly to a specified IP address or perform FTP brute force attacks followed by file uploads to the target FTP server. Users are presented with an interactive menu interface, simplifying the process of selecting the desired action. For instance, a user can run the script, choose to transmit a file directly by providing the file name and client IP address, or opt for an FTP brute force attack by specifying the target server's IP address along with the paths to username and password dictionaries. Upon successful execution, the script provides informative feedback, indicating actions taken or any encountered errors, ensuring users are kept informed throughout the process. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. sneakysender.py output : <br />
    Please enter the server URL address here: smtp.example.com <br />
-   Please enter the account address here: sender@example.com <br />
-   Please input the account password here: ******** <br />
-   Please enter the target account address here: receiver@example.com <br />
-   Choose an option: <br />
-   1. Send a test email <br />
-   2. Brute force an email password <br />
-   3. Exfiltrate emails from a Gmail account <br />
-   4. Exfiltrate emails from an Outlook account (Windows only) <br />
-   5. Exit <br />
-   Option: 1 <br />
-   Please enter Test Subject Line here: Test Email <br />
-   Please enter email content here: This is a test email for demonstration purposes. <br />
-   Test email sent successfully. <br />
-   Choose an option: <br />
-   1. Send a test email <br />
-   2. Brute force an email password <br />
-   3. Exfiltrate emails from a Gmail account <br />
-   4. Exfiltrate emails from an Outlook account (Windows only) <br />
-   5. Exit <br />
-   Option: 3 <br />
-   Please enter the Gmail address to exfiltrate emails from: user@gmail.com <br />
-   Please enter the password for the Gmail account: ******** <br />
-   Exfiltrating emails from Gmail account... <br />
-   Emails exfiltrated successfully. <br />
-   Choose an option: <br />
-   1. Send a test email <br />
-   2. Brute force an email password <br />
-   3. Exfiltrate emails from a Gmail account <br />
-   4. Exfiltrate emails from an Outlook account (Windows only) <br />
-   5. Exit <br />
-   Option: 5 <br />
-   Exiting... <br />
-
+  Please enter the account address here: sender@example.com <br />
+  Please input the account password here: ******** <br />
+  Please enter the target account address here: receiver@example.com <br />
+  Choose an option: <br />
+  1. Send a test email <br />
+  2. Brute force an email password <br />
+  3. Exfiltrate emails from a Gmail account <br />
+  4. Exfiltrate emails from an Outlook account (Windows only) <br />
+  5. Brute force FTP server <br />
+  6. Exit <br />
+  Option: 1 <br />
+  Please enter Test Subject Line here: Test Email <br />
+  Please enter email content here: This is a test email for demonstration purposes. <br />
+  Test email sent successfully. <br />
+  Choose an option: <br />
+  1. Send a test email <br />
+  2. Brute force an email password <br />
+  3. Exfiltrate emails from a Gmail account <br />
+  4. Exfiltrate emails from an Outlook account (Windows only) <br />
+  5. Brute force FTP server <br />
+  6. Exit <br />
+  Option: 5 <br />
+  Please enter FTP server address: ftp.example.com <br /> 
+  Please enter the path to the username dictionary: usernames.txt <br />
+  Please enter the path to the password dictionary: passwords.txt <br />
+  FTP credentials found: Username - admin, Password - secret123 <br />
+  Choose an option: <br />
+  1. Send a test email <br />
+  2. Brute force an email password <br />
+  3. Exfiltrate emails from a Gmail account <br />
+  4. Exfiltrate emails from an Outlook account (Windows only) <br />
+  5. Brute force FTP server <br />
+  6. Exit <br />
+  Option: 6 <br />
+  Exiting... <br />
+2. transmittron.py output: <br />
+   Main Menu: <br /> 
+   1. Transmit file directly <br />
+   2. Brute force FTP and upload file <br />
+   3. Exit <br />
+   Please select an option: 2 <br />
+   Enter the name of the file to exfiltrate: confidential_data.txt <br />
+   Please enter the FTP server IPv4 address: 192.168.1.100 <br />
+   Enter the path to the username dictionary: usernames.txt <br />
+   Enter the path to the password dictionary: passwords.txt <br />
+   FTP login successful with credentials: admin/123456 <br />
+   File uploaded successfully to FTP server. <br />

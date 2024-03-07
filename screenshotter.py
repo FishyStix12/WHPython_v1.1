@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 #################################################################################################
 # Author: Nicholas Fisher
 # Date: March 5th 2024

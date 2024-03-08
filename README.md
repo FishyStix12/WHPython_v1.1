@@ -368,6 +368,27 @@ pip install psutil <br />
    [+] Copied C:\WINDOWS\Temp\example.txt <br />
    [+] Pasted C:\Users\User\Desktop\example.txt <br />
 
+# ShadowReaper_Trojan Modules <br />
+![image](https://github.com/FishyStix12/ShadowReaper_Trojan/assets/102126354/3bde6b1e-407f-47e8-b68c-d246ee637887) <br />
+
+**Important Note: For this Trojan is the one used by the UAH Red Team in the 2024 NCOE Red Team Competition. The scripts and instruction to make the ShadowReaper_Trojan can be found in the WHPython Repository!** <br />
+
+**Important Note: I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of these scripts. They are malicious and should only be used in professionally approved White Hat scenarios. You are responsible for any consequences resulting from the misuse of this malware, including all fines, fees, and repercussions. Please read this statement carefully: by downloading any of the scripts in this repository, you, as the user, take full responsibility for storing, using, and testing these malicious scripts and guidelines. You also take full responsibility for any misuse of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, and if that repository is public, all the extracted data will be available for the whole world to see.** <br />
+
+**Important Note: For this Trojan to work install the appropriate libraries using the commands below, or head to pypi.org/project/github3.py' to automate the process:** <br />
+  pip install github3.py <br />
+  pip install base64 <br />
+  pip install importlib <br />
+  pip install json <br />
+  pip install random <br />
+  pip install sys <br />
+  pip install threading <br />
+  pip install time <br />
+  pip install datetime <br />
+  pip install python-magic <br />
+
+  
+
 # Cyber Sherlock: Investigating Digital Misdeeds <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/78679002-4467-48aa-b43d-72e6e3228d8f) <br />
 **Important Note: Please run the script below to setup the Volatility Python Framework:** <br />

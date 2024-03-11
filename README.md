@@ -371,7 +371,7 @@ pip install psutil <br />
 # Trojan Modules <br />
 ![image](https://github.com/FishyStix12/ShadowReaper_Trojan/assets/102126354/3bde6b1e-407f-47e8-b68c-d246ee637887) <br />
 
-**Important Note: For this Trojan is the one used by the UAH Red Team in the 2024 NCOE Red Team Competition. The scripts and instruction to make the ShadowReaper_Trojan can be found in the WHPython Repository!** <br />
+**Important Note: Please pay attention to the top comments of some of these Trojan Modules as you will need to make edits to the scripts such as inputing the target IP Address, or entering the desired port on the target to connect to.** <br />
 
 **Important Note: This section of the repository is still in developement!** <br />
 

@@ -7,6 +7,57 @@
   },
   {
     "module" : "platformer"
+  },
+  {
+    "module" : "abyssalobserver"
+  },
+  {
+    "module" : "arp_poiser"
+  },
+  {
+    "module" : "auto_bruteforce"
+  },
+  {
+    "module" : "blackwidow"
+  },
+  {
+    "module" : "detective_sandbox"
+  },
+  {
+    "module" : "grimreaperexecutor"
+  },
+  {
+    "module" : "grimrelay"
+  },
+  {
+    "module" : "keylogger"
+  },
+  {
+    "module" : "mapscan"
+  },
+  {
+    "module" : "phantomfile"
+  },
+  {
+    "module" : "phantomlock"
+  },
+  {
+    "module" : "platformer"
+  },
+  {
+    "module" : "ravager"
+  },
+  {
+    "module" : "screenshotter"
+  },
+  {
+    "module" : "shadowsender"
+  },
+  {
+    "module" : "sinister_pipeline"
+  },
+  {
+    "module" : "HHD_BOMB_DO_NOT_RUN_WILL_MESS_UP_YOUR_PC_HAZARD!!"
   }
 ]
   

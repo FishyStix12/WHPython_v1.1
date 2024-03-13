@@ -1,83 +1,81 @@
 #! /usr/bin/python
-#! /usr/bin/python
 #################################################################################################
 # Author: Nicholas Fisher
 # Date: March 4th 2024
 # Description of Script
-# This script prompts the user to input a URL and a list of file extensions 
-# separated by spaces. It constructs a URL using the input, sets the number of threads to 10, 
-# and creates a list of file extensions based on the user input. The script then prints out the 
-# constructed URL, the number of threads, and the list of file extensions. This script 
-# can be used to quickly set up a web scraping or downloading task with customizable file type 
-# filters. For example, after running the script and providing "example.com" as the URL and ".jpg 
-# .png .pdf" as the file extensions, the output would be:
-# Copy code
-# URL: http://example.com
-# Threads: 10
-# Filtered extensions: ['.jpg', '.png', '.pdf']
+# This script performs directory busting on a remote web server specified by the user. 
+# It starts the enumeration from the root directory of the server and recursively explores all 
+# directories and files. The script generates URLs for common file types and checks if they exist on 
+# the server. Additionally, it parses HTML content from directory listings to discover subdirectories 
+# and continues enumeration. After completing the directory busting, the script prompts the user to 
+# enter a file name to save the discovered URLs. It then appends the results to the specified file,
+# allowing the user to review the findings conveniently. This script provides a straightforward
+# and automated approach to identify potentially sensitive or vulnerable directories 
+# and files on a web server.
 #################################################################################################
-import os
-import queue
 import requests
-import sys
 import threading
-import time
+from queue import Queue
+from urllib.parse import urljoin
 
-TARGET_IP = input("Please enter the IP address of the website: ")  # Asking the user to input the IP address
-THREADS = 10  # Setting the number of threads to 10
+TARGET_IP = input("Please enter the IP address of the web server: ")  # IP address of the web server
+THREADS = 10  # Number of threads
 
-print("IP Address:", TARGET_IP)  # Printing the IP address
-print("Threads:", THREADS)  # Printing the number of threads
+print("Web Server IP:", TARGET_IP)
+print("Threads:", THREADS)
 
-answers = queue.Queue()  # Creating a queue for storing answers
-web_paths = queue.Queue()  # Creating a queue for storing web paths
+file_types = [".php", ".asp", ".aspx", ".jsp", ".cgi", ".pl", ".html", ".txt", ".bak", ".zip", ".tar", ".gz", ".sql"]  # Common file types
 
-# List of file extensions considered useful for ethical hacking
-useful_file_extensions = ['.php', '.html', '.txt', '.py', '.asp', '.aspx', '.jsp', '.js', '.css']
+directories = Queue()  # Queue for storing directories
+results = Queue()  # Queue for storing results
 
-def gather_paths(start_path='/'):  # Defining a function to gather paths
-    for root, dirs, files in os.walk(start_path):  # Walking through the directory
-        for fname in files:  # Looping through the files
-            path = os.path.join(root, fname)  # Creating the path
-            if any(path.endswith(ext) for ext in useful_file_extensions):  # Check if the file extension is useful
-                if path.startswith('.'):  # Checking if the path starts with a dot
-                    path = path[1:]  # Removing the dot
-                print(path)  # Printing the path
-                web_paths.put(path)  # Putting the path in the web paths queue
+def dirbust():
+    while not directories.empty():
+        directory = directories.get()
+        for file_type in file_types:
+            url = urljoin(f"http://{TARGET_IP}/", directory) + f"/index{file_type}"
+            response = requests.get(url)
+            if response.status_code == 200:
+                results.put(url)
 
-    # After gathering all paths, spawn threads
-    run_threads()
+        # Enumerate subdirectories
+        response = requests.get(urljoin(f"http://{TARGET_IP}/", directory))
+        if response.status_code == 200:
+            for line in response.text.splitlines():
+                if line.startswith("<a href="):
+                    subdir = line.split('"')[1]
+                    if subdir != "../" and subdir.endswith("/"):  # Ignore parent directory and non-directories
+                        directories.put(urljoin(directory, subdir))
 
 def run_threads():
-    mythreads = []  # Creating a list for storing threads
-    for _ in range(THREADS):  # Looping through the number of threads
-        t = threading.Thread(target=test_remote)  # Creating a thread
-        mythreads.append(t)  # Adding the thread to the list
-        t.start()  # Starting the thread
+    threads = []
+    for _ in range(THREADS):
+        t = threading.Thread(target=dirbust)
+        threads.append(t)
+        t.start()
+    for t in threads:
+        t.join()
 
-    for thread in mythreads:  # Looping through the threads
-        thread.join()  # Waiting for the thread to finish
+def main():
+    # Start enumeration from the root directory
+    directories.put('')
 
-def test_remote():  # Defining a function to test remote URLs
-    while not web_paths.empty():  # Checking if the web paths queue is not empty
-        path = web_paths.get()  # Getting a path from the queue
-        url = f'http://{TARGET_IP}/{path}'  # Creating the URL with IP address
-        headers = {'User-Agent': 'Mozilla/5.0', 'Referer': 'http://www.google.com'}  # Adding headers to bypass firewall detection
-        r = requests.get(url, headers=headers)  # Sending a GET request to the URL with headers
-        if r.status_code == 200:  # Checking if the request was successful
-            answers.put(url)  # Putting the URL in the answers queue
-            sys.stdout.write('+')  # Printing a plus sign
-        else:  # If the request was not successful
-            sys.stdout.write('x')  # Printing a cross sign
-        sys.stdout.flush()  # Flushing the stdout buffer
+    run_threads()
 
-if __name__ == '__main__':  # Checking if the script is being run directly
-    gather_paths('/')  # Calling the gather_paths function with root directory
-    input('Press return to continue!')  # Waiting for the user to press return
+    if not results.empty():
+        # Ask user for file name to save results
+        file_name = input("Enter the name of the file to save the results: ")
+        if not file_name.strip():
+            print("Invalid file name. Results not saved.")
+            return
 
-    # After gathering all paths and spawning threads, append results to a file
-    file_name = input("Enter the name of the file to save the results: ")  # Asking the user for the file name
-    with open(file_name, 'a') as f:  # Opening a file for appending
-        while not answers.empty():  # Checking if the answers queue is not empty
-            f.write(f'{answers.get()}\n')  # Writing an answer to the file
-        print('Results appended to', file_name)  # Printing confirmation
+        with open(file_name, "a") as f:
+            while not results.empty():
+                f.write(results.get() + "\n")
+            print("Results appended to", file_name)
+    else:
+        print("No results found.")
+
+if __name__ == "__main__":
+    main()
+

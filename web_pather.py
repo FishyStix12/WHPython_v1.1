@@ -7,7 +7,7 @@
 # This script prompts the user to input a URL and a list of file extensions 
 # separated by spaces. It constructs a URL using the input, sets the number of threads to 10, 
 # and creates a list of file extensions based on the user input. The script then prints out the 
-# constructed URL, the number of threads, and the list of filtered file extensions. This script 
+# constructed URL, the number of threads, and the list of file extensions. This script 
 # can be used to quickly set up a web scraping or downloading task with customizable file type 
 # filters. For example, after running the script and providing "example.com" as the URL and ".jpg 
 # .png .pdf" as the file extensions, the output would be:
@@ -32,22 +32,21 @@ print("Threads:", THREADS)  # Printing the number of threads
 answers = queue.Queue()  # Creating a queue for storing answers
 web_paths = queue.Queue()  # Creating a queue for storing web paths
 
+# List of file extensions considered useful for ethical hacking
+useful_file_extensions = ['.php', '.html', '.txt', '.py', '.asp', '.aspx', '.jsp', '.js', '.css']
+
 def gather_paths(start_path='/'):  # Defining a function to gather paths
-    for root, _, files in os.walk(start_path):  # Walking through the directory
+    for root, dirs, files in os.walk(start_path):  # Walking through the directory
         for fname in files:  # Looping through the files
             path = os.path.join(root, fname)  # Creating the path
-            if path.startswith('.'):  # Checking if the path starts with a dot
-                path = path[1:]  # Removing the dot
-            print(path)  # Printing the path
-            web_paths.put(path)  # Putting the path in the web paths queue
+            if any(path.endswith(ext) for ext in useful_file_extensions):  # Check if the file extension is useful
+                if path.startswith('.'):  # Checking if the path starts with a dot
+                    path = path[1:]  # Removing the dot
+                print(path)  # Printing the path
+                web_paths.put(path)  # Putting the path in the web paths queue
 
-            # Here, instead of calling run(), we directly spawn threads for testing remote URLs
-            if web_paths.qsize() >= THREADS:
-                run_threads()
-
-    # After gathering all paths, if there are still paths left, spawn threads
-    if not web_paths.empty():
-        run_threads()
+    # After gathering all paths, spawn threads
+    run_threads()
 
 def run_threads():
     mythreads = []  # Creating a list for storing threads
@@ -82,4 +81,3 @@ if __name__ == '__main__':  # Checking if the script is being run directly
         while not answers.empty():  # Checking if the answers queue is not empty
             f.write(f'{answers.get()}\n')  # Writing an answer to the file
         print('Results appended to', file_name)  # Printing confirmation
-

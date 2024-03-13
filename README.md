@@ -372,10 +372,6 @@ pip install psutil <br />
 
 **Important Note: Please pay attention to the top comments of some of these Trojan Modules as you will need to make edits to the scripts such as inputing the target IP Address, or entering the desired port on the target to connect to.** <br />
 
-**Important Note: This section of the repository is still in developement!** <br />
-
-**Important Note: I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of these scripts. They are malicious and should only be used in professionally approved White Hat scenarios. You are responsible for any consequences resulting from the misuse of this malware, including all fines, fees, and repercussions. Please read this statement carefully: by downloading any of the scripts in this repository, you, as the user, take full responsibility for storing, using, and testing these malicious scripts and guidelines. You also take full responsibility for any misuse of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, and if that repository is public, all the extracted data will be available for the whole world to see.** <br />
-
 **Important Note: For this Trojan to work install the appropriate libraries using the commands below, or head to pypi.org/project/github3.py' to automate the process:** <br />
   pip install github3.py <br />
   pip install base64 <br />

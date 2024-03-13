@@ -125,7 +125,7 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
   unzip SVNDigger.zip <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
-1. web_pather.py - The provided Python script prompts the user to input a URL and a list of file extensions separated by spaces. It constructs a URL using the input, sets the number of threads to 10, and creates a list of file extensions based on the user input. The script then prints out the constructed URL, the number of threads, and the list of filtered file extensions. This script can be used to quickly set up a web scraping or downloading task with customizable file type filters. For example, after running the script and providing "example.com" as the URL and ".jpg .png .pdf" as the file extensions. <br />
+1. web_pather.py - This script performs directory busting on a remote web server specified by the user. It starts the enumeration from the root directory of the server and recursively explores all directories and files. The script generates URLs for common file types and checks if they exist on the server. Additionally, it parses HTML content from directory listings to discover subdirectories and continues enumeration. After completing the directory busting, the script prompts the user to enter a file name to save the discovered URLs. It then appends the results to the specified file, allowing the user to review the findings conveniently. This script provides a straightforward and automated approach to identify potentially sensitive or vulnerable directories and files on a web server.
 2. ravager.py - This script is a simple tool for performing directory busting on a web server using a wordlist of common directory names and file extensions. It takes a target URL and a wordlist file as inputs, and then iterates through the combinations of words and extensions to construct URLs to check. It uses threading to speed up the process by making multiple HTTP requests simultaneously. <br />
 3. login_bruteforce.py - This script is a Python tool designed to aid in testing the security of login systems by performing a brute-force attack. It prompts the user to input the URL of the login form, as well as the paths to files containing lists of usernames and passwords. The script then iterates through each combination of username and password, attempting to log in to the specified URL using HTTP POST requests. If successful login credentials are found, they are printed to the console. <br />
 
@@ -184,8 +184,6 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
   $ git commit -m "Adds repo structure for trojan" <br />
   $ git remote add origin https://github.com/<yourusername\>/<torjan_github_repository\>.git <br />
   $ git push origin master <br />
-  
-**Please Note: the ShadowReaper_Trojan Repository for the working Trojan the UAH NCAE-C 2024 Red Team used in competition is in a private repository to keep the server data private!** <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 **1. Set up/ 2. Update/ 3. Pull Data: (Run scripts 2 and 3 in the home directory of your Trojan!)** <br />

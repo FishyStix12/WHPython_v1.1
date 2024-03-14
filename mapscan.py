@@ -29,9 +29,12 @@
 # Port: 53	State: open
 #################################################################################################
 # Import necessary libraries
+# Import necessary libraries
 from scapy.all import *
 import nmap
 import threading
+import ipaddress
+import sys
 
 # Callback function to handle each packet
 def packet_callback(packet):
@@ -59,8 +62,8 @@ def nmap_scan(host):
     try:
         # Create an Nmap PortScanner object
         nm = nmap.PortScanner()
-        # Perform a scan on the specified host using TCP SYN scan with aggressive timing
-        nm.scan(hosts=host, arguments='-p 1-65535 -T4 -sS')
+        # Perform a comprehensive scan on the specified host
+        nm.scan(hosts=host, arguments='-p 1-65535 -T4 -sS -sV -O --version-all --script=banner -A --script vulners')
         print("Nmap scan results for host: ", host)
         # Iterate over each scanned host
         for host in nm.all_hosts():
@@ -73,7 +76,27 @@ def nmap_scan(host):
                 for port in ports:
                     # Get the state of the port (open, closed, filtered, etc.)
                     state = nm[host][proto][port]['state']
-                    print(f"Port: {port}\tState: {state}")
+                    service = nm[host][proto][port]['name']
+                    product = nm[host][proto][port]['product']
+                    version = nm[host][proto][port]['version']
+                    extrainfo = nm[host][proto][port]['extrainfo']
+                    print(f"Port: {port}\tState: {state}\tService: {service}\tProduct: {product}\tVersion: {version}\tExtra Info: {extrainfo}")
+
+            # Print OS detection results
+            if 'osmatch' in nm[host]:
+                for osmatch in nm[host]['osmatch']:
+                    print(f"OS Match: {osmatch['name']}")
+
+            # Print service detection results
+            if 'osclass' in nm[host]:
+                for osclass in nm[host]['osclass']:
+                    print(f"OS Class: {osclass['type']} - {osclass['osfamily']}")
+
+            # Print any additional information from Nmap scripts
+            if 'script' in nm[host]:
+                for script in nm[host]['script']:
+                    print(f"Script: {script}")
+
     except Exception as e:
         # Print an error message if an exception occurs during the Nmap scan
         print(f"Error during Nmap scan: {e}")
@@ -100,8 +123,33 @@ sniff_thread.start()
 # Main loop to keep the program running
 while True:
     try:
-        # Add your additional logic here
-        pass
+        # Prompt the user for the remote IP address or CIDR notation
+        remote_input = input("Enter the remote IP address or CIDR notation to implement the keylogger on: ")
+        # Check if input is a single IP address or a CIDR notation
+        if '/' in remote_input:
+            # Parse CIDR notation and get all IP addresses in the range
+            ip_network = ipaddress.ip_network(remote_input)
+            for ip in ip_network:
+                ip_address = str(ip)
+                # Additional logic can be added here
+                print("Scanning IP:", ip_address)
+                # Check if the IP is not localhost and not already scanned
+                if ip_address != '127.0.0.1' and ip_address not in scanned_hosts:
+                    # Add the IP to the set of scanned hosts
+                    scanned_hosts.add(ip_address)
+                    print(f"Starting Nmap scan for host: {ip_address}")
+                    # Start an Nmap scan for the host
+                    nmap_scan(ip_address)
+        else:
+            # Additional logic can be added here for single IP address
+            print("Scanning IP:", remote_input)
+            # Check if the IP is not localhost and not already scanned
+            if remote_input != '127.0.0.1' and remote_input not in scanned_hosts:
+                # Add the IP to the set of scanned hosts
+                scanned_hosts.add(remote_input)
+                print(f"Starting Nmap scan for host: {remote_input}")
+                # Start an Nmap scan for the host
+                nmap_scan(remote_input)
     except KeyboardInterrupt:
         # Print a message and exit gracefully if Ctrl+C is pressed
         print("\nExiting...")
@@ -109,3 +157,4 @@ while True:
     except Exception as e:
         # Print an error message if an exception occurs in the main loop
         print(f"Error in main loop: {e}")
+

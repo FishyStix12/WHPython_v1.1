@@ -115,7 +115,7 @@ net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors,
    Script: vulners <br />
    CVEs Found: CVE-2017-15906 <br />
 
-   Enter the remote IP address or CIDR notation to scan (press Enter when empty to exit): <br />
+   Enter the remote IP address or CIDR notation to scan (press Enter to exit): <br />
    Exiting... <br />
 
 

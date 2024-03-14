@@ -80,15 +80,20 @@ Host: google.com <br />
 net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors, focusing on network reconnaissance and vulnerability assessment. Leveraging the `python-nmap` library, it orchestrates comprehensive scans on remote hosts, probing for open ports, identifying service versions, and detecting potential security weaknesses. Multithreading capabilities empower the script to concurrently monitor network traffic, triggering Nmap scans upon detecting novel hosts. Users can input either single IP addresses or CIDR notations to specify target ranges for scanning. With integration of the `vulners` script, the tool extends its functionality to include vulnerability detection, highlighting potential threats and associated CVE identifiers. This versatile script equips ethical hackers with essential insights, aiding in the identification and mitigation of security risks within authorized systems. <br />
 
 **Example outputs of some of the scripts!** <br />
-1. mapscan.py output: <br />
-   IP source: 192.168.1.10, IP destination: 8.8.8.8 <br />
-   Starting Nmap scan for host: 8.8.8.8 <br />
-   Nmap scan results for host:  8.8.8.8 <br />
-   Host: 8.8.8.8 <br />
-   Protocol: tcp < br />
-   Port: 53	State: open <br />
-   Protocol: udp <br />
-   Port: 53	State: open <br />
+1. net_terrorizer.py output: <br />
+Enter the remote IP address or CIDR notation to scan: 192.168.1.1 <br />
+Scanning IP: 192.168.1.1 <br />
+Starting Nmap scan for host: 192.168.1.1 <br />
+Nmap scan results for host:  192.168.1.1 <br />
+Host: 192.168.1.1 <br />
+Protocol: tcp <br />
+Port: 22	State: open	Service: ssh	Product: OpenSSH	Version: 7.6p1	Extra Info: protocol 2.0 <br />
+OS Match: Linux 3.11 - 4.11 <br />
+OS Class: general purpose <br />
+OS Class: Linux <br />
+Script: vulners <br />
+CVEs Found: CVE-2018-15919 <br />
+
 
 # Scapy Unleashed: Conquer the Network <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/21d15755-bd6b-496b-8f76-7e624c0b65c1) <br />

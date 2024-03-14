@@ -3,38 +3,23 @@
 # Author: Nicholas Fisher
 # Date: March 4th 2024
 # Description of Script
-# This script is a Python tool for sniffing network packets and automatically initiating Nmap 
-# port scans on newly discovered hosts. This tool uses the scapy library to sniff packets and 
-# the python-nmap library to perform Nmap scans. When a packet with an IP destination different 
-# from localhost is captured, NetScanPy checks if the destination IP has already been scanned. 
-# If not, it adds the IP to the list of scanned hosts and launches an Nmap scan for that host. 
-# This tool is useful for monitoring network traffic and identifying potentially vulnerable hosts 
-# on the network.
-# Important Note please run the following commands to have the appropriate libraries for this
-# script:
-# pip install scapy
-# sudo apt-get update
-# sudo apt-get install nmap
-# pip install python-nmap
-# Example usage:
-# python netscanpy.py
-# Example output:
-# IP source: 192.168.1.10, IP destination: 8.8.8.8
-# Starting Nmap scan for host: 8.8.8.8
-# Nmap scan results for host:  8.8.8.8
-# Host: 8.8.8.8
-# Protocol: tcp
-# Port: 53	State: open
-# Protocol: udp
-# Port: 53	State: open
+# The script is a Python tool crafted for ethical hacking endeavors, focusing on network 
+# reconnaissance and vulnerability assessment. Leveraging the `python-nmap` library, it 
+# orchestrates comprehensive scans on remote hosts, probing for open ports, identifying service 
+# versions, and detecting potential security weaknesses. Multithreading capabilities empower 
+# the script to concurrently monitor network traffic, triggering Nmap scans upon detecting 
+# novel hosts. Users can input either single IP addresses or CIDR notations to specify target 
+# ranges for scanning. With integration of the `vulners` script, the tool extends its functionality 
+# to include vulnerability detection, highlighting potential threats and associated CVE identifiers. 
+# This versatile script equips ethical hackers with essential insights, aiding in the identification 
+# and mitigation of security risks within authorized systems.
 #################################################################################################
-# Import necessary libraries
 # Import necessary libraries
 from scapy.all import *
 import nmap
 import threading
 import ipaddress
-import sys
+import re
 
 # Callback function to handle each packet
 def packet_callback(packet):
@@ -96,6 +81,12 @@ def nmap_scan(host):
             if 'script' in nm[host]:
                 for script in nm[host]['script']:
                     print(f"Script: {script}")
+                    if script == 'vulners':
+                        # Extract CVE IDs from vulners script output
+                        cve_pattern = r'CVE-\d{4}-\d{4,7}'
+                        cve_matches = re.findall(cve_pattern, nm[host]['script']['vulners'])
+                        if cve_matches:
+                            print("CVEs Found:", ", ".join(cve_matches))
 
     except Exception as e:
         # Print an error message if an exception occurs during the Nmap scan
@@ -157,4 +148,5 @@ while True:
     except Exception as e:
         # Print an error message if an exception occurs in the main loop
         print(f"Error in main loop: {e}")
+
 

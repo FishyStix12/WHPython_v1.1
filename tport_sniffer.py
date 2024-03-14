@@ -3,24 +3,15 @@
 # Author: Nicholas Fisher
 # Date: March 4th 2024
 # Description of Script
-# This Python script utilizes the Scapy library to sniff network packets and detect potential 
-# email credentials being transmitted in plaintext. It allows the user to specify TCP port 
-# filters to focus on specific network traffic. When a packet containing 'user' or 'pass' 
-#in its payload is detected, the script prints the destination IP address and the payload, 
-# which may include email credentials. This tool can be used for network security auditing or 
-# monitoring purposes to identify and mitigate potential credential leaks.
-# Example Usuage:
-# Do you want to add more filters? (yes/no): yes
-# Enter the port number: 25
-# Do you want to add more filters? (yes/no): yes
-# Enter the port number: 110
-# Do you want to add more filters? (yes/no): no
-# Applying filter: tcp port 25 or tcp port 110
-# Example output:
-# [*] Destination: 192.168.1.1
-# [*] USER myemail@example.com
+# The script enables remote packet sniffing on a target host specified by the user. It prompts 
+# the user to input the target host's IP address and port, establishes a TCP connection to the 
+# remote host, and then allows the user to define packet filters based on port numbers. Once 
+# configured, the script initiates packet sniffing on the specified ports, intercepting TCP 
+# packets and checking for payload containing sensitive information like usernames or passwords.
+# If such data is detected, it prints out the destination IP address and the payload content 
+# for further inspection.
 #################################################################################################
-#imports the socket and threading modules for python 3.
+import socket
 from scapy.all import sniff, TCP, IP
 
 def packet_callback(packet):
@@ -40,6 +31,13 @@ def main():
     Main function to configure filters and start packet sniffing.
     It prompts the user to add filters based on port numbers and starts sniffing packets.
     """
+    remote_host = input("Enter the target host IP address: ")
+    remote_port = int(input("Enter the target host port: "))
+
+    # Establishing connection to the remote host
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect((remote_host, remote_port))
+
     filters = []
     while True:
         user_input = input("Do you want to add more filters? (yes/no): ")
@@ -49,6 +47,8 @@ def main():
         filters.append(f'tcp port {port}')
     filter_str = ' or '.join(filters)
     print(f"Applying filter: {filter_str}")
+
+    # Start packet sniffing
     sniff(filter=filter_str, prn=packet_callback)
 
 if __name__ == '__main__':

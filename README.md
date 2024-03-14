@@ -108,15 +108,15 @@ net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors,
    Script: vulners <br />
    CVEs Found: CVE-2019-0211, CVE-2018-17199 <br />
 
-Nmap scan results for host: 192.168.0.2 <br />
-Host: 192.168.0.2 <br />
-Protocol: tcp <br />
-Port: 22    State: open    Service: ssh    Product: OpenSSH    Version: 7.2p2    Extra Info: Ubuntu Linux; protocol 2.0 <br />
-Script: vulners <br />
-CVEs Found: CVE-2017-15906 <br />
+   Nmap scan results for host: 192.168.0.2 <br />
+   Host: 192.168.0.2 <br />
+   Protocol: tcp <br />
+   Port: 22    State: open    Service: ssh    Product: OpenSSH    Version: 7.2p2    Extra Info: Ubuntu Linux; protocol 2.0 <br />
+   Script: vulners <br />
+   CVEs Found: CVE-2017-15906 <br />
 
-Enter the remote IP address or CIDR notation to scan (press Enter to exit): <br />
-Exiting... <br />
+   Enter the remote IP address or CIDR notation to scan (press Enter when empty to exit): <br />
+   Exiting... <br />
 
 
 

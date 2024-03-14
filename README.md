@@ -131,7 +131,7 @@ net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors,
   python script.py <victim_ip> <gateway_ip> <interface> <br />
    
 **The Following List gives a short description of all the scripts in this group:** <br />
-1. tport_sniffer.py - # This Python script utilizes the Scapy library to sniff network packets and detect potential email credentials being transmitted in plaintext. It allows the user to specify TCP port filters to focus on specific network traffic. When a packet containing 'user' or 'pass' in its payload is detected, the script prints the destination IP address and the payload, which may include email credentials. This tool can be used for network security auditing or monitoring purposes to identify and mitigate potential credential leaks. <br />
+1. tport_sniffer.py - # The script enables remote packet sniffing on a target host specified by the user. It prompts the user to input the target host's IP address and port, establishes a TCP connection to the remote host, and then allows the user to define packet filters based on port numbers. Once configured, the script initiates packet sniffing on the specified ports, intercepting TCP packets and checking for payload containing sensitive information like usernames or passwords. If such data is detected, it prints out the destination IP address and the payload content for further inspection. <br />
 2. arp_poiser.py - The provided Python script implements an ARP poisoning attack tool using Scapy. ARP poisoning is a technique used to intercept traffic on a switched network. The script takes three command-line arguments: the IP address of the victim machine, the IP address of the gateway router, and the network interface to use. It then initiates an ARP poisoning attack by sending spoofed ARP packets to the victim and the gateway, tricking them into sending their traffic through the attacker's machine. The attacker can then sniff the traffic passing through and potentially intercept sensitive information such as passwords or credentials. <br />
 3. rcap.py - The provided Python script is designed to extract and save images from HTTP traffic stored in a PCAP file. It utilizes the Scapy library for packet manipulation and extraction. The script reads a PCAP file containing network traffic, filters out HTTP packets, extracts images from the HTTP responses, and saves them to a specified directory. To use the script, you need to specify the input PCAP file path and the output directory for the extracted images. For example, to extract images from a PCAP file named 'example.pcap' located in the 'Downloads' directory and save them to the 'Pictures' directory on the desktop, you would set PCAPS to '/root/Downloads' and OUTDIR to '/root/Desktop/pictures'. After running the script, it will process the PCAP file and save the extracted images to the specified output directory. The output will include one or more image files (e.g., ex_0.jpg, ex_1.png, etc.) containing the extracted images. <br />
 4. detect.py - 
@@ -139,8 +139,26 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 
 **Example outputs of some of the scripts!** <br />
 1. tport_sniffer.py output: <br />
-   [\*] Destination: 192.168.1.1 <br />
-   [\*] USER myemail@example.com <br />
+Enter the target host IP address: 192.168.1.100 <br />
+Enter the target host port: 80 <br />
+Do you want to add more filters? (yes/no): yes <br />
+Enter the port number: 443 <br />
+Do you want to add more filters? (yes/no): no <br />
+Applying filter: tcp port 80 or tcp port 443 <br />
+[*] Destination: 192.168.1.100 <br />
+[*] POST /login HTTP/1.1 <br />
+Host: 192.168.1.100 <br />
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0 <br />
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8 <br />
+Accept-Language: en-US,en;q=0.5 <br />
+Accept-Encoding: gzip, deflate <br />
+Content-Type: application/x-www-form-urlencoded <br />
+Content-Length: 29 <br />
+Connection: close <br />
+Cookie: sessionid=abcdef1234567890 <br />
+Upgrade-Insecure-Requests: 1 <br />
+
+username=admin&password=secretpass <br />
 
 # Web Exploitation Unleashed <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/7e294907-a92a-4ff3-aa09-fc3e38c0c2bc) <br />

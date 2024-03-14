@@ -70,7 +70,7 @@ Host: google.com <br />
 
 # Packet Sniffer and Port/Vulnerability Scanner <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/faa2eb23-9d2f-4a7e-911a-84fc0b379440) <br />
-**Important Note: For mapscan.py to work please install the scapy and nmap python libraries in linux using the following commands below:** <br />
+**Important Note: For net_terrorist.py to work please install the scapy and nmap python libraries in linux using the following commands below:** <br />
    pip install scapy <br />
    sudo apt-get update <br />
    sudo apt-get install nmap <br />

@@ -81,7 +81,7 @@ net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors,
 
 **Example outputs of some of the scripts!** <br />
 1. net_terrorizer.py output: <br />
-Enter the remote IP address or CIDR notation to scan: 192.168.1.1 <br />
+Enter the remote IP address or Ip range with CIDR to scan:: 192.168.1.1 <br />
 Scanning IP: 192.168.1.1 <br />
 Starting Nmap scan for host: 192.168.1.1 <br />
 Nmap scan results for host:  192.168.1.1 <br />

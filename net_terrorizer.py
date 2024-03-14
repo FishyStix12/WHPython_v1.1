@@ -115,7 +115,7 @@ sniff_thread.start()
 while True:
     try:
         # Prompt the user for the remote IP address or CIDR notation
-        remote_input = input("Enter the remote IP address or CIDR notation to scan: ")
+        remote_input = input("Enter the remote IP address or Ip range with CIDR to scan: ")
         # Check if input is a single IP address or a CIDR notation
         if '/' in remote_input:
             # Parse CIDR notation and get all IP addresses in the range

@@ -81,32 +81,32 @@ net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors,
 
 **Example outputs of some of the scripts!** <br />
 1. net_terrorizer.py output: <br />
-Enter the remote IP address or CIDR notation to scan (press Enter to exit): 192.168.0.1 <br />
-Enter the port/ports to scan (leave empty for full scan): 80 <br />
-Scanning IP: 192.168.0.1 <br />
-Starting Nmap scan for host: 192.168.0.1 <br />
-IP source: 192.168.0.2, IP destination: 192.168.0.1 <br />
-Nmap scan results for host: 192.168.0.1 <br />
-Host: 192.168.0.1 <br />
-Protocol: tcp <br />
-Port: 80    State: open    Service: http    Product: Apache    Version: 2.4.29    Extra Info: (Ubuntu) <br />
-Script: vulners <br />
-CVEs Found: CVE-2019-0211, CVE-2018-17199 <br />
+   Enter the remote IP address or CIDR notation to scan (press Enter to exit): 192.168.0.1 <br />
+   Enter the port/ports to scan (leave empty for full scan): 80 <br />
+   Scanning IP: 192.168.0.1 <br />
+   Starting Nmap scan for host: 192.168.0.1 <br />
+   IP source: 192.168.0.2, IP destination: 192.168.0.1 <br />
+   Nmap scan results for host: 192.168.0.1 <br />
+   Host: 192.168.0.1 <br />
+   Protocol: tcp <br />
+   Port: 80    State: open    Service: http    Product: Apache    Version: 2.4.29    Extra Info: (Ubuntu) <br />
+   Script: vulners <br />
+   CVEs Found: CVE-2019-0211, CVE-2018-17199 <br />
 
-Enter the remote IP address or CIDR notation to scan (press Enter to exit): 192.168.0.0/24 <br />
-Enter the port/ports to scan (leave empty for full scan): <br />
-Scanning IP: 192.168.0.1 <br />
-Starting Nmap scan for host: 192.168.0.1 <br />
-Scanning IP: 192.168.0.2 <br />
-Starting Nmap scan for host: 192.168.0.2 <br />
-IP source: 192.168.0.3, IP destination: 192.168.0.2 <br />
-IP source: 192.168.0.3, IP destination: 192.168.0.1 <br />
-Nmap scan results for host: 192.168.0.1 <br />
-Host: 192.168.0.1 <br />
-Protocol: tcp <br />
-Port: 80    State: open    Service: http    Product: Apache    Version: 2.4.29    Extra Info: (Ubuntu) <br />
-Script: vulners <br />
-CVEs Found: CVE-2019-0211, CVE-2018-17199 <br />
+   Enter the remote IP address or CIDR notation to scan (press Enter to exit): 192.168.0.0/24 <br />
+   Enter the port/ports to scan (leave empty for full scan): <br />
+   Scanning IP: 192.168.0.1 <br />
+   Starting Nmap scan for host: 192.168.0.1 <br />
+   Scanning IP: 192.168.0.2 <br />
+   Starting Nmap scan for host: 192.168.0.2 <br />
+   IP source: 192.168.0.3, IP destination: 192.168.0.2 <br />
+   IP source: 192.168.0.3, IP destination: 192.168.0.1 <br />
+   Nmap scan results for host: 192.168.0.1 <br />
+   Host: 192.168.0.1 <br />
+   Protocol: tcp <br />
+   Port: 80    State: open    Service: http    Product: Apache    Version: 2.4.29    Extra Info: (Ubuntu) <br />
+   Script: vulners <br />
+   CVEs Found: CVE-2019-0211, CVE-2018-17199 <br />
 
 Nmap scan results for host: 192.168.0.2 <br />
 Host: 192.168.0.2 <br />

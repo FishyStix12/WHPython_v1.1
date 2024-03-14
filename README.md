@@ -295,6 +295,7 @@ Important Note: Please run the push_trojan_updates.sh file in the config module 
   pip install time <br />
   pip install pywin32 <br />
   pip install python3-xlib <br />
+  pip install argsparce <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. keylogger.py - This script implements a keylogger, a tool designed to capture keystrokes on a target system. The script is platform-independent, capable of running on both Windows and Linux operating systems. Upon execution, the user is prompted to input a remote target IP address where the captured keystrokes will be sent. Once the IP address is provided, the keylogger begins monitoring keyboard input in the foreground, logging each keystroke along with details about the active window. For Windows systems, it utilizes modules like `pyHook` and `win32gui` to capture keyboard events, while for Linux systems, it employs `pynput`. This script is designed for ethical hacking scenarios, aiding in penetration testing on approved systems within legal boundaries. <br />

@@ -146,7 +146,7 @@ The provided Python script uses OpenCV to detect faces in images. It takes a dir
    Failed login attempt with username: admin and password: qwerty <br />
    Failed login attempt with username: admin and password: letmein <br />
 
-# Command and Control Center <br />
+# Trojan Framework <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/239280f9-d78f-4e2d-aace-6fb0b4e59177) <br />
 
 **Important Note: For this Trojan to work install the appropriate libraries using the commands below, or head to pypi.org/project/github3.py' to automate the process:** <br />
@@ -369,6 +369,8 @@ pip install psutil <br />
 ![image](https://github.com/FishyStix12/ShadowReaper_Trojan/assets/102126354/3bde6b1e-407f-47e8-b68c-d246ee637887) <br />
 
 **Important Note: Please pay attention to the top comments of some of these Trojan Modules as you will need to make edits to the scripts such as inputing the target IP Address, or entering the desired port on the target to connect to.** <br />
+
+**Important Note: Please put these scripts in the Modules Directory of the Torjan Framework, and update the JSON File in the config directory.** <br />
 
 **Important Note: For this Trojan to work install the appropriate libraries using the commands below, or head to pypi.org/project/github3.py' to automate the process:** <br />
   pip install github3.py <br />

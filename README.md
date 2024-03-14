@@ -77,7 +77,7 @@ Host: google.com <br />
    pip install python-nmap <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
-mapscan.py - This script is a Python tool for sniffing network packets and automatically initiating Nmap  port scans on newly discovered hosts. This tool uses the scapy library to sniff packets and the python-nmap library to perform Nmap scans. When a packet with an IP destination different from localhost is captured, NetScanPy checks if the destination IP has already been scanned.  If not, it adds the IP to the list of scanned hosts and launches an Nmap scan for that host. This tool is useful for monitoring network traffic and identifying potentially vulnerable hosts on the network. <br />
+net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors, focusing on network reconnaissance and vulnerability assessment. Leveraging the `python-nmap` library, it orchestrates comprehensive scans on remote hosts, probing for open ports, identifying service versions, and detecting potential security weaknesses. Multithreading capabilities empower the script to concurrently monitor network traffic, triggering Nmap scans upon detecting novel hosts. Users can input either single IP addresses or CIDR notations to specify target ranges for scanning. With integration of the `vulners` script, the tool extends its functionality to include vulnerability detection, highlighting potential threats and associated CVE identifiers. This versatile script equips ethical hackers with essential insights, aiding in the identification and mitigation of security risks within authorized systems. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. mapscan.py output: <br />

@@ -1,4 +1,4 @@
-# White Hat Python
+# White Hat Python Version 1.02
 # By: Nicholas Fisher
 
 **Disclaimer: These scripts should only be used in cases where the user has permission to use these scripts on the subject systems!** <br />

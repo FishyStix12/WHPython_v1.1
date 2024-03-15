@@ -3,23 +3,23 @@
 # Author: Nicholas Fisher
 # Date: March 4th 2024
 # Description of Script
-# The script is a Python tool crafted for ethical hacking endeavors, focusing on network 
-# reconnaissance and vulnerability assessment. Leveraging the `python-nmap` library, it 
-# orchestrates comprehensive scans on remote hosts, probing for open ports, identifying service 
-# versions, and detecting potential security weaknesses. Multithreading capabilities empower 
-# the script to concurrently monitor network traffic, triggering Nmap scans upon detecting 
-# novel hosts. Users can input either single IP addresses or CIDR notations to specify target 
-# ranges for scanning. With integration of the `vulners` script, the tool extends its functionality 
-# to include vulnerability detection, highlighting potential threats and associated CVE identifiers. 
-# This versatile script equips ethical hackers with essential insights, aiding in the identification 
-# and mitigation of security risks within authorized systems.
+# The script is a versatile network scanning tool designed to provide comprehensive insights into
+# network security vulnerabilities. Leveraging the capabilities of Nmap and Metasploit, it conducts
+# real-time packet sniffing to detect active hosts, performs detailed Nmap scans to uncover open ports,
+# services, and potential vulnerabilities, and utilizes the Metasploit RPC interface to search for
+# exploit modules corresponding to identified CVEs. By seamlessly integrating these powerful tools,
+# the script empowers security professionals to proactively identify and mitigate security risks 
+# within their network infrastructure, thereby enhancing overall security posture and safeguarding
+# against potential cyber threats. Additionally, its interactive nature, such as prompting the 
+# user for the Metasploit RPC password, ensures ease of use and customization, making it an 
+# invaluable asset in the arsenal of network security tools.
 #################################################################################################
 import sys  
 import threading  
 import ipaddress  
 import re 
-from scapy.all import *  
-import nmap  
+import nmap
+from metasploit.msfrpc import MsfRpcClient  
 
 # Set to store scanned hosts to avoid duplicate scans
 scanned_hosts = set()  # Initialize an empty set to store scanned hosts
@@ -98,9 +98,31 @@ def nmap_scan(host):
                         if cve_matches:
                             print("CVEs Found:", ", ".join(cve_matches))
 
+                            # Search for Metasploit modules
+                            search_metasploit(cve_matches)
+
     except Exception as e:
         # Print error message if an exception occurs during Nmap scan
         print(f"Error during Nmap scan: {e}")
+
+# Function to search Metasploit modules for given CVE IDs
+def search_metasploit(cve_ids):
+    print("\nMetasploit modules for the found vulnerabilities:")
+    try:
+        rpc_password = input("Enter Metasploit RPC Password: ")
+        client = MsfRpcClient(rpc_password)
+
+        for cve_id in cve_ids:
+            search_results = client.modules.search(cve_id)
+            if search_results:
+                print(f"\nVulnerability: {cve_id}")
+                for module in search_results:
+                    print(f"Module: {module['fullname']} ({module['path']})")
+            else:
+                print(f"\nNo Metasploit modules found for vulnerability: {cve_id}")
+
+    except Exception as e:
+        print(f"Error searching Metasploit modules: {e}")
 
 # Function to start packet sniffing
 def sniff_packets():
@@ -150,7 +172,7 @@ def main():
                             # Print message about starting Nmap scan
                             print(f"Starting Nmap scan for host: {ip_address}")
                             # Start a new thread to perform Nmap scan
-                            threading.Thread(target=nmap_scan, args=(ip_address, port_range)).start()
+                            threading.Thread(target=nmap_scan, args=(ip_address,)).start()
                 else:
                     # Print message about scanning IP address
                     print("Scanning IP:", remote_input)
@@ -163,7 +185,7 @@ def main():
                         # Print message about starting Nmap scan
                         print(f"Starting Nmap scan for host: {remote_input}")
                         # Start a new thread to perform Nmap scan
-                        threading.Thread(target=nmap_scan, args=(remote_input, port_range)).start()
+                        threading.Thread(target=nmap_scan, args=(remote_input,)).start()
 
             except KeyboardInterrupt:
                 # Print message and exit gracefully if Ctrl+C is pressed
@@ -180,4 +202,5 @@ def main():
 if __name__ == "__main__":
     # Call the main function
     main()
+
 

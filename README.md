@@ -287,6 +287,7 @@ Important Note: Please run the push_trojan_updates.sh file in the config module 
 
 # Trojan Modules <br />
 ![image](https://github.com/FishyStix12/ShadowReaper_Trojan/assets/102126354/3bde6b1e-407f-47e8-b68c-d246ee637887) <br />
+**Important Note, you need to modifiy some of these scripts to change variables like remote_host in the script to your targets IP address. Please edit the scripts that require change to ensure they properly work.** <br />
 
 **Important Note: Please pay attention to the top comments of some of these Trojan Modules as you will need to make edits to the scripts such as inputing the target IP Address, or entering the desired port on the target to connect to.** <br />
 

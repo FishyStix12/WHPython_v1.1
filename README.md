@@ -419,15 +419,14 @@ pip install psutil <br />
 **Important note: Please visit http://timgolden.me.uk/python/win32_how_do_i/watch_directory_for_changes.html to help you learn how to use filetactician.py**
 
 **The Following List gives a short description of all the scripts in this group:** <br />
-1. tasktactician.py - This script is a process monitor designed to capture information about running processes on both Windows and Linux operating systems. It utilizes platform-specific methods to gather process details such as command line arguments, creation time, executable path, parent process ID, user, and privileges. The script continuously monitors for new process creations and logs relevant information to a CSV file. It distinguishes between Windows and Linux systems, employing WMI for Windows and the ps command for Linux.  <br />
+1. tasktactician.py - The script above is a process monitoring tool designed to run on both Windows and Linux platforms. It continuously tracks and logs information about newly created processes, including their command line, creation time, executable path, parent process ID, process ID, user, and privileges. The script allows users to input the target host's IP address and port, enabling remote monitoring of processes on a specified machine. Leveraging platform-specific APIs such as WMI for Windows and system commands like `ps` for Linux, the script provides a platform-agnostic solution for process monitoring. Additionally, it employs exception handling to ensure robustness and reliability in capturing process information. Overall, this versatile script offers a flexible and accessible means to monitor and analyze system activities across diverse computing environments. <br />
 2. filetactician.py - This script is a cross-platform file activity monitor written in Python. It leverages system-specific APIs such as the Windows API for Windows systems and the psutil library for Linux systems to track various file operations such as creation, deletion, modification, renaming, copying, and pasting. Additionally, on Windows, it monitors the clipboard for file paste actions. By running the script, users can observe real-time file system changes in the specified directories on both Windows and Linux environments. For instance, users can execute the script with the directories they want to monitor as command-line arguments. Upon execution, the script continuously monitors the specified directories and outputs relevant information about file activities to the console. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. tasktactian.py output: <br />
-   CommandLine, Create Time, Executable, Parent PID, PID, User, Privileges <br />
-   /usr/bin/python3 /path/to/script.py, 00:10, script.py, 1234, 5678, user1, cap_chown,cap_dac_override| <br />
-   /bin/bash /path/to/terminal.sh, 01:05, terminal.sh, 5678, 9012, user2, N/A <br />
-   /usr/sbin/apache2 -k start, 03:20, apache2, 5678, 3456, root, cap_net_bind_service,cap_net_admin| <br />
+   CommandLine: /usr/bin/python3 script.py, Create Time: 2024-03-14 10:25:17, Executable: python3, Parent PID: 1234, PID: 5678, User: user1, Privileges: N/A <br />
+   CommandLine: /usr/bin/gedit file.txt, Create Time: 2024-03-14 10:30:45, Executable: gedit, Parent PID: 5678, PID: 91011, User: user1, Privileges: N/A <br />
+   CommandLine: C:\Windows\System32\notepad.exe file.txt, Create Time: 2024-03-14 11:15:32, Executable: notepad.exe, Parent PID: 12345, PID: 121314, User: user2, Privileges: SeDebugPrivilege|SeAssignPrimaryTokenPrivilege| <br />
 2. filetactician.py output: <br />
    [+] Created C:\WINDOWS\Temp\example.txt <br />
    [*] Modified C:\WINDOWS\Temp\example.txt <br />

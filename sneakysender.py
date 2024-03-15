@@ -2,61 +2,15 @@
 #################################################################################################
 # Author: Nicholas Fisher
 # Date: March 6th 2024
-# Important Note:
-#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
-# these scripts. They are malicious and should only be used in professionally approved White Hat 
-# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
-# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
-# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
-# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
-# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
-# and if that repository is public, all the extracted data will be available for the whole world to see.
-# Description of Script
-# This script is a comprehensive tool that offers a range of functionalities for email-related tasks 
-# and FTP brute forcing. It allows users to send test emails, brute force email passwords, and 
-# exfiltrate emails from both Gmail and Outlook accounts. Additionally, it enables users to perform 
-# FTP brute force attacks using provided username and password dictionaries. The script presents 
-# an interactive menu, guiding users through various options to choose the desired action. 
-# An example use case could involve a cybersecurity professional testing the security of an 
-# organization's email system and FTP server by attempting to brute force passwords and 
-# exfiltrate sensitive data.
-# Example output:
-# Please enter the server URL address here: smtp.example.com
-# Please enter the account address here: sender@example.com
-# Please input the account password here: ********
-# Please enter the target account address here: receiver@example.com
-# Choose an option:
-# 1. Send a test email
-# 2. Brute force an email password
-# 3. Exfiltrate emails from a Gmail account
-# 4. Exfiltrate emails from an Outlook account (Windows only)
-# 5. Brute force FTP server
-# 6. Exit
-# Option: 1
-# Please enter Test Subject Line here: Test Email
-# Please enter email content here: This is a test email for demonstration purposes.
-# Test email sent successfully.
-# Choose an option:
-# 1. Send a test email
-# 2. Brute force an email password
-# 3. Exfiltrate emails from a Gmail account
-# 4. Exfiltrate emails from an Outlook account (Windows only)
-# 5. Brute force FTP server
-# 6. Exit
-# Option: 5
-# Please enter FTP server address: ftp.example.com
-# Please enter the path to the username dictionary: usernames.txt
-# Please enter the path to the password dictionary: passwords.txt
-# FTP credentials found: Username - admin, Password - secret123
-# Choose an option:
-# 1. Send a test email
-# 2. Brute force an email password
-# 3. Exfiltrate emails from a Gmail account
-# 4. Exfiltrate emails from an Outlook account (Windows only)
-# 5. Brute force FTP server
-# 6. Exit
-# Option: 6
-# Exiting...
+# Description of the Script:
+# The script is a versatile tool designed to facilitate various email-related tasks and FTP 
+# brute-force attacks. It features a user-friendly menu interface that allows users to choose 
+# from several options. These options include sending test emails, exfiltrating emails from Gmail 
+# accounts, and brute-forcing FTP servers. The script prompts users for necessary details such as
+# SMTP server settings, email addresses, and passwords, enabling seamless execution of chosen tasks.
+# Additionally, it has been enhanced to ensure exfiltrated emails are sent to a specified local host
+# email address, ensuring efficient and centralized management of retrieved data. Overall, the script
+# offers a comprehensive solution for email-related operations and FTP security assessments.
 #################################################################################################
 import smtplib
 import imaplib

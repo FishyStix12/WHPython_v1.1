@@ -376,67 +376,38 @@ pip install flask <br />
 5. codeninja.py - This script is a multifunctional tool tailored for tech-savvy users seeking to explore various cybersecurity and data exfiltration techniques. It seamlessly integrates functionalities from four separate scripts, offering options to transmit files, brute-force FTP servers, send test emails, brute-force email passwords, and exfiltrate emails from Gmail and Outlook accounts. With a user-friendly interactive menu, users can effortlessly navigate through the array of features and select their desired actions. For instance, a user can choose to exfiltrate a file via FTP, sending it to a specified IP address, or brute-force an email password to gain access to an account. Overall, this script empowers users with a comprehensive suite of tools for cybersecurity experimentation and exploration. <br />
 
 **Example outputs of some of the scripts!** <br />
-1. transmittron.py output: <br />
-   Main Menu: <br /> 
-   "1. Transmit file directly" <br />
-   "2. Brute force FTP and upload file" <br />
-   "3. Exit" <br />
-   Please select an option: 2 <br />
-   Enter the name of the file to exfiltrate: confidential_data.txt <br />
-   Please enter the FTP server IPv4 address: 192.168.1.100 <br />
-   Enter the path to the username dictionary: usernames.txt <br />
-   Enter the path to the password dictionary: passwords.txt <br />
-   FTP login successful with credentials: admin/123456 <br />
-   File uploaded successfully to FTP server. <br />
-3. codeninja.py output: <br />
-   Choose an option: <br />
-   "1. Transmit file directly" <br />
-   "2. Brute force FTP and upload file" <br />
-   "3. Send a test email" <br />
-   "4. Brute force an email password" <br />
-   "5. Exfiltrate emails from a Gmail account" <br />
-   "6. Exfiltrate emails from an Outlook account (Windows only)" <br />
-   "7. Exit" <br />
-    Option: 1 <br />
-    Enter the name of the file to exfiltrate: sensitive_data.txt <br />
-    Enter the client IP address to transmit the file: 192.168.1.100 <br />
-    File transmitted successfully. <br />
-    Example Output (After selecting option 1): <br />
-    Enter the name of the file to exfiltrate: sensitive_data.txt <br />
-    Enter the client IP address to transmit the file: 192.168.1.100 <br />
-    File transmitted successfully. <br />
-    4. cryptoraptor.py output: <br />
+    1. cryptoraptor.py output: <br />
        Enter the name for the directory to store keys: encryption_keys <br />
        Enter the target host IP address: 192.168.1.100 <br />
        Enter the target port: 12345 <br />
-
+<br />
        Choose an option: <br />
        1. Encrypt file(s) <br />
        2. Decrypt file(s) <br />
        3. Exit <br />
        Enter your choice: 1 <br />
-
+<br />
        Enter the number of files to encrypt: 1 <br />
        Enter the file path to encrypt: /path/to/file.txt <br />
        Encryption of /path/to/file.txt complete. <br />
-
+<br />
        Choose an option: <br />
        1. Encrypt file(s) <br />
        2. Decrypt file(s) <br />
        3. Exit <br />
        Enter your choice: 2 <br />
-
+<br />
        Enter the number of files to decrypt: 1 <br />
        Enter the file path to decrypt: /path/to/file.txt.enc <br />
        Enter the path to the private key: /path/to/private_key.pem <br />
        Decryption of /path/to/file.txt.enc complete. <br />
-
+<br />
        Choose an option: <br />
        1. Encrypt file(s) <br />
        2. Decrypt file(s) <br />
        3. Exit <br />
        Enter your choice: 3 <br />
-
+<br />
        Exiting... <br />
 
 

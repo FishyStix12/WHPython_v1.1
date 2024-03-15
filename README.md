@@ -70,7 +70,7 @@ Host: google.com <br />
    Connected! Tunnel open ('127.0.0.1', 8080) -> ('remote_host', 80) (remote_host:80) <br />
    Tunnel closed from ('127.0.0.1', 8080) <br />
 
-# Packet Sniffer and Port/Vulnerability Scanner <br />
+# Packet Sniffers and Port/Vulnerability Scanners <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/faa2eb23-9d2f-4a7e-911a-84fc0b379440) <br />
 **Important Note: For net_terrorist.py to work please install the scapy and nmap python libraries in linux using the following commands below:** <br />
    pip install scapy <br />

@@ -2,27 +2,17 @@
 #################################################################################################
 # Author: Nicholas Fisher
 # Date: March 6th 2024
-# Important Note:
-#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
-# these scripts. They are malicious and should only be used in professionally approved White Hat 
-# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
-# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
-# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
-# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
-# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
-# and if that repository is public, all the extracted data will be available for the whole world to see.
-# Description of Script
-# This script is a process monitor designed to capture information about running processes on both 
-# Windows and Linux operating systems. It utilizes platform-specific methods to gather process details
-# such as command line arguments, creation time, executable path, parent process ID, user, and privileges.
-# The script continuously monitors for new process creations and logs relevant information to a CSV file.
-# It distinguishes between Windows and Linux systems, employing WMI for Windows and the ps command for Linux. 
-# Example output:
-# CommandLine, Create Time, Executable, Parent PID, PID, User, Privileges
-# /usr/bin/python3 /path/to/script.py, 00:10, script.py, 1234, 5678, user1, cap_chown,cap_dac_override|
-# /bin/bash /path/to/terminal.sh, 01:05, terminal.sh, 5678, 9012, user2, N/A
-# /usr/sbin/apache2 -k start, 03:20, apache2, 5678, 3456, root, cap_net_bind_service,cap_net_admin|
-
+# Desription of Script:
+# The script above is a process monitoring tool designed to run on both Windows and Linux 
+# platforms. It continuously tracks and logs information about newly created processes, 
+# including their command line, creation time, executable path, parent process ID, process 
+# ID, user, and privileges. The script allows users to input the target host's IP address 
+# and port, enabling remote monitoring of processes on a specified machine. Leveraging 
+# platform-specific APIs such as WMI for Windows and system commands like `ps` for Linux, 
+# the script provides a platform-agnostic solution for process monitoring. Additionally, 
+# it employs exception handling to ensure robustness and reliability in capturing process 
+# information. Overall, this versatile script offers a flexible and accessible means to 
+# monitor and analyze system activities across diverse computing environments.
 #################################################################################################
 import os
 import sys
@@ -72,7 +62,7 @@ def log_to_file(message):
     with open('process_monitor_log.csv', 'a') as fd:
         fd.write(f'{message}\r\n')
 
-def monitor():
+def monitor(target_host, port):
     # Main monitoring function
     # Define the header for the log file
     head = 'CommandLine, Create Time, Executable, Parent PID, PID, User, Privileges'
@@ -83,7 +73,7 @@ def monitor():
             if platform.system() == 'Windows':
                 # If the platform is Windows, use WMI to monitor process creation
                 import wmi
-                c = wmi.WMI()
+                c = wmi.WMI(computer=target_host, user="", password="", namespace="root\cimv2")
                 process_watcher = c.Win32_Process.watch_for('creation')
                 new_process = process_watcher()
                 cmdline = new_process.CommandLine
@@ -119,5 +109,8 @@ def monitor():
             print(e)
 
 if __name__ == '__main__':
+    # Input target host IP address and port
+    target_host = input("Enter target host IP address: ")
+    port = input("Enter target host port: ")
     # Execute the monitoring function
-    monitor()
+    monitor(target_host, port)

@@ -3,28 +3,24 @@
 # Author: Nicholas Fisher
 # Date: March 4th 2024
 # Description of Script
-# The provided Python script is designed to extract and save images from HTTP traffic stored in a 
-# PCAP file. It utilizes the Scapy library for packet manipulation and extraction. The script 
-# reads a PCAP file containing network traffic, filters out HTTP packets, extracts images 
-# from the HTTP responses, and saves them to a specified directory. To use the script, you need 
-# to specify the input PCAP file path and the output directory for the extracted images. For 
-# example, to extract images from a PCAP file named 'example.pcap' located in the 'Downloads' 
-# directory and save them to the 'Pictures' directory on the desktop, you would set 
-# PCAPS to '/root/Downloads' and OUTDIR to '/root/Desktop/pictures'. After running the script,
-# it will process the PCAP file and save the extracted images to the specified output directory. 
-# The output will include one or more image files (e.g., ex_0.jpg, ex_1.png, etc.) containing the 
-# extracted images.
+# The script is a Python tool designed to parse pcap files containing network traffic data,
+# particularly HTTP traffic, and extract images transferred over HTTP from a specified target 
+# host. Users can interactively provide inputs such as the path to the pcap file, the target 
+# host's IP address, the target port number, and the output directory for saving the extracted
+# images. Leveraging the Scapy library for packet manipulation, the script identifies relevant
+# packets based on the specified target IP address and port number. It then extracts images 
+# from HTTP responses, considering content type and encoding, and saves them to the designated
+# output directory. With its interactive nature and capability to process pcap files, this 
+# script offers a flexible and efficient solution for extracting images from network traffic data. 
 #################################################################################################
-
-from scapy.all import TCP, rdpcap  # Import necessary modules from scapy
-import collections  # Import collections module for namedtuple
-import os  # Import os module for file operations
-import re  # Import re module for regular expressions
-import sys  # Import sys module for system-specific parameters and functions
-import zlib  # Import zlib module for compression and decompression
-
-OUTDIR = '/root/Desktop/pictures'  # Output directory for extracted files
-PCAPS = '/root/Downloads'  # Directory containing pcap files
+from scapy.all import TCP, IP, rdpcap  
+import collections  
+import os  
+import re  
+import sys 
+import zlib  
+import argparse 
+import logging  
 
 # Named tuple for representing a response with header and payload
 Response = collections.namedtuple('Response', ['header', 'payload'])
@@ -36,8 +32,7 @@ def get_header(payload):
         header_raw = payload[:payload.index(b'\r\n\r\n')+2]
     except ValueError:
         # If '\r\n\r\n' is not found, return None
-        sys.stdout.write('-')
-        sys.stdout.flush()
+        logging.warning('Header not found in payload.')
         return None
     # Parse the header into a dictionary
     header = dict(re.findall(r'(?P<name>.*?): (?P<value>.*?)\r\n', header_raw.decode()))
@@ -66,11 +61,15 @@ def extract_content(response, content_name='image'):
 
 # Class to process pcap files
 class Rcap:
-    def __init__(self, fname):
+    def __init__(self, fname, target_ip, target_port, output_dir):
         # Read pcap file and extract sessions
+        self.fname = fname
         pcap = rdpcap(fname)
         self.sessions = pcap.sessions()
         self.responses = []
+        self.target_ip = target_ip
+        self.target_port = target_port
+        self.output_dir = output_dir
 
     # Method to extract responses from sessions
     def get_responses(self):
@@ -79,12 +78,14 @@ class Rcap:
             for packet in self.sessions[session]:
                 try:
                     # Check if packet is HTTP (port 80)
-                    if packet[TCP].dport == 80 or packet[TCP].sport == 80:
-                        payload += bytes(packet[TCP].payload)
+                    if packet.haslayer(TCP) and packet.haslayer(IP):
+                        if packet[IP].dst == self.target_ip and packet[TCP].dport == self.target_port:
+                            payload += bytes(packet[TCP].payload)
+                        elif packet[IP].src == self.target_ip and packet[TCP].sport == self.target_port:
+                            payload += bytes(packet[TCP].payload)
                 except IndexError:
-                    # If index error occurs, print 'x'
-                    sys.stdout.write('x')
-                    sys.stdout.flush()
+                    # If index error occurs, log a warning
+                    logging.warning('IndexError occurred while processing packet.')
             # If payload is not empty, extract header and add response to list
             if payload:
                 header = get_header(payload)
@@ -98,19 +99,31 @@ class Rcap:
             content, content_type = extract_content(response, content_name)
             if content and content_type:
                 # Construct file name using index and content type
-                fname = os.path.join(OUTDIR, f'ex_{i}.{content_type}')
+                fname = os.path.join(self.output_dir, f'ex_{i}.{content_type}')
                 # Print message and write content to file
-                print(f'Writing {fname}')
+                logging.info(f'Writing {fname}')
                 with open(fname, 'wb') as f:
                     f.write(content)
 
 # Main section
 if __name__ == '__main__':
-    # Specify pcap file path
-    pfile = os.path.join(PCAPS, 'pcap.pcap')
-    # Initialize Rcap instance with pcap file
-    rcap = Rcap(pfile)
+    # Set up logging
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+    # User input for target host IP address and port
+    pcap_file = input("Enter the path to the pcap file: ")
+    target_ip = input("Enter the target host IP address: ")
+    target_port = input("Enter the target port number: ")
+    output_dir = input("Enter the output directory for extracted files (press Enter for default): ") or '/root/Desktop/pictures'
+
+    # Validate output directory
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    # Initialize Rcap instance with user inputs
+    rcap = Rcap(pcap_file, target_ip, int(target_port), output_dir)
     # Extract responses from pcap file
     rcap.get_responses()
     # Write extracted content to files
     rcap.write('image')
+

@@ -351,51 +351,14 @@ pip install ftplib <br />
 pip install flask <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
-1. cryptoraptor.py - The script is a versatile file encryption tool designed to offer robust security through advanced encryption algorithms. It employs a combination of AES and RSA encryption, utilizing key sizes optimized for enhanced security. Specifically, RSA keys with a substantial size of 8192 bits are employed for secure key exchange, while AES keys of 512 bits ensure strong symmetric encryption. Users can encrypt and decrypt files seamlessly, with the script facilitating key generation and transmission for seamless cryptographic operations. With a user-friendly interface and heightened security measures, the script provides a reliable solution for safeguarding sensitive data during transmission and storage.<br />
-2. sneakysender.py - This script is a comprehensive tool that offers a range of functionalities for email-related tasks and FTP brute forcing. It allows users to send test emails, brute force email passwords, and exfiltrate emails from both Gmail and Outlook accounts. Additionally, it enables users to perform FTP brute force attacks using provided username and password dictionaries. The script presents an interactive menu, guiding users through various options to choose the desired action. An example use case could involve a cybersecurity professional testing the security of an organization's email system and FTP server by attempting to brute force passwords and exfiltrate sensitive data. <br />
+1. cryptoraptor.py - The script is a versatile file encryption tool designed to offer robust security through advanced encryption algorithms. It employs a combination of AES and RSA encryption, utilizing key sizes optimized for enhanced security. Specifically, RSA keys with a substantial size of 8192 bits are employed for secure key exchange, while AES keys of 512 bits ensure strong symmetric encryption. Users can encrypt and decrypt files seamlessly, with the script facilitating key generation and transmission for seamless cryptographic operations. With a user-friendly interface and heightened security measures, the script provides a reliable solution for safeguarding sensitive data during transmission and storage. <br />
+2. sneakysender.py - The script is a versatile tool designed to facilitate various email-related tasks and FTP brute-force attacks. It features a user-friendly menu interface that allows users to choose from several options. These options include sending test emails, exfiltrating emails from Gmail accounts, and brute-forcing FTP servers. The script prompts users for necessary details such as SMTP server settings, email addresses, and passwords, enabling seamless execution of chosen tasks. Additionally, it has been enhanced to ensure exfiltrated emails are sent to a specified local host email address, ensuring efficient and centralized management of retrieved data. Overall, the script offers a comprehensive solution for email-related operations and FTP security assessments. <br />
 3. transmittron.py - This script is a versatile tool designed for exfiltrating files from both Windows and Linux systems. It incorporates functionalities to transmit files directly to a specified IP address or perform FTP brute force attacks followed by file uploads to the target FTP server. Users are presented with an interactive menu interface, simplifying the process of selecting the desired action. For instance, a user can run the script, choose to transmit a file directly by providing the file name and client IP address, or opt for an FTP brute force attack by specifying the target server's IP address along with the paths to username and password dictionaries. Upon successful execution, the script provides informative feedback, indicating actions taken or any encountered errors, ensuring users are kept informed throughout the process. <br />
 4. file_funneler.py - This script is a Python application designed to perform various tasks related to file manipulation and FTP operations. The script utilizes Flask to create a web server that provides endpoints for uploading files and exfiltrating files via FTP. <br />
 5. codeninja.py - This script is a multifunctional tool tailored for tech-savvy users seeking to explore various cybersecurity and data exfiltration techniques. It seamlessly integrates functionalities from four separate scripts, offering options to transmit files, brute-force FTP servers, send test emails, brute-force email passwords, and exfiltrate emails from Gmail and Outlook accounts. With a user-friendly interactive menu, users can effortlessly navigate through the array of features and select their desired actions. For instance, a user can choose to exfiltrate a file via FTP, sending it to a specified IP address, or brute-force an email password to gain access to an account. Overall, this script empowers users with a comprehensive suite of tools for cybersecurity experimentation and exploration. <br />
 
 **Example outputs of some of the scripts!** <br />
-1. sneakysender.py output : <br />
-   Please enter the server URL address here: smtp.example.com <br />
-  Please enter the account address here: sender@example.com <br />
-  Please input the account password here: ******** <br />
-  Please enter the target account address here: receiver@example.com <br />
-  Choose an option: <br />
-  "1. Send a test email" <br />
-  "2. Brute force an email password" <br />
-  "3. Exfiltrate emails from a Gmail account" <br />
-  "4. Exfiltrate emails from an Outlook account (Windows only)" <br />
-  "5. Brute force FTP server" <br />
-  "6. Exit" <br />
-  Option: 1 <br />
-  Please enter Test Subject Line here: Test Email <br />
-  Please enter email content here: This is a test email for demonstration purposes. <br />
-  Test email sent successfully. <br />
-  Choose an option: <br />
-  "1. Send a test email" <br />
-  "2. Brute force an email password" <br />
-  "3. Exfiltrate emails from a Gmail account" <br />
-  "4. Exfiltrate emails from an Outlook account (Windows only)" <br />
-  "5. Brute force FTP server" <br />
-  "6. Exit" <br />
-  Option: 5 <br />
-  Please enter FTP server address: ftp.example.com <br /> 
-  Please enter the path to the username dictionary: usernames.txt <br />
-  Please enter the path to the password dictionary: passwords.txt <br />
-  FTP credentials found: Username - admin, Password - secret123 <br />
-  Choose an option: <br />
-  "1. Send a test email" <br />
-  "2. Brute force an email password" <br />
-  "3. Exfiltrate emails from a Gmail account" <br />
-  "4. Exfiltrate emails from an Outlook account (Windows only)" <br />
-  "5. Brute force FTP server" <br />
-  "6. Exit" <br />
-  Option: 6 <br />
-  Exiting... <br />
-2. transmittron.py output: <br />
+1. transmittron.py output: <br />
    Main Menu: <br /> 
    "1. Transmit file directly" <br />
    "2. Brute force FTP and upload file" <br />

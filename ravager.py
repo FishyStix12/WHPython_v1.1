@@ -3,31 +3,26 @@
 # Author: Nicholas Fisher
 # Date: March 4th 2024
 # Description of Script
-# This Python script is a simple tool for performing directory busting on a web server using a 
-# wordlist of common directory names and file extensions. It takes a target URL and a wordlist 
-# file as inputs, and then iterates through the combinations of words and extensions to construct 
-# URLs to check. It uses threading to speed up the process by making multiple HTTP requests 
-# simultaneously.
-# Example output:
-# Please input URL here: http://example.com
-# Enter path to all.txt file: wordlist.txt
-# Press return to continue.
-# Success (200: http://example.com/admin.php)
-# Success (200: http://example.com/test.bak)
-# 404 => http://example.com/notfound.php
+# This script is a directory busting tool designed to enumerate directories and files on a web 
+# server. It prompts the user to input the target host IP address, port, and the path to a 
+# wordlist file containing potential directory and file names. Utilizing threading for concurrent
+# requests, it sends HTTP requests to the specified host, attempting to access each directory and 
+# file combination generated from the provided wordlist. If a directory or file is found, it outputs
+# a success message along with the corresponding URL. This tool is commonly used in security
+# testing to identify hidden or unprotected resources on web servers.
 #################################################################################################
-# Import necessary libraries
-import queue  # For queue data structure
-import requests  # For making HTTP requests
-import threading  # For threading support
-import sys  # For system-specific parameters and functions
+import queue  
+import requests  
+import threading  
+import sys  
 
 # Set user agent for HTTP requests
 AGENT = "Mozilla/5.0 (x11; Linux x86_64; rv:19.0) Gecko/20100101 Firefox/19.0"
 # Common file extensions to append to URLs
 EXTENSIONS = ['.php', '.bak', '.orig', '.inc']
-# Get target URL from user input
-TARGET = input("Please input URL here: ")
+# Get target host IP address and port from user input
+HOST = input("Please input target host IP address: ")
+PORT = input("Please input target port: ")
 # Number of threads for concurrent requests
 THREADS = 50
 # Get wordlist file path from user input
@@ -65,7 +60,7 @@ def get_words(resume=None):
 def dir_buster(words):
     headers = {'User-Agent': AGENT}
     while not words.empty():
-        url = f'{TARGET}{words.get()}'
+        url = f'http://{HOST}:{PORT}{words.get()}'
         try:
             r = requests.get(url, headers=headers)
             if r.status_code == 200:

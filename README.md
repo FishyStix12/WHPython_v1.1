@@ -420,7 +420,7 @@ pip install psutil <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. tasktactician.py - The script above is a process monitoring tool designed to run on both Windows and Linux platforms. It continuously tracks and logs information about newly created processes, including their command line, creation time, executable path, parent process ID, process ID, user, and privileges. The script allows users to input the target host's IP address and port, enabling remote monitoring of processes on a specified machine. Leveraging platform-specific APIs such as WMI for Windows and system commands like `ps` for Linux, the script provides a platform-agnostic solution for process monitoring. Additionally, it employs exception handling to ensure robustness and reliability in capturing process information. Overall, this versatile script offers a flexible and accessible means to monitor and analyze system activities across diverse computing environments. <br />
-2. filetactician.py - This script is a cross-platform file activity monitor written in Python. It leverages system-specific APIs such as the Windows API for Windows systems and the psutil library for Linux systems to track various file operations such as creation, deletion, modification, renaming, copying, and pasting. Additionally, on Windows, it monitors the clipboard for file paste actions. By running the script, users can observe real-time file system changes in the specified directories on both Windows and Linux environments. For instance, users can execute the script with the directories they want to monitor as command-line arguments. Upon execution, the script continuously monitors the specified directories and outputs relevant information about file activities to the console. <br />
+2. filetactician.py - The script is a versatile monitoring tool designed to observe file system activities either locally or on a remote host. It offers two modes of operation: "monitor" and "client". In "monitor" mode, it actively tracks file system changes within specified directories on the local machine using Windows-specific functionality. Meanwhile, in "client" mode, it connects to a remote host, allowing users to monitor activities on that machine by receiving and printing data transmitted from the remote host. This flexibility enables users to choose between monitoring their own system or observing the activities of a remote system, enhancing their ability to oversee and manage file operations across different environments. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. tasktactian.py output: <br />
@@ -428,13 +428,17 @@ pip install psutil <br />
    CommandLine: /usr/bin/gedit file.txt, Create Time: 2024-03-14 10:30:45, Executable: gedit, Parent PID: 5678, PID: 91011, User: user1, Privileges: N/A <br />
    CommandLine: C:\Windows\System32\notepad.exe file.txt, Create Time: 2024-03-14 11:15:32, Executable: notepad.exe, Parent PID: 12345, PID: 121314, User: user2, Privileges: SeDebugPrivilege|SeAssignPrimaryTokenPrivilege| <br />
 2. filetactician.py output: <br />
-   [+] Created C:\WINDOWS\Temp\example.txt <br />
-   [*] Modified C:\WINDOWS\Temp\example.txt <br />
+   In Monitor Mode: <br />
+   Choose mode (monitor/client): monitor <br /> 
+   [+] Created c:\WINDOWS\Temp\example.txt <br />
+   [\*] Modified c:\WINDOWS\Temp\example.txt <br />
    [vvv] Dumping contents ... <br />
    This is an example file. <br />
    [^^^] Dump Complete. <br />
-   [+] Copied C:\WINDOWS\Temp\example.txt <br />
-   [+] Pasted C:\Users\User\Desktop\example.txt <br />
+   [+] Copied c:\WINDOWS\Temp\example.txt <br />
+   [+] Pasted c:\WINDOWS\Temp\example_copy.txt <br />
+   [-] Deleted c:\WINDOWS\Temp\example_copy.txt <br />
+
 
 # Cyber Sherlock: Investigating Digital Misdeeds <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/78679002-4467-48aa-b43d-72e6e3228d8f) <br />

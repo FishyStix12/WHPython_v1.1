@@ -3,11 +3,16 @@
 # Author: Nicholas Fisher
 # Date: March 4th 2024
 # Description of Script
-# The script is a versatile network scanning tool designed to provide comprehensive insights into
-# network security vulnerabilities. Leveraging the capabilities of Nmap and Metasploit, it conducts
-# real-time packet sniffing to detect active hosts, performs detailed Nmap scans to uncover open ports,
-# services, and potential vulnerabilities, and utilizes the Metasploit RPC interface to search for
-# exploit modules corresponding to identified CVEs.
+# This script is a tool crafted for ethical hacking endeavors, focusing on network reconnaissance 
+# and vulnerability assessment. Leveraging the `python-nmap` library, it orchestrates comprehensive
+# scans on remote hosts, probing for open ports, identifying service versions, and detecting 
+# potential security weaknesses. Multithreading capabilities empower the script to concurrently
+# monitor network traffic, triggering Nmap scans upon detecting novel hosts. Users can input 
+# either single IP addresses or CIDR notations to specify target ranges for scanning. With 
+# integration of the `vulners` script, the tool extends its functionality to include vulnerability
+# detection, highlighting potential threats and associated CVE identifiers. This versatile
+# script equips ethical hackers with essential insights, aiding in the identification and 
+# mitigation of security risks within authorized systems. 
 #################################################################################################
 Using this script below
 import sys  

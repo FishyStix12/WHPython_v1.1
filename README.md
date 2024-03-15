@@ -22,6 +22,8 @@ This is a repository of White hat python codes to be used for Pentesting. <br />
 
 # Network Tools <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/236dbe23-19e8-47ca-b7ef-f99bebacc27c) <br />
+**Important Note, you need to modifiy some of these scripts to change variables like remote_host in the script to your targets IP address. Please edit the scripts that require change to ensure they properly work.** <br />
+
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. VenvConfig.sh - This script creates new python3 environments,loads one module, and tests to see if the enviroment is using python3. To ensure that this script works please install the venv tool. The command to install venv is in the description of this script. <br /> 
 2. IDEConfig.sh - This script is used to install and setup the Visual Studio IDE. <br />

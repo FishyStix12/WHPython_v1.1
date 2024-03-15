@@ -7,19 +7,15 @@
 # network security vulnerabilities. Leveraging the capabilities of Nmap and Metasploit, it conducts
 # real-time packet sniffing to detect active hosts, performs detailed Nmap scans to uncover open ports,
 # services, and potential vulnerabilities, and utilizes the Metasploit RPC interface to search for
-# exploit modules corresponding to identified CVEs. By seamlessly integrating these powerful tools,
-# the script empowers security professionals to proactively identify and mitigate security risks 
-# within their network infrastructure, thereby enhancing overall security posture and safeguarding
-# against potential cyber threats. Additionally, its interactive nature, such as prompting the 
-# user for the Metasploit RPC password, ensures ease of use and customization, making it an 
-# invaluable asset in the arsenal of network security tools.
+# exploit modules corresponding to identified CVEs.
 #################################################################################################
+Using this script below
 import sys  
 import threading  
 import ipaddress  
 import re 
-import nmap
-from metasploit.msfrpc import MsfRpcClient  
+from scapy.all import *  
+import nmap  
 
 # Set to store scanned hosts to avoid duplicate scans
 scanned_hosts = set()  # Initialize an empty set to store scanned hosts
@@ -98,31 +94,9 @@ def nmap_scan(host):
                         if cve_matches:
                             print("CVEs Found:", ", ".join(cve_matches))
 
-                            # Search for Metasploit modules
-                            search_metasploit(cve_matches)
-
     except Exception as e:
         # Print error message if an exception occurs during Nmap scan
         print(f"Error during Nmap scan: {e}")
-
-# Function to search Metasploit modules for given CVE IDs
-def search_metasploit(cve_ids):
-    print("\nMetasploit modules for the found vulnerabilities:")
-    try:
-        rpc_password = input("Enter Metasploit RPC Password: ")
-        client = MsfRpcClient(rpc_password)
-
-        for cve_id in cve_ids:
-            search_results = client.modules.search(cve_id)
-            if search_results:
-                print(f"\nVulnerability: {cve_id}")
-                for module in search_results:
-                    print(f"Module: {module['fullname']} ({module['path']})")
-            else:
-                print(f"\nNo Metasploit modules found for vulnerability: {cve_id}")
-
-    except Exception as e:
-        print(f"Error searching Metasploit modules: {e}")
 
 # Function to start packet sniffing
 def sniff_packets():
@@ -172,7 +146,7 @@ def main():
                             # Print message about starting Nmap scan
                             print(f"Starting Nmap scan for host: {ip_address}")
                             # Start a new thread to perform Nmap scan
-                            threading.Thread(target=nmap_scan, args=(ip_address,)).start()
+                            threading.Thread(target=nmap_scan, args=(ip_address, port_range)).start()
                 else:
                     # Print message about scanning IP address
                     print("Scanning IP:", remote_input)
@@ -185,7 +159,7 @@ def main():
                         # Print message about starting Nmap scan
                         print(f"Starting Nmap scan for host: {remote_input}")
                         # Start a new thread to perform Nmap scan
-                        threading.Thread(target=nmap_scan, args=(remote_input,)).start()
+                        threading.Thread(target=nmap_scan, args=(remote_input, port_range)).start()
 
             except KeyboardInterrupt:
                 # Print message and exit gracefully if Ctrl+C is pressed
@@ -202,5 +176,3 @@ def main():
 if __name__ == "__main__":
     # Call the main function
     main()
-
-

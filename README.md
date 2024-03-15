@@ -79,8 +79,8 @@ Host: google.com <br />
    pip install python-nmap <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
-net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors, focusing on network reconnaissance and vulnerability assessment. Leveraging the `python-nmap` library, it orchestrates comprehensive scans on remote hosts, probing for open ports, identifying service versions, and detecting potential security weaknesses. Multithreading capabilities empower the script to concurrently monitor network traffic, triggering Nmap scans upon detecting novel hosts. Users can input either single IP addresses or CIDR notations to specify target ranges for scanning. With integration of the `vulners` script, the tool extends its functionality to include vulnerability detection, highlighting potential threats and associated CVE identifiers. This versatile script equips ethical hackers with essential insights, aiding in the identification and mitigation of security risks within authorized systems. <br />
-
+1. net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors, focusing on network reconnaissance and vulnerability assessment. Leveraging the `python-nmap` library, it orchestrates comprehensive scans on remote hosts, probing for open ports, identifying service versions, and detecting potential security weaknesses. Multithreading capabilities empower the script to concurrently monitor network traffic, triggering Nmap scans upon detecting novel hosts. Users can input either single IP addresses or CIDR notations to specify target ranges for scanning. With integration of the `vulners` script, the tool extends its functionality to include vulnerability detection, highlighting potential threats and associated CVE identifiers. This versatile script equips ethical hackers with essential insights, aiding in the identification and mitigation of security risks within authorized systems. <br />
+2. darknet_recon.py - The script provided is a Python tool for conducting network scans using Nmap and searching for Metasploit modules corresponding to identified vulnerabilities. It prompts the user to input remote IP addresses or CIDR notations for scanning. After performing Nmap scans to discover hosts and their open ports along with potential vulnerabilities, the script simulates finding CVE IDs. It then utilizes Metasploit's `msfconsole` command-line tool to search for exploit modules related to the identified CVEs. The user is prompted to enter the superuser password when required for executing commands. Overall, this script serves as a versatile tool for network reconnaissance and vulnerability assessment, seamlessly integrating Nmap and Metasploit functionalities. <br />
 **Example outputs of some of the scripts!** <br />
 1. net_terrorizer.py output: <br />
    Enter the remote IP address or CIDR notation to scan (press Enter to exit): 192.168.0.1 <br />
@@ -120,6 +120,24 @@ net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors,
    Enter the remote IP address or CIDR notation to scan (press Enter to exit): <br />
    Exiting... <br />
 
+2. darknet_recon.py output: <br />
+   Enter the remote IP address or CIDR notation to scan (press Enter to exit): 192.168.1.0/24 <br />
+   Nmap scan results for host: 192.168.1.1 <br />
+   Host: 192.168.1.1 <br />
+   Protocol: tcp <br />
+   Port: 22    State: open    Service: ssh    Product: OpenSSH    Version: 7.6p1 Ubuntu    Extra Info: protocol 2.0 <br />
+   Port: 80    State: open    Service: http    Product: nginx    Version: 1.14.0    Extra Info: (Ubuntu) <br />
+
+   Metasploit modules for the found vulnerabilities: <br />
+
+   Vulnerability: CVE-2017-1001000 <br />
+   No Metasploit modules found for vulnerability: CVE-2017-1001000 <br />
+
+   Vulnerability: CVE-2019-6977 <br />
+   Module: exploit/linux/http/paloalto_traps_unauth_rce (Linux) <br />
+
+   Vulnerability: CVE-2018-1000861 <br />
+   No Metasploit modules found for vulnerability: CVE-2018-1000861 <br />
 
 
 # Scapy Unleashed: Conquer the Network <br />

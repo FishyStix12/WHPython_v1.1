@@ -351,7 +351,7 @@ pip install ftplib <br />
 pip install flask <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
-1. cryptoraptor.py - This script is a versatile encryption and decryption tool utilizing AES and RSA algorithms. Upon execution, the script presents the user with a menu offering options to either encrypt or decrypt files. For encryption, the script generates new RSA key pairs for each file, encrypts the file using AES, and saves the encrypted data along with the corresponding public and private keys. Decryption requires the user to provide the path to the private key associated with the encrypted file. The script then decrypts the file using the specified private key and outputs the decrypted content. For instance, a user can encrypt a sensitive document by selecting the "Encrypt file(s)" option, providing the file path, and subsequently decrypt it using the "Decrypt file(s)" option with the corresponding private key path. Example output might include messages confirming successful encryption or decryption operations, along with any errors encountered during execution. <br />
+1. cryptoraptor.py - The script is a versatile file encryption tool designed to offer robust security through advanced encryption algorithms. It employs a combination of AES and RSA encryption, utilizing key sizes optimized for enhanced security. Specifically, RSA keys with a substantial size of 8192 bits are employed for secure key exchange, while AES keys of 512 bits ensure strong symmetric encryption. Users can encrypt and decrypt files seamlessly, with the script facilitating key generation and transmission for seamless cryptographic operations. With a user-friendly interface and heightened security measures, the script provides a reliable solution for safeguarding sensitive data during transmission and storage.<br />
 2. sneakysender.py - This script is a comprehensive tool that offers a range of functionalities for email-related tasks and FTP brute forcing. It allows users to send test emails, brute force email passwords, and exfiltrate emails from both Gmail and Outlook accounts. Additionally, it enables users to perform FTP brute force attacks using provided username and password dictionaries. The script presents an interactive menu, guiding users through various options to choose the desired action. An example use case could involve a cybersecurity professional testing the security of an organization's email system and FTP server by attempting to brute force passwords and exfiltrate sensitive data. <br />
 3. transmittron.py - This script is a versatile tool designed for exfiltrating files from both Windows and Linux systems. It incorporates functionalities to transmit files directly to a specified IP address or perform FTP brute force attacks followed by file uploads to the target FTP server. Users are presented with an interactive menu interface, simplifying the process of selecting the desired action. For instance, a user can run the script, choose to transmit a file directly by providing the file name and client IP address, or opt for an FTP brute force attack by specifying the target server's IP address along with the paths to username and password dictionaries. Upon successful execution, the script provides informative feedback, indicating actions taken or any encountered errors, ensuring users are kept informed throughout the process. <br />
 4. file_funneler.py - This script is a Python application designed to perform various tasks related to file manipulation and FTP operations. The script utilizes Flask to create a web server that provides endpoints for uploading files and exfiltrating files via FTP. <br />
@@ -424,6 +424,40 @@ pip install flask <br />
     Enter the name of the file to exfiltrate: sensitive_data.txt <br />
     Enter the client IP address to transmit the file: 192.168.1.100 <br />
     File transmitted successfully. <br />
+    4. cryptoraptor.py output: <br />
+       Enter the name for the directory to store keys: encryption_keys <br />
+       Enter the target host IP address: 192.168.1.100 <br />
+       Enter the target port: 12345 <br />
+
+       Choose an option: <br />
+       1. Encrypt file(s) <br />
+       2. Decrypt file(s) <br />
+       3. Exit <br />
+       Enter your choice: 1 <br />
+
+       Enter the number of files to encrypt: 1 <br />
+       Enter the file path to encrypt: /path/to/file.txt <br />
+       Encryption of /path/to/file.txt complete. <br />
+
+       Choose an option: <br />
+       1. Encrypt file(s) <br />
+       2. Decrypt file(s) <br />
+       3. Exit <br />
+       Enter your choice: 2 <br />
+
+       Enter the number of files to decrypt: 1 <br />
+       Enter the file path to decrypt: /path/to/file.txt.enc <br />
+       Enter the path to the private key: /path/to/private_key.pem <br />
+       Decryption of /path/to/file.txt.enc complete. <br />
+
+       Choose an option: <br />
+       1. Encrypt file(s) <br />
+       2. Decrypt file(s) <br />
+       3. Exit <br />
+       Enter your choice: 3 <br />
+
+       Exiting... <br />
+
 
 # Hacky Hierarchy <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />

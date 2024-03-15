@@ -2,32 +2,15 @@
 #################################################################################################
 # Author: Nicholas Fisher
 # Date: March 6th 2024
-# Important Note:
-#  I, Nicholas Fisher, the creator of this Trojan malware, am not responsible for the misuse of 
-# these scripts. They are malicious and should only be used in professionally approved White Hat 
-# scenarios. You are responsible for any consequences resulting from the misuse of this malware,
-# including all fines, fees, and repercussions. Please read this statement carefully: by downloading 
-# any of the scripts in this repository, you, as the user, take full responsibility for storing, using,
-# and testing these malicious scripts and guidelines. You also take full responsibility for any misuse 
-# of this malware. Please note that any data the Trojan extracts will be posted to a GitHub repository, 
-# and if that repository is public, all the extracted data will be available for the whole world to see.
-# Description of Script
-# This script is a cross-platform file activity monitor written in Python. It leverages system-specific
-# APIs such as the Windows API for Windows systems and the psutil library for Linux systems to track 
-# various file operations such as creation, deletion, modification, renaming, copying, and pasting. 
-# Additionally, on Windows, it monitors the clipboard for file paste actions. By running the script,
-# users can observe real-time file system changes in the specified directories on both Windows and 
-# Linux environments. For instance, users can execute the script with the directories they want 
-# to monitor as command-line arguments. Upon execution, the script continuously monitors the 
-# specified directories and outputs relevant information about file activities to the console.
-# Example output:
-# [+] Created C:\WINDOWS\Temp\example.txt
-# [*] Modified C:\WINDOWS\Temp\example.txt
-# [vvv] Dumping contents ...
-# This is an example file.
-# [^^^] Dump Complete.
-# [+] Copied C:\WINDOWS\Temp\example.txt
-# [+] Pasted C:\Users\User\Desktop\example.txt
+# Description of the Script:
+# The script is a versatile monitoring tool designed to observe file system activities either
+# locally or on a remote host. It offers two modes of operation: "monitor" and "client". In 
+# "monitor" mode, it actively tracks file system changes within specified directories on the 
+# local machine using Windows-specific functionality. Meanwhile, in "client" mode, it connects 
+# to a remote host, allowing users to monitor activities on that machine by receiving and 
+# printing data transmitted from the remote host. This flexibility enables users to choose
+# between monitoring their own system or observing the activities of a remote system,
+# enhancing their ability to oversee and manage file operations across different environments.
 #################################################################################################
 import os
 import tempfile
@@ -37,6 +20,7 @@ import win32file
 import win32clipboard
 import time
 import psutil  # Process and system utilities (for Linux process monitoring)
+import socket
 
 # Define constants for file actions
 FILE_CREATED = 1
@@ -94,7 +78,6 @@ def monitor_windows(path_to_watch):
                 # Handle different file actions
                 if action == FILE_CREATED:
                     print(f'[+] Created {full_filename}')
-                    inject_into_file(full_filename)
                 elif action == FILE_DELETED:
                     print(f'[-] Deleted {full_filename}')
                 elif action == FILE_MODIFIED:
@@ -124,55 +107,38 @@ def monitor_windows(path_to_watch):
         except Exception:
             pass
 
-def monitor_linux():
-    """Monitor processes and file activities on Linux."""
-    while True:
-        for proc in psutil.process_iter(['pid', 'name']):
-            print(f'[+] Process: {proc.pid} - {proc.info["name"]}')
-        # Add code here to monitor file activities on Linux
+def client():
+    target_ip = input("Enter target host IP address: ")
+    target_port = int(input("Enter target port: "))
 
-def monitor_clipboard():
-    """Monitor clipboard for file paste actions."""
-    global copied_file_path
-    global pasted_file_path
+    # Connect to the remote host
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        try:
+            s.connect((target_ip, target_port))
+            print(f"Connected to {target_ip}:{target_port}")
 
-    # Function to check clipboard for file paste
-    def check_clipboard():
-        while True:
-            try:
-                win32clipboard.OpenClipboard(0)  # Open clipboard
-                clipboard_data = win32clipboard.GetClipboardData(win32clipboard.CF_HDROP)  # Get clipboard data
-                win32clipboard.CloseClipboard()  # Close clipboard
+            while True:
+                # Receive data from the remote host and print it
+                data = s.recv(1024).decode()
+                if not data:
+                    break
+                print(data)
+        except ConnectionRefusedError:
+            print("Connection refused. Make sure the remote host is accepting connections.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
-                # Check if clipboard data contains a single file path
-                if clipboard_data and len(clipboard_data) == 1:
-                    global pasted_file_path
-                    pasted_file_path = clipboard_data[0].decode('utf-8')
-                    print(f'[+] Pasted from clipboard: {pasted_file_path}')
-            except Exception as e:
-                print(f'Error monitoring clipboard: {e}')
-            finally:
-                time.sleep(1)
-
-    # Start clipboard monitoring thread
-    clipboard_thread = threading.Thread(target=check_clipboard)
-    clipboard_thread.daemon = True  # Daemonize the thread
-    clipboard_thread.start()  # Start the thread
-
-def inject_into_file(file_path):
-    """Inject the script into the file."""
-    # Add code here to inject the script into the specified file
-    pass
+def main():
+    mode = input("Choose mode (monitor/client): ").lower()
+    if mode == "monitor":
+        # Start monitoring on Windows
+        for path in PATHS:
+            monitor_thread = threading.Thread(target=monitor_windows, args=(path,))
+            monitor_thread.start()  # Start monitoring thread
+    elif mode == "client":
+        client()
+    else:
+        print("Invalid mode. Choose 'monitor' or 'client'.")
 
 if __name__ == '__main__':
-    # Start monitoring on Windows
-    for path in PATHS:
-        monitor_thread = threading.Thread(target=monitor_windows, args=(path,))
-        monitor_thread.start()  # Start monitoring thread
-
-    # Start monitoring on Linux
-    monitor_thread_linux = threading.Thread(target=monitor_linux)
-    monitor_thread_linux.start()  # Start monitoring thread
-
-    # Start monitoring clipboard for paste actions on Windows
-    monitor_clipboard()
+    main()

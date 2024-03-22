@@ -26,11 +26,22 @@ pip install ctypes
 pip install os
 pip install platform
 pip install time
-pip install pywin32
 pip install python3-xlib
 pip install argsparce
 pip install pycryptodomex
 pip install smtplib
-pip install pywin32
+python -m pip install --upgrade pywin32
+python3 -m pip install idna
+python -m pip install urllib3
+ python -m pip install requests
 pip install ftplib
-pip install flask
+pip install -U Flask
+pip install certifi
+easy_install pi
+pip install -U itsdangerous
+pip install colorama
+pip install wmi
+pip install -U click
+pip install -U Werkzeug
+pip install -U MarkupSafe
+ pip install -U Jinja2

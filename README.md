@@ -1,6 +1,9 @@
 # White Hat Python Version 1.02
 # By: Nicholas Fisher
 
+**Python Library Configuration Script:**
+pylib_config.sh - The script is a series of commands for setting up a Python environment with various libraries and dependencies. It begins by installing Scapy, a powerful packet manipulation tool, followed by updating the system packages using 'apt-get'. Then it installs Nmap, a network scanning tool, and Python bindings for Nmap. The script proceeds to install several Python packages including multiprocessing, OpenCV, requests, lxml, BeautifulSoup, github3.py, base64, importlib, json, random, sys, threading, time, datetime, python-magic, pythoncom, pyWinhook, psutil, pynput, ctypes, os, platform, pywin32, python3-xlib, argsparce, pycryptodomex, smtplib, ftplib, and Flask. These packages cover a wide range of functionalities including network manipulation, web scraping, GUI development, cryptography, system monitoring, and web server development. <br />
+
 **Disclaimer: These scripts should only be used in cases where the user has permission to use these scripts on the subject systems!** <br />
 
 **Import Note: Please read this statement carefully: By downloading any of the scripts in this repository, you, as the user, take full responsibility for storing, and using these scripts. You also take full responsibility for any misuse of these malicious codes. Finally, Please note that any data the Trojan extracts will be posted to a GitHub repository, and if that repository is public, all the extracted data will be available for the whole world to see.** <br />

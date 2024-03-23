@@ -19,7 +19,11 @@ pip install time
 pip install datetime
 pip install python-magic
 pip install pythoncom
-pip install pyWinhook
+sudo apt update
+sudo apt install python3 python3-pip
+sudo apt install libffi-dev libpython3-dev
+pip3 install pywinhook
+import pywinhook
 pip install psutil
 pip install pynput
 pip install ctypes

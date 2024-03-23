@@ -2,7 +2,7 @@
 # By: Nicholas Fisher
 
 **Python Library Configuration Script:** <br />
-pylib_config.sh - The script is a series of commands for setting up a Python environment with various libraries and dependencies. It begins by installing Scapy, a powerful packet manipulation tool, followed by updating the system packages using 'apt-get'. Then it installs Nmap, a network scanning tool, and Python bindings for Nmap. The script proceeds to install several Python packages including multiprocessing, OpenCV, requests, lxml, BeautifulSoup, github3.py, base64, importlib, json, random, sys, threading, time, datetime, python-magic, pythoncom, pyWinhook, psutil, pynput, ctypes, os, platform, pywin32, python3-xlib, argsparce, pycryptodomex, smtplib, ftplib, and Flask. These packages cover a wide range of functionalities including network manipulation, web scraping, GUI development, cryptography, system monitoring, and web server development. <br />
+pylib_config.sh - The script is designed to set up a Python development environment on Kali Linux for ethical hacking purposes. It updates system packages, installs necessary system libraries, and then proceeds to install various Python libraries commonly used by ethical hackers. These libraries include tools for network scanning (scapy, nmap), web scraping and parsing (beautifulsoup4, lxml), interacting with GitHub (github3.py), handling encryption and encoding (base64, pycryptodomex), sending emails (smtplib), working with Windows hooks (pywin32, pywinhook), and more. <br />
 
 **Disclaimer: These scripts should only be used in cases where the user has permission to use these scripts on the subject systems!** <br />
 

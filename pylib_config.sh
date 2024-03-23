@@ -1,51 +1,36 @@
-pip install scapy
-sudo apt-get update
-sudo apt-get install nmap
-pip install python-nmap
-pip install multiprocessing
-pip install scapy
-pip install opencv-python
-pip install requests
-pip install lxml
-pip install beautifulsoup4
-pip install github3.py
-pip install base64
-pip install importlib
-pip install json
-pip install random
-pip install sys
-pip install threading
-pip install time
-pip install datetime
-pip install python-magic
-pip install pythoncom
+#!/bin/bash
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 2nd 2024
+# Description of Script
+#  The script is designed to set up a Python development environment on Kali Linux for ethical 
+# hacking purposes. It updates system packages, installs necessary system libraries, 
+# and then proceeds to install various Python libraries commonly used by ethical hackers. 
+# These libraries include tools for network scanning (scapy, nmap), web scraping and parsing 
+# (beautifulsoup4, lxml), interacting with GitHub (github3.py), handling encryption and encoding
+# (base64, pycryptodomex), sending emails (smtplib), working with Windows hooks (pywin32, 
+# pywinhook), and more.
+#################################################################################################
+# Update system packages
 sudo apt update
-sudo apt install python3 python3-pip
-sudo apt install libffi-dev libpython3-dev
-pip3 install pywinhook
-import pywinhook
-pip install psutil
-pip install pynput
-pip install ctypes
-pip install os
-pip install platform
-pip install time
-pip install python3-xlib
-pip install argsparce
-pip install pycryptodomex
-pip install smtplib
-python -m pip install --upgrade pywin32
-python3 -m pip install idna
-python -m pip install urllib3
- python -m pip install requests
-pip install ftplib
-pip install -U Flask
-pip install certifi
-easy_install pi
-pip install -U itsdangerous
-pip install colorama
-pip install wmi
-pip install -U click
-pip install -U Werkzeug
-pip install -U MarkupSafe
- pip install -U Jinja2
+
+# Install necessary system packages
+sudo apt install -y python3 python3-pip libffi-dev libpython3-dev python3-xlib
+
+# Install Python libraries
+pip3 install --upgrade pip
+pip3 install scapy python-nmap requests lxml beautifulsoup4 github3.py base64 \
+  importlib-metadata jsonlib2 random sys threading time datetime python-magic \
+  pythoncom psutil pynput ctypes platform argparse pycryptodomex smtplib pywin32 \
+  idna urllib3 ftplib Flask certifi itsdangerous colorama wmi click Werkzeug \
+  MarkupSafe Jinja2
+
+# Install pi library using easy_install
+sudo apt install -y python3-setuptools
+easy_install3 pi
+
+# Additional steps for pywinhook installation (if needed)
+# pip3 install pywinhook
+
+echo "Python Library Configuration Complete!"
+

@@ -25,6 +25,7 @@ pip3 install scapy python-nmap requests lxml beautifulsoup4 github3.py base64 \
   idna urllib3 ftplib Flask certifi itsdangerous colorama wmi click Werkzeug \
   MarkupSafe Jinja2
 
+pip install Pillow
 # Install pi library using easy_install
 sudo apt install -y python3-setuptools
 easy_install3 pi

@@ -84,9 +84,13 @@ Host: google.com <br />
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. net_terrorizer.py - This script is a tool crafted for ethical hacking endeavors, focusing on network reconnaissance and vulnerability assessment. Leveraging the `python-nmap` library, it orchestrates comprehensive scans on remote hosts, probing for open ports, identifying service versions, and detecting potential security weaknesses. Multithreading capabilities empower the script to concurrently monitor network traffic, triggering Nmap scans upon detecting novel hosts. Users can input either single IP addresses or CIDR notations to specify target ranges for scanning. With integration of the `vulners` script, the tool extends its functionality to include vulnerability detection, highlighting potential threats and associated CVE identifiers. This versatile script equips ethical hackers with essential insights, aiding in the identification and mitigation of security risks within authorized systems. <br />
 2. darknet_recon.py - The script provided is a Python tool for conducting network scans using Nmap and searching for Metasploit modules corresponding to identified vulnerabilities. It prompts the user to input remote IP addresses or CIDR notations for scanning. After performing Nmap scans to discover hosts and their open ports along with potential vulnerabilities, the script simulates finding CVE IDs. It then utilizes Metasploit's `msfconsole` command-line tool to search for exploit modules related to the identified CVEs. The user is prompted to enter the superuser password when required for executing commands. Overall, this script serves as a versatile tool for network reconnaissance and vulnerability assessment, seamlessly integrating Nmap and Metasploit functionalities. <br />
+3. dark_wizard_gui.py - **Important Note: Please use this script as a superuser for it to work!** This Python script creates a graphical user interface (GUI) application named "Dark Net Wizard" using Tkinter. The application allows users to perform Nmap scans with firewall evasion techniques on specified target IP addresses or CIDR ranges. It includes options for inputting target ports or port ranges, and it displays the scan results, including any found Common Vulnerabilities and Exposures (CVEs) and Metasploit exploit modules if they exist. The GUI features a dark purple background color, an image display at the top (which can be replaced with a custom image link), input fields for IP addresses and ports, buttons for scanning and exiting the application, and an output box for displaying scan results and messages. <br />
 
-**Example outputs of some of the scripts!** <br />
-1. net_terrorizer.py output: <br />
+**Example outputs of some of the scripts and gui!** <br />
+1. dark_wizard_gui.py gui: <br />
+   ![image](https://github.com/FishyStix12/WHPython_v1.02/assets/102126354/e6d6d09d-0b4a-40e3-ad35-47508057072d) <br />
+
+3. net_terrorizer.py output: <br />
    Enter the remote IP address or CIDR notation to scan (press Enter to exit): 192.168.0.1 <br />
    Enter the port/ports to scan (leave empty for full scan): 80 <br />
    Scanning IP: 192.168.0.1 <br />
@@ -124,7 +128,7 @@ Host: google.com <br />
    Enter the remote IP address or CIDR notation to scan (press Enter to exit): <br />
    Exiting... <br />
 
-2. darknet_recon.py output: <br />
+4. darknet_recon.py output: <br />
    Enter the remote IP address or CIDR notation to scan (press Enter to exit): 192.168.1.0/24 <br />
    Nmap scan results for host: 192.168.1.1 <br />
    Host: 192.168.1.1 <br />

@@ -88,7 +88,7 @@ Host: google.com <br />
 
 **Example outputs of some of the scripts and gui!** <br />
 1. dark_wizard_gui.py gui: <br />
-   ![image](https://github.com/FishyStix12/WHPython_v1.02/assets/102126354/e6d6d09d-0b4a-40e3-ad35-47508057072d) <br />
+ ![image](https://github.com/FishyStix12/WHPython_v1.02/assets/102126354/e91027d1-d1d7-4e23-b818-b7ea187cc533) <br />
 
 3. net_terrorizer.py output: <br />
    Enter the remote IP address or CIDR notation to scan (press Enter to exit): 192.168.0.1 <br />

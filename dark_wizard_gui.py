@@ -1,4 +1,19 @@
 #! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: March 25th 2024
+# Description of Script
+# This Python script creates a graphical user interface (GUI) application named "Dark Net Wizard" 
+# using Tkinter. The application allows users to perform Nmap scans with firewall evasion techniques
+# on specified target IP addresses or CIDR ranges. It includes options for inputting target ports or 
+# port ranges, and it displays the scan results, including any found Common Vulnerabilities and 
+# Exposures (CVEs) and Metasploit exploit modules if they exist. The GUI features a dark purple
+# background color, an image display at the top (which can be replaced with a custom image link),
+# input fields for IP addresses and ports, buttons for scanning and exiting the application, and 
+# an output box for displaying scan results and messages.
+# Important Note:
+# Must run this script as superuser
+#################################################################################################
 import subprocess
 import re
 import tkinter as tk

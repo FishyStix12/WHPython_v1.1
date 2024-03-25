@@ -26,6 +26,7 @@ pip3 install scapy python-nmap requests lxml beautifulsoup4 github3.py base64 \
   MarkupSafe Jinja2
 
 pip install Pillow
+pip install pillow requests
 # Install pi library using easy_install
 sudo apt install -y python3-setuptools
 easy_install3 pi

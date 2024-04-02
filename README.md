@@ -4,6 +4,9 @@
 **Python Library Configuration Script:** <br />
 pylib_config.sh - The script is designed to set up a Python development environment on Kali Linux for ethical hacking purposes. It updates system packages, installs necessary system libraries, and then proceeds to install various Python libraries commonly used by ethical hackers. These libraries include tools for network scanning (scapy, nmap), web scraping and parsing (beautifulsoup4, lxml), interacting with GitHub (github3.py), handling encryption and encoding (base64, pycryptodomex), sending emails (smtplib), working with Windows hooks (pywin32, pywinhook), and more. <br />
 
+**Visual Studio Code with Gitbash Terminal Library Configuration Script:** <br />
+vs_code_pylib_conf.sh - This script configures a Visual Studio Code environment with Git Bash terminal for Python development. It sets up a virtual environment named `venv`, installs system packages and Python libraries such as `scapy`, `python-nmap`, `requests`, `lxml`, `beautifulsoup4`, `github3.py`, and others using `pip`. Additionally, it includes steps for installing `setuptools` and `pynput` if needed, ensuring a complete setup for tasks like network scanning, web requests, GUI development, and cryptography. <br />
+
 **Disclaimer: These scripts should only be used in cases where the user has permission to use these scripts on the subject systems!** <br />
 
 **Import Note: Please read this statement carefully: By downloading any of the scripts in this repository, you, as the user, take full responsibility for storing, and using these scripts. You also take full responsibility for any misuse of these malicious codes. Finally, Please note that any data the Trojan extracts will be posted to a GitHub repository, and if that repository is public, all the extracted data will be available for the whole world to see.** <br />

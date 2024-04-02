@@ -25,6 +25,4 @@ pip3 install scapy python-nmap requests lxml beautifulsoup4 github3.py pybase64 
   MarkupSafe Jinja2 Pillow requests cryptography
 
 # Additional steps for pi library installation (if needed)
-pip install setuptools
-pip3 install pynput
 echo "Python Library Configuration Complete!"

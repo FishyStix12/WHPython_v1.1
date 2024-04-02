@@ -28,12 +28,11 @@ pip3 install scapy python-nmap requests lxml beautifulsoup4 github3.py pybase64 
 pip install Pillow
 pip install pillow requests
 # Install pi library using easy_install
-sudo apt install -y python3-setuptools
-easy_install3 pi
+pip install setuptools
 pip install cryptography
 
 # Additional steps for pywinhook installation (if needed)
-# pip3 install pywinhook
-
+pip3 install pywinhook
+pip3 install pynput
 echo "Python Library Configuration Complete!"
 

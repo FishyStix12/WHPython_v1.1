@@ -30,6 +30,7 @@ pip install pillow requests
 # Install pi library using easy_install
 sudo apt install -y python3-setuptools
 easy_install3 pi
+pip install cryptography
 
 # Additional steps for pywinhook installation (if needed)
 # pip3 install pywinhook

@@ -14,7 +14,6 @@
 # script equips ethical hackers with essential insights, aiding in the identification and 
 # mitigation of security risks within authorized systems. 
 #################################################################################################
-Using this script below
 import sys  
 import threading  
 import ipaddress  

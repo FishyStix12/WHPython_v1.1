@@ -421,6 +421,13 @@ pip install flask <br />
 <br />
        Exiting... <br />
 
+   2. XtremeGame.py outpput: <br />
+      Would you like to play a silly game? no <br />
+      Too bad... <br />
+      Welcome to the Extremely Silly Game! <br />
+      Please guess a number between 1 and 10: 3 <br />
+      Oh no..... <br />
+      You have lost the Extremely Silly Game... Goodbye! <br />
 
 # Hacky Hierarchy <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />

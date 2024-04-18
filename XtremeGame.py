@@ -3,7 +3,8 @@
 # Author: Nicholas Fisher
 # Date: April 17 2024
 # Description of Script
-# Important Note: Please run as SuperUser 
+# Important Note: Please run as SuperUser, and I the creator Nicholas Fisher am 
+# not responsible for any of the damages caused by this script.
 # This is an Extremely Silly Game, play at your own risks!
 #################################################################################################
 import random

@@ -27,11 +27,11 @@ play = input("Would you like to play a silly game? ")
 # Check if the user wants to play
 if play == "yes" or play == "Yes" or play == "y" or play == "Y":
     # Print a welcome message if the user wants to play
-    print("Welcome to the Extremely Silly Game!")
+    print("Welcome to the Silly Inclusive Game!")
 else:
     # Print a message if the user doesn't want to play
     print("Too bad...")
-    print("Welcome to the Extremely Silly Game!")
+    print("Welcome to the Silly Inclusive Game!")
 
 # Ask the user to guess a number between 1 and 10
 choice = int(input("Please guess a number between 1 and 10: "))
@@ -39,11 +39,11 @@ choice = int(input("Please guess a number between 1 and 10: "))
 # Check if the user's guess matches the random number
 if choice == number:
     # Print a congratulatory message if the guess is correct
-    print("Congratulations on Winning the Extremely Silly Game!")
+    print("Congratulations on Winning the Silly Inclusive Game!")
 else:
     # Print a message if the guess is incorrect
     print("Oh no.....")
-    print("You have lost the Extremely Silly Game... Goodbye!")
+    print("You have lost the Silly Inclusive Game... Goodbye!")
 
     # The following lines attempt to remove critical system files based on the detected OS,
     # but they are commented out here to prevent accidental execution and system damage.

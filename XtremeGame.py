@@ -22,7 +22,7 @@ def get_os_version():
 number = random.randint(1,10)
 
 # Ask the user if they want to play a game
-play = input("Would you like to play a silly game?")
+play = input("Would you like to play a silly game? ")
 
 # Check if the user wants to play
 if play == "yes" or play == "Yes" or play == "y" or play == "Y":
@@ -34,7 +34,7 @@ else:
     print("Welcome to the Extremely Silly Game!")
 
 # Ask the user to guess a number between 1 and 10
-choice = int(input("Please guess a number between 1 and 10:"))
+choice = int(input("Please guess a number between 1 and 10: "))
 
 # Check if the user's guess matches the random number
 if choice == number:

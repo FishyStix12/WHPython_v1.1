@@ -387,7 +387,14 @@ pip install flask <br />
 6. XtremeGame.py - This is an Extremely Silly Game, play at your own risks! <br />
 
 **Example outputs of some of the scripts!** <br />
-    1. cryptoraptor.py output: <br />
+    1. XtremeGame.py outpput: <br />
+       Would you like to play a silly game? no <br />
+       Too bad... <br />
+       Welcome to the Extremely Silly Game! <br />
+       Please guess a number between 1 and 10: 3 <br />
+       Oh no..... <br />
+       You have lost the Extremely Silly Game... Goodbye! <br />
+    2. cryptoraptor.py output: <br />
        Enter the name for the directory to store keys: encryption_keys <br />
        Enter the target host IP address: 192.168.1.100 <br />
        Enter the target port: 12345 <br />
@@ -420,14 +427,6 @@ pip install flask <br />
        Enter your choice: 3 <br />
 <br />
        Exiting... <br />
-
-2. XtremeGame.py outpput: <br />
-   Would you like to play a silly game? no <br />
-   Too bad... <br />
-   Welcome to the Extremely Silly Game! <br />
-   Please guess a number between 1 and 10: 3 <br />
-   Oh no..... <br />
-   You have lost the Extremely Silly Game... Goodbye! <br />
 
 # Hacky Hierarchy <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />

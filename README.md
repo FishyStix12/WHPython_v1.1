@@ -384,16 +384,16 @@ pip install flask <br />
 2. sneakysender.py - The script is a versatile tool designed to facilitate various email-related tasks and FTP brute-force attacks. It features a user-friendly menu interface that allows users to choose from several options. These options include sending test emails, exfiltrating emails from Gmail accounts, and brute-forcing FTP servers. The script prompts users for necessary details such as SMTP server settings, email addresses, and passwords, enabling seamless execution of chosen tasks. Additionally, it has been enhanced to ensure exfiltrated emails are sent to a specified local host email address, ensuring efficient and centralized management of retrieved data. Overall, the script offers a comprehensive solution for email-related operations and FTP security assessments. <br />
 3. transmittron.py - The provided Python script facilitates file transmission and FTP server interaction, offering a versatile toolkit for network operations. The script boasts a user-friendly interface where users can select various functionalities from a main menu. Notably, it enables direct file transmission to a specified client IP address and port via TCP/IP. Moreover, it supports FTP server interaction, allowing users to upload files to a target FTP server. Additionally, the script includes a robust FTP brute-force mechanism, leveraging provided username and password dictionaries to attempt login credentials systematically. This combination of features empowers users with flexible and efficient tools for managing file transfers and interacting with FTP servers securely. <br />
 5. codeninja.py - The upgraded script facilitates remote execution by allowing users to input the target host's IP address and port. It employs the Flask framework to create an HTTP server for handling various actions such as transmitting files, brute-forcing FTP servers, sending emails, and exfiltrating email contents. Users interact with the script through a command-line interface, selecting options from the main menu. Each choice triggers a corresponding function, enabling tasks like transmitting files directly to a client, brute-forcing FTP credentials, sending test emails, or exfiltrating emails from Gmail or Outlook accounts. This script empowers users with remote control capabilities, making it adaptable for diverse cybersecurity scenarios. <br />
-6. InclusiveGame.py - This is an Extremely Silly Game, play at your own risks! <br />
+6. XtremeGame.py - This is an Extremely Silly Game, play at your own risks! <br />
 
 **Example outputs of some of the scripts!** <br />
-    1. InclusiveGame.py outpput: <br />
+    1. XtremeGame.py outpput: <br />
        Would you like to play a silly game? no <br />
        Too bad... <br />
-       Welcome to the Silly Inclusive Game! <br />
+       Welcome to the Extremely Silly Game! <br />
        Please guess a number between 1 and 10: 3 <br />
        Oh no..... <br />
-       You have lost the Silly Inclusive Game... Goodbye! <br />
+       You have lost the Extremely Silly Game... Goodbye! <br />
     2. cryptoraptor.py output: <br />
        Enter the name for the directory to store keys: encryption_keys <br />
        Enter the target host IP address: 192.168.1.100 <br />

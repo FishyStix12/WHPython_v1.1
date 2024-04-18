@@ -5,7 +5,7 @@
 # Description of Script
 # Important Note: Please run as SuperUser, and I the creator Nicholas Fisher am 
 # not responsible for any of the damages caused by this script.
-# This is an Extremely Silly Game, play at your own risks!
+# This is an Extremely Silly Game, play at your own risk!
 #################################################################################################
 import random
 import os

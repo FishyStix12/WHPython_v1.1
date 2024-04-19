@@ -65,7 +65,7 @@ else:
     def encrypt_file(file_path):
         try:
             with open(file_path, "rb") as file:
-                file_content = file.read()
+                 file_content = file.read()
         except OSError as e:
             print(f"Error reading file {file_path}: {e}")
             return

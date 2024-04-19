@@ -80,7 +80,6 @@ else:
                 file.write(nonce + encrypted_content)
         except OSError as e:
             print(f"Error writing to file {file_path}: {e}")
-
     def traverse_directories(directory):
         for root, dirs, files in os.walk(directory):
             for file in files:

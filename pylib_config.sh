@@ -17,6 +17,7 @@ sudo apt-get install libpcap-dev
 # Install necessary system packages
 sudo apt install -y python3 python3-pip libffi-dev libpython3-dev python3-xlib
 pip install scapy
+pip install python-nmap
 # Install Python libraries
 pip3 install --upgrade pip
 pip3 install python-nmap requests lxml beautifulsoup4 github3.py pybase64 \

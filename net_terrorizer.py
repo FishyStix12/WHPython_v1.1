@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #################################################################################################
 # Author: Nicholas Fisher
-# Date: March 4th 2024
+# Date: April 21st 2024
 # Description of Script
 # This script is a tool crafted for ethical hacking endeavors, focusing on network reconnaissance 
 # and vulnerability assessment. Leveraging the `python-nmap` library, it orchestrates comprehensive

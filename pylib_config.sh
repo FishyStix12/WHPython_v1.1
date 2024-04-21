@@ -16,10 +16,10 @@ sudo apt update
 sudo apt-get install libpcap-dev
 # Install necessary system packages
 sudo apt install -y python3 python3-pip libffi-dev libpython3-dev python3-xlib
-
+pip install scapy
 # Install Python libraries
 pip3 install --upgrade pip
-pip3 install scapy python-nmap requests lxml beautifulsoup4 github3.py pybase64 \
+pip3 install python-nmap requests lxml beautifulsoup4 github3.py pybase64 \
   importlib-metadata jsonlib2 random sys threading time datetime python-magic \
   pythoncom psutil pynput ctypes platform argparse pycryptodomex smtplib pywin32 \
   idna urllib3 ftplib Flask certifi itsdangerous colorama wmi click Werkzeug \

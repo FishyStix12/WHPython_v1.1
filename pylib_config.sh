@@ -13,7 +13,7 @@
 #################################################################################################
 # Update system packages
 sudo apt update
-
+sudo apt-get install libpcap-dev
 # Install necessary system packages
 sudo apt install -y python3 python3-pip libffi-dev libpython3-dev python3-xlib
 

@@ -2,6 +2,9 @@
 # By: Nicholas Fisher
 
 **Python Library Configuration Script:** <br />
+**Important Note: Before using the script below please download the swig tool with with either of the commands below:** <br />
+1. Ubuntu or Debian-based systems: sudo apt-get install swig <br />
+2.  Red Hat-based systems like Fedora or CentOS: sudo yum install swig <br />
 pylib_config.sh - The script is designed to set up a Python development environment on Kali Linux for ethical hacking purposes. It updates system packages, installs necessary system libraries, and then proceeds to install various Python libraries commonly used by ethical hackers. These libraries include tools for network scanning (scapy, nmap), web scraping and parsing (beautifulsoup4, lxml), interacting with GitHub (github3.py), handling encryption and encoding (base64, pycryptodomex), sending emails (smtplib), working with Windows hooks (pywin32, pywinhook), and more. <br />
 
 **Visual Studio Code with Gitbash Terminal Library Configuration Script:** <br />

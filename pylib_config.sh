@@ -10,6 +10,8 @@
 # (beautifulsoup4, lxml), interacting with GitHub (github3.py), handling encryption and encoding
 # (base64, pycryptodomex), sending emails (smtplib), working with Windows hooks (pywin32, 
 # pywinhook), and more.
+# Please install the swig tool before running this script using the command below:
+# sudo apt-get install swig
 #################################################################################################
 # Update system packages
 sudo apt update

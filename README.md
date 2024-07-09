@@ -442,15 +442,15 @@ Please guess a number between 1 and 10: 3 <br />
 Oh no..... <br />
 You have lost the Extremely Silly Game... Goodbye! <br />
 2. statrun.spk outputs: <br />
-a. $ ./example.spk
-TRUN
-Checking TRUN...
-b. $ ./example.spk
-STATS
-Checking STATS...
-c. $ ./example.spk
-INVALID
-Invalid option.
+a. $ ./statrun.spk <br />
+TRUN <br />
+Checking TRUN... <br />
+b. $ ./statrun.spk <br />
+STATS <br />
+Checking STATS... <br />
+c. $ ./statrun.spk <br />
+INVALID <br />
+Invalid option. <br />
 
 # Hacky Hierarchy <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />

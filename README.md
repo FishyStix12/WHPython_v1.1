@@ -423,7 +423,7 @@ pip install flask <br />
 # Fun with Exploitation <br />
 ![Screenshot 2024-04-19 084402](https://github.com/FishyStix12/WHPython_v1.02/assets/102126354/173dc5be-6bb2-4549-9a10-593cc51296e3) <br />
 **XtremeGui.py** <br />
-**Important Note: Please use status.spk in the following syntax - `generic_send_tcp <Target IP> <Target Port> status.spk SKIPVAR SKIPSTR`**
+**Important Note: Please use statrun.spk in the following syntax - `generic_send_tcp <Target IP> <Target Port> statrun.spk SKIPVAR SKIPSTR`**
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. WIns_overflow.py - This script is designed to send a custom payload to a specified target over a TCP connection. It prompts the user for a pattern to be sent, the target's IPv4 address, and the target's TCP port. The script then attempts to create a socket connection to the target using the provided address and port. If the connection is successful, it sends the user-provided pattern as part of a 'TRUN /.:/' command. If any errors occur during this process, the script catches the exception, prints an error message, and exits with a non-zero status, indicating that an error has occurred. The improvements include ensuring the message is properly encoded, correctly closing the socket, and providing detailed error messages for better debugging. <br />

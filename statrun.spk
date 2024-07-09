@@ -1,0 +1,30 @@
+#! /usr/bin/python
+#################################################################################################
+# Author: Nicholas Fisher
+# Date: July 7th 2024
+# Description of Script
+# This `statrun.spk` script serves as a versatile tool for cyber applications, offering 
+# interactive functionality to check and process specific commands like "TRUN" or "STATS". 
+# It enables cybersecurity professionals to efficiently query and analyze critical system or 
+# network statistics ("STATS") or potentially vulnerable services ("TRUN"). By prompting for 
+# user input and responding accordingly, the script supports proactive monitoring, vulnerability
+# assessments, and incident response tasks. Its structured approach allows for quick adaptation
+# to different scenarios, enhancing cybersecurity operations by providing real-time insights
+# and facilitating timely actions based on user-defined queries. Integrating this script into
+# cybersecurity workflows enhances operational efficiency and responsiveness, making it a 
+# valuable asset in safeguarding digital environments against emerging threats and 
+# vulnerabilities. Used for Spiking.
+#################################################################################################
+S_readline();  // Read user input
+
+if ("TRUN" == s_string_variable("0")) {  // Check if input equals "TRUN"
+    s_string("Checking TRUN...\n");  // Output message indicating TRUN check
+    // Perform actions for TRUN check (not specified in original script)
+} else if ("STATS" == s_string_variable("0")) {  // Check if input equals "STATS"
+    s_string("Checking STATS...\n");  // Output message indicating STATS check
+    // Perform actions for STATS check (not specified in original script)
+} else {
+    s_string("Invalid option.\n");  // Output message for invalid input
+    // Handle invalid input or provide feedback (not specified in original script)
+}
+

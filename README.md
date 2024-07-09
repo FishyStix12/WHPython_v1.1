@@ -390,21 +390,9 @@ pip install flask <br />
 2. sneakysender.py - The script is a versatile tool designed to facilitate various email-related tasks and FTP brute-force attacks. It features a user-friendly menu interface that allows users to choose from several options. These options include sending test emails, exfiltrating emails from Gmail accounts, and brute-forcing FTP servers. The script prompts users for necessary details such as SMTP server settings, email addresses, and passwords, enabling seamless execution of chosen tasks. Additionally, it has been enhanced to ensure exfiltrated emails are sent to a specified local host email address, ensuring efficient and centralized management of retrieved data. Overall, the script offers a comprehensive solution for email-related operations and FTP security assessments. <br />
 3. transmittron.py - The provided Python script facilitates file transmission and FTP server interaction, offering a versatile toolkit for network operations. The script boasts a user-friendly interface where users can select various functionalities from a main menu. Notably, it enables direct file transmission to a specified client IP address and port via TCP/IP. Moreover, it supports FTP server interaction, allowing users to upload files to a target FTP server. Additionally, the script includes a robust FTP brute-force mechanism, leveraging provided username and password dictionaries to attempt login credentials systematically. This combination of features empowers users with flexible and efficient tools for managing file transfers and interacting with FTP servers securely. <br />
 5. codeninja.py - The upgraded script facilitates remote execution by allowing users to input the target host's IP address and port. It employs the Flask framework to create an HTTP server for handling various actions such as transmitting files, brute-forcing FTP servers, sending emails, and exfiltrating email contents. Users interact with the script through a command-line interface, selecting options from the main menu. Each choice triggers a corresponding function, enabling tasks like transmitting files directly to a client, brute-forcing FTP credentials, sending test emails, or exfiltrating emails from Gmail or Outlook accounts. This script empowers users with remote control capabilities, making it adaptable for diverse cybersecurity scenarios. <br />
-6. XtremeGame.py - This is an Extremely Silly Game, play at your own risks! <br />
-7. XtremeGame2.py - The Extremely Silly Game 2 is a simple number guessing game that asks the user to guess a random number between 1 and 10. If the user's guess is correct, they win the game and a congratulatory message is displayed. If the user's guess is incorrect, they lose the game and a message is displayed indicating that they have lost. In the event of a loss, the game then proceeds to encrypt the root directories and all of their subdirectories and files on the host system using the AES encryption algorithm with a key derived from a predefined password and a salt value. This is done using the cryptography library in Python. The encryption process overwrites all files in the specified directories with their encrypted contents, effectively destroying the original data. It is important to note that this is a destructive and dangerous operation that should only be performed in a controlled and safe environment, as it can cause serious damage to the operating system and potentially render the system unusable. <br />
-8. XtremeGui.py - This script is a simple number guessing game implemented in Python using the Tkinter library for the graphical user interface. The game generates a random number between 1 and 10 and prompts the user to guess the number. If the user's guess is correct, the game prints a congratulatory message. If the guess is incorrect, the game prints a message indicating that the user has lost and calls a function to encrypt the root directories and all its subdirectories and files using the cryptography library. The game can be started by clicking a "Start Game" button. The game also includes error handling to ensure that the user's input is valid before trying to convert it to an integer. <br />
 
 **Example outputs of some of the scripts!** <br />
-    1. XtremeGui.py gui: <br />
-       ![Screenshot 2024-04-19 084402](https://github.com/FishyStix12/WHPython_v1.02/assets/102126354/173dc5be-6bb2-4549-9a10-593cc51296e3) <br />
-    2. XtremeGame.py and XtremeGame2.py outpput: <br />
-       Would you like to play a silly game? no <br />
-       Too bad... <br />
-       Welcome to the Extremely Silly Game! <br />
-       Please guess a number between 1 and 10: 3 <br />
-       Oh no..... <br />
-       You have lost the Extremely Silly Game... Goodbye! <br />
-    3. cryptoraptor.py output: <br />
+    1. cryptoraptor.py output: <br />
        Enter the name for the directory to store keys: encryption_keys <br />
        Enter the target host IP address: 192.168.1.100 <br />
        Enter the target port: 12345 <br />
@@ -431,6 +419,24 @@ pip install flask <br />
        3. Exit <br />
        Enter your choice: 3 <br />
        Exiting... <br />
+
+# Fun with Exploitation <br />
+![Screenshot 2024-04-19 084402](https://github.com/FishyStix12/WHPython_v1.02/assets/102126354/173dc5be-6bb2-4549-9a10-593cc51296e3) <br />
+
+**The Following List gives a short description of all the scripts in this group:** <br />
+1. WIns_overflow.py - This script is designed to send a custom payload to a specified target over a TCP connection. It prompts the user for a pattern to be sent, the target's IPv4 address, and the target's TCP port. The script then attempts to create a socket connection to the target using the provided address and port. If the connection is successful, it sends the user-provided pattern as part of a 'TRUN /.:/' command. If any errors occur during this process, the script catches the exception, prints an error message, and exits with a non-zero status, indicating that an error has occurred. The improvements include ensuring the message is properly encoded, correctly closing the socket, and providing detailed error messages for better debugging. <br />
+2. XtremeGame.py - This is an Extremely Silly Game, play at your own risks! <br />
+3. XtremeGame2.py - The Extremely Silly Game 2 is a simple number guessing game that asks the user to guess a random number between 1 and 10. If the user's guess is correct, they win the game and a congratulatory message is displayed. If the user's guess is incorrect, they lose the game and a message is displayed indicating that they have lost. In the event of a loss, the game then proceeds to encrypt the root directories and all of their subdirectories and files on the host system using the AES encryption algorithm with a key derived from a predefined password and a salt value. This is done using the cryptography library in Python. The encryption process overwrites all files in the specified directories with their encrypted contents, effectively destroying the original data. It is important to note that this is a destructive and dangerous operation that should only be performed in a controlled and safe environment, as it can cause serious damage to the operating system and potentially render the system unusable. <br />
+4. XtremeGui.py - This script is a simple number guessing game implemented in Python using the Tkinter library for the graphical user interface. The game generates a random number between 1 and 10 and prompts the user to guess the number. If the user's guess is correct, the game prints a congratulatory message. If the guess is incorrect, the game prints a message indicating that the user has lost and calls a function to encrypt the root directories and all its subdirectories and files using the cryptography library. The game can be started by clicking a "Start Game" button. The game also includes error handling to ensure that the user's input is valid before trying to convert it to an integer. <br />
+
+**Example outputs of some of the scripts!** <br />
+    1. XtremeGame.py and XtremeGame2.py outpput: <br />
+       Would you like to play a silly game? no <br />
+       Too bad... <br />
+       Welcome to the Extremely Silly Game! <br />
+       Please guess a number between 1 and 10: 3 <br />
+       Oh no..... <br />
+       You have lost the Extremely Silly Game... Goodbye! <br />
 
 # Hacky Hierarchy <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />

@@ -19,12 +19,12 @@ S_readline();  // Read user input
 
 if ("TRUN" == s_string_variable("0")) {  // Check if input equals "TRUN"
     s_string("Checking TRUN...\n");  // Output message indicating TRUN check
-    // Perform actions for TRUN check (not specified in original script)
+    # Perform actions for TRUN check (not specified in original script)
 } else if ("STATS" == s_string_variable("0")) {  // Check if input equals "STATS"
     s_string("Checking STATS...\n");  // Output message indicating STATS check
-    // Perform actions for STATS check (not specified in original script)
+    # Perform actions for STATS check (not specified in original script)
 } else {
     s_string("Invalid option.\n");  // Output message for invalid input
-    // Handle invalid input or provide feedback (not specified in original script)
+    # Handle invalid input or provide feedback (not specified in original script)
 }
 

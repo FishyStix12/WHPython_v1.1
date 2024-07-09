@@ -431,7 +431,7 @@ pip install flask <br />
 3. XtremeGame2.py - The Extremely Silly Game 2 is a simple number guessing game that asks the user to guess a random number between 1 and 10. If the user's guess is correct, they win the game and a congratulatory message is displayed. If the user's guess is incorrect, they lose the game and a message is displayed indicating that they have lost. In the event of a loss, the game then proceeds to encrypt the root directories and all of their subdirectories and files on the host system using the AES encryption algorithm with a key derived from a predefined password and a salt value. This is done using the cryptography library in Python. The encryption process overwrites all files in the specified directories with their encrypted contents, effectively destroying the original data. It is important to note that this is a destructive and dangerous operation that should only be performed in a controlled and safe environment, as it can cause serious damage to the operating system and potentially render the system unusable. <br />
 4. XtremeGui.py - This script is a simple number guessing game implemented in Python using the Tkinter library for the graphical user interface. The game generates a random number between 1 and 10 and prompts the user to guess the number. If the user's guess is correct, the game prints a congratulatory message. If the guess is incorrect, the game prints a message indicating that the user has lost and calls a function to encrypt the root directories and all its subdirectories and files using the cryptography library. The game can be started by clicking a "Start Game" button. The game also includes error handling to ensure that the user's input is valid before trying to convert it to an integer. <br />
 5. WIns_OvrWrte.py - is a program that interacts with a network service by sending a custom payload to a specified target. It begins by prompting the user to input two characters and their corresponding multipliers, which are used to construct a pattern called `shellcode`. The script then asks for the target's IPv4 address and TCP port number. Using this information, it creates a TCP socket connection to the target and sends the payload. If the connection attempt fails or if any input errors occur, appropriate error messages are displayed, and the script exits with a non-zero status to indicate failure. The script includes improved readability, specific exception handling, and detailed inline comments to aid understanding. <br />
-6. status.spk - The `stats.spk` file template serves as a simple script for initializing and reading statistical data. It begins with the `S_readline();` command to read a line of input, possibly from a file or a data stream. Following this, the `s_string("STATS ");` command defines or identifies a string containing "STATS" followed by a space, which could be a prefix for the data to be read. Finally, the `s_string_variable("0");` command initializes a string variable with the value "0", potentially setting up a placeholder for further data manipulation or storage. This template establishes a basic structure for handling and processing statistics-related input. And this script is used for spiking! <br />
+6. statrun.spk - This `.spk` script serves as a versatile tool for cyber applications, offering interactive functionality to check and process specific commands like "TRUN" or "STATS". It enables cybersecurity professionals to efficiently query and analyze critical system or network statistics ("STATS") or potentially vulnerable services ("TRUN"). By prompting for user input and responding accordingly, the script supports proactive monitoring, vulnerability assessments, and incident response tasks. Its structured approach allows for quick adaptation to different scenarios, enhancing cybersecurity operations by providing real-time insights and facilitating timely actions based on user-defined queries. Integrating this script into cybersecurity workflows enhances operational efficiency and responsiveness, making it a valuable asset in safeguarding digital environments against emerging threats and vulnerabilities. This is used for spiking. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. XtremeGame.py and XtremeGame2.py outputs: <br />
@@ -441,8 +441,16 @@ Welcome to the Extremely Silly Game! <br />
 Please guess a number between 1 and 10: 3 <br />
 Oh no..... <br />
 You have lost the Extremely Silly Game... Goodbye! <br />
-2. status.spk output: <br />
-12345STATS 0 <br />
+2. statrun.spk outputs: <br />
+a. $ ./example.spk
+TRUN
+Checking TRUN...
+b. $ ./example.spk
+STATS
+Checking STATS...
+c. $ ./example.spk
+INVALID
+Invalid option.
 
 # Hacky Hierarchy <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />

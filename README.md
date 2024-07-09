@@ -433,13 +433,15 @@ pip install flask <br />
 6. stats.spk - The `stats.spk` file template serves as a simple script for initializing and reading statistical data. It begins with the `S_readline();` command to read a line of input, possibly from a file or a data stream. Following this, the `s_string("STATS ");` command defines or identifies a string containing "STATS" followed by a space, which could be a prefix for the data to be read. Finally, the `s_string_variable("0");` command initializes a string variable with the value "0", potentially setting up a placeholder for further data manipulation or storage. This template establishes a basic structure for handling and processing statistics-related input.
 
 **Example outputs of some of the scripts!** <br />
-    1. XtremeGame.py and XtremeGame2.py outpput: <br />
+    1. XtremeGame.py and XtremeGame2.py outputs: <br />
        Would you like to play a silly game? no <br />
        Too bad... <br />
        Welcome to the Extremely Silly Game! <br />
        Please guess a number between 1 and 10: 3 <br />
        Oh no..... <br />
        You have lost the Extremely Silly Game... Goodbye! <br />
+    2. statds.spk output: <br />
+       12345STATS 0 <br />
 
 # Hacky Hierarchy <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />

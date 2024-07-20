@@ -1,7 +1,7 @@
 #!/bin/bash
 #################################################################################################
 # Author: Nicholas Fisher
-# Date: March 2nd 2024
+# Date: July 19th 2024
 # Description of Script
 #  This Bash script is designed to securely delete the command history from the current user's 
 # shell session. It begins by using the `shred` command to overwrite the `.bash_history` 

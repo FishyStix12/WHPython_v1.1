@@ -22,5 +22,6 @@ git add .
 git commit -m "Adds repo structure for Trojan"
 echo -n "Please enter your github username: "
 read user_input
-echo -n "
-git remote add origin https://github.com/$user_input/
+echo -n "Enter Repository name here: "
+read dir_input
+git remote add origin https://github.com/$user_input/$dir_input

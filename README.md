@@ -442,6 +442,7 @@ https://infosecwriteups.com/exploiting-a-windows-based-buffer-overflow-e4d1b6f6d
 12. Wintrackrem.ps1 - The provided script aims to clear the command history in Windows terminals, whether using Command Prompt (CMD) or PowerShell. In CMD, the script deletes the command history file located at `%userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt`, reinstalls the `doskey` utility to clear the current session's history, and then exits the terminal. This is achieved using the `del` and `doskey /reinstall` commands followed by `exit`. For PowerShell, the script removes the same history file using `Remove-Item`, then clears the current session's history by overwriting the file with an empty string using `[System.IO.File]::WriteAllText`, and finally exits the terminal with the `exit` command. Both scripts ensure that any previously entered commands are erased, maintaining privacy and security by removing traces of past activities in the terminal. <br />
 13. MAC_Mirage.py - This script listens for ARP (Address Resolution Protocol) broadcast requests on the network and responds to them, regardless of the IP address requested. It uses the Scapy library to sniff ARP requests and then crafts ARP reply packets. The script associates any requested IP address with the MAC address of the machine running the script, effectively claiming ownership of that IP. This is done by sending a forged ARP reply back to the original requester. The script demonstrates ARP spoofing, often used in network attacks but can also be applied in ethical hacking scenarios with proper authorization. <br />
 14. Switch_Faker.py - This script is designed to change the MAC address of a network interface on Linux-based systems. It allows you to either specify a new MAC address or generate a random one. The script works by temporarily disabling the network interface, applying the new MAC address, and then re-enabling the interface. It retrieves the current MAC address, provides an option to input a specific address or use a randomly generated one, and requires root privileges to modify network settings. Please ensure you have the necessary permissions and understand the impact of changing your MAC address before using this script. <br />
+15. FloodAndSwitch.py - This script is tailored for Linux systems that enables users to both change their network interface's MAC address and perform MAC flooding. The script first retrieves and displays the current MAC and IP addresses of the specified interface. Users can then choose to specify a new MAC address or generate a random one. After updating the MAC address, the script floods the network with packets using the new or generated MAC address for a specified duration. This tool is useful for network testing and security assessments, but it should be used with caution to avoid unintended network disruptions. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. XtremeGame.py and XtremeGame2.py outputs: <br />
@@ -477,6 +478,23 @@ Do you want to specify a MAC address? (yes/no): no <br />
 Generated random MAC address: 00:16:3e:4d:87:9a <br />
 Changing MAC address... <br />
 MAC address successfully changed to: 00:16:3e:4d:87:9a <br />
+6. FloodAndSwitch.py output: <br />
+Enter the network interface (e.g., eth0, wlan0): eth0 <br />
+Current MAC address: 00:16:3e:7d:45:89 <br />
+Do you want to specify a MAC address? (yes/no): no <br />
+Generated random MAC address: 00:16:3e:4b:8c:7d <br />
+Changing MAC address of eth0 to 00:16:3e:4b:8c:7d... <br />
+MAC address changed to: 00:16:3e:4b:8c:7d <br />
+Enter the duration for flooding (in seconds): 10 <br />
+Starting MAC flooding on interface eth0 with MAC address 00:16:3e:4b:8c:7d for 10 seconds... <br />
+Flooding network with packet: 00:16:3e:4b:8c:7d <br />
+Flooding network with packet: 00:16:3e:4b:8c:7d <br />
+Flooding network with packet: 00:16:3e:4b:8c:7d <br />
+Flooding network with packet: 00:16:3e:4b:8c:7d <br />
+Flooding network with packet: 00:16:3e:4b:8c:7d <br />
+... <br />
+MAC flooding completed. <br />
+
 
 # Hacky Hierarchy <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />

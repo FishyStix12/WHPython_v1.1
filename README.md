@@ -441,6 +441,7 @@ https://infosecwriteups.com/exploiting-a-windows-based-buffer-overflow-e4d1b6f6d
 11. tracksremover.sh - This Bash script is designed to securely delete the command history from the current user's shell session. It begins by using the `shred` command to overwrite the `.bash_history` file multiple times and then remove it, ensuring that the deleted data cannot be easily recovered. Following this, the script creates a new empty `.bash_history` file and clears the current session's history using the `history -c` command. Finally, it exits the shell. This sequence of commands ensures both the secure deletion of past command history and the prevention of any residual data from the current session, enhancing overall privacy and security. <br />
 12. Wintrackrem.ps1 - The provided script aims to clear the command history in Windows terminals, whether using Command Prompt (CMD) or PowerShell. In CMD, the script deletes the command history file located at `%userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt`, reinstalls the `doskey` utility to clear the current session's history, and then exits the terminal. This is achieved using the `del` and `doskey /reinstall` commands followed by `exit`. For PowerShell, the script removes the same history file using `Remove-Item`, then clears the current session's history by overwriting the file with an empty string using `[System.IO.File]::WriteAllText`, and finally exits the terminal with the `exit` command. Both scripts ensure that any previously entered commands are erased, maintaining privacy and security by removing traces of past activities in the terminal. <br />
 13. MAC_Mirage.py - This script listens for ARP (Address Resolution Protocol) broadcast requests on the network and responds to them, regardless of the IP address requested. It uses the Scapy library to sniff ARP requests and then crafts ARP reply packets. The script associates any requested IP address with the MAC address of the machine running the script, effectively claiming ownership of that IP. This is done by sending a forged ARP reply back to the original requester. The script demonstrates ARP spoofing, often used in network attacks but can also be applied in ethical hacking scenarios with proper authorization. <br />
+14. Switch_Faker.py - This script is designed to change the MAC address of a network interface on Linux-based systems. It allows you to either specify a new MAC address or generate a random one. The script works by temporarily disabling the network interface, applying the new MAC address, and then re-enabling the interface. It retrieves the current MAC address, provides an option to input a specific address or use a randomly generated one, and requires root privileges to modify network settings. Please ensure you have the necessary permissions and understand the impact of changing your MAC address before using this script. <br />
 
 **Example outputs of some of the scripts!** <br />
 1. XtremeGame.py and XtremeGame2.py outputs: <br />
@@ -469,6 +470,13 @@ Sent ARP reply: 192.168.1.5 is-at 00:11:22:33:44:55 <br />
 Sent ARP reply: 192.168.1.10 is-at 00:11:22:33:44:55 <br />
 Sent ARP reply: 192.168.1.12 is-at 00:11:22:33:44:55 <br />
 Sent ARP reply: 192.168.1.7 is-at 00:11:22:33:44:55 <br />
+5. Switch_Faker.py output: <br />
+Enter the network interface (e.g., eth0, wlan0): wlan0 <br />
+Current MAC address: 88:32:9b:c7:ab:12 <br />
+Do you want to specify a MAC address? (yes/no): no <br />
+Generated random MAC address: 00:16:3e:4d:87:9a <br />
+Changing MAC address... <br />
+MAC address successfully changed to: 00:16:3e:4d:87:9a <br />
 
 # Hacky Hierarchy <br />
 ![image](https://github.com/FishyStix12/WHPython/assets/102126354/41065611-8c4a-4e78-8550-91478c6a7538) <br />

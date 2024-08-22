@@ -3,13 +3,13 @@
 # Author: Nicholas Fisher
 # Date: August 22 2024
 # Description of Script
-# This script is designed for Linux systems that performs MAC address spoofing, network flooding, 
-# and packet sniffing. It allows users to change their network interface’s MAC address either 
-# by specifying a new address or by generating a random one. Following the MAC address change,
-# the script floods the network with packets using the new MAC address to test network resilience.
-# After the flooding phase, it captures network traffic for a user-specified duration and saves 
-# the captured packets to a file of the user's choice. This script is useful for network testing
-# and analysis, offering functionality to both disrupt and monitor network traffic.
+# This script is for Linux systems that facilitates network testing by performing MAC address spoofing,
+# network flooding, and packet sniffing. It allows users to change their network interface’s MAC address
+# either by specifying a custom address or by generating a random one. After modifying the MAC address,
+# the script floods the network with packets to simulate stress on the network. Following this, it
+# sets the network interface to promiscuous mode to capture all traffic for a specified duration,
+# saving the captured packets to a user-defined file. This script is designed for network analysis,
+# enabling users to disrupt and monitor network traffic effectively.
 #################################################################################################
 from scapy.all import *
 import subprocess
@@ -47,6 +47,19 @@ def set_mac(interface, new_mac):
     subprocess.run(["sudo", "ifconfig", interface, "hw", "ether", new_mac])  # Set new MAC address
     subprocess.run(["sudo", "ifconfig", interface, "up"])  # Bring the interface back up
     print(f"MAC address changed to: {new_mac}")
+
+ def set_promiscuous_mode(interface, enable=True):
+    """
+    Set the network interface to promiscuous mode.
+    
+    Args:
+        interface (str): The name of the network interface (e.g., 'eth0').
+        enable (bool): Whether to enable or disable promiscuous mode. Default is True.
+    """
+    mode = "promisc" if enable else "nopromisc"
+    print(f"Setting promiscuous mode {mode} for {interface}...")
+    subprocess.run(["sudo", "ip", "link", "set", interface, mode])
+    print(f"Promiscuous mode {mode} for {interface}.")
 
 def generate_random_mac():
     """
@@ -133,6 +146,10 @@ def main():
     """
     Main function to handle user input and initiate MAC address change, MAC flooding, and packet sniffing.
     """
+    def main():
+    """
+    Main function to handle user input and initiate MAC address change, MAC flooding, and packet sniffing.
+    """
     interface = input("Enter the network interface (e.g., eth0, wlan0): ")
     
     current_mac = get_current_mac(interface)
@@ -156,9 +173,15 @@ def main():
     flood_mac(interface, flood_duration, new_mac)
     print("MAC flooding completed.")
     
+    # Set the interface to promiscuous mode before sniffing
+    set_promiscuous_mode(interface, enable=True)
+    
     filename = input("Enter the filename to save captured packets (e.g., captured_packets.pcap): ")
     sniff_duration = int(input("Enter the duration for packet sniffing (in seconds): "))
     sniff_packets(interface, sniff_duration, filename)
+    
+    # Optionally, you can disable promiscuous mode after sniffing
+    set_promiscuous_mode(interface, enable=False)
 
 if __name__ == "__main__":
     main()

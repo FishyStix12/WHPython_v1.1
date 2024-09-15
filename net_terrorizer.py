@@ -3,17 +3,17 @@
 # Author: Nicholas Fisher
 # Date: April 21th 2024
 # Description of Script
-# This Python script offers a flexible solution for performing targeted Nmap network scans, 
-# allowing users to customize their scanning process through interactive prompts. Users can 
-# input a list of remote IP addresses or CIDR notations, along with a specific port range or
-# a full port scan. The script guides users through selecting various Nmap scripts—each with a 
-# brief description of its functionality—such as detecting honeypots, analyzing firewall rules,
-# or enumerating services and vulnerabilities. After constructing the Nmap command with the 
-# selected options, the script executes the scan and provides detailed results, including 
-# any identified CVEs and Metasploit modules. Users are given the option to save these 
-# results to a user-specified text file, enhancing the script's utility for comprehensive 
-# network analysis and documentation. This approach ensures that users can tailor their 
-# scans to specific needs while maintaining a detailed record of the scan outcomes.
+# This Python script provides a comprehensive tool for conducting customizable Nmap network scans,
+# allowing users to interactively select specific Nmap scripts and scan options. Users can specify
+# a list of remote IP addresses or CIDR notations and define port ranges for their scans. The 
+# script prompts users to choose from a wide array of Nmap scripts, each designed to perform 
+# different tasks such as detecting web server honeypots, analyzing firewall rules, retrieving 
+# service banners, and identifying vulnerabilities. New additions include scripts for detecting 
+# SQL injection and XSS vulnerabilities, identifying SSH authentication methods, and checking
+# for the presence of backdoors in FTP servers. After executing the scan, the script offers 
+# the option to save the detailed results, including any found CVEs and Metasploit modules, to 
+# a user-defined text file. This functionality makes the script a powerful and flexible tool 
+# for network exploration, security assessment, and detailed documentation.
 #################################################################################################
 import subprocess
 import sys
@@ -26,20 +26,29 @@ def prompt_for_scripts():
     
     # Define the available scripts and their descriptions
     script_descriptions = {
-        "http-honeypot": "Detects if the target web server is a honeypot.",
-        "firewalk": "Determines firewall rules by analyzing how TTL is handled in packets.",
-        "banner": "Retrieves service banners for further analysis.",
-        "vulners": "Checks for vulnerabilities by querying the Vulners database.",
-        "broadcast-dns-service-discovery": "Discovers services broadcast via DNS-SD.",
-        "dns-recursion": "Checks if a DNS server allows open recursion.",
-        "smtp-commands": "Enumerates SMTP commands supported by the target mail server.",
-        "smtp-open-relay": "Tests if the SMTP server is an open relay.",
-        "smtp-enum-users": "Enumerates email addresses and usernames via SMTP.",
-        "snmp-processes": "Enumerates running processes via SNMP.",
-        "snmp-sysdescr": "Retrieves system information via SNMP.",
-        "snmp-win32-software": "Enumerates installed software on Windows systems via SNMP."
-    }
-    
+    "http-honeypot": "Detects if the target web server is a honeypot.",
+    "firewalk": "Determines firewall rules by analyzing how TTL is handled in packets.",
+    "banner": "Retrieves service banners for further analysis.",
+    "vulners": "Checks for vulnerabilities by querying the Vulners database.",
+    "broadcast-dns-service-discovery": "Discovers services broadcast via DNS-SD.",
+    "dns-recursion": "Checks if a DNS server allows open recursion.",
+    "smtp-commands": "Enumerates SMTP commands supported by the target mail server.",
+    "smtp-open-relay": "Tests if the SMTP server is an open relay.",
+    "smtp-enum-users": "Enumerates email addresses and usernames via SMTP.",
+    "snmp-processes": "Enumerates running processes via SNMP.",
+    "snmp-sysdescr": "Retrieves system information via SNMP.",
+    "snmp-win32-software": "Enumerates installed software on Windows systems via SNMP.",
+    "ftp-bounce": "Tests if the FTP server is vulnerable to the FTP bounce attack.",
+    "netbios-ssn": "Enumerates NetBIOS session services and their details.",
+    "http-title": "Retrieves the title of the web page served by HTTP servers.",
+    "http-auth-finder": "Detects HTTP servers that use various authentication mechanisms.",
+    "ssh-auth-methods": "Identifies supported SSH authentication methods on the target server.",
+    "http-enum": "Enumerates directories and scripts accessible on HTTP servers.",
+    "http-sql-injection": "Tests for SQL injection vulnerabilities in HTTP parameters.",
+    "http-stored-xss": "Detects stored cross-site scripting (XSS) vulnerabilities in HTTP applications.",
+    "smb-vuln-ms17-010": "Checks if the target system is vulnerable to the MS17-010 SMB vulnerability (EternalBlue).",
+    "ftp-vsftpd-backdoor": "Detects the presence of a backdoor in vsftpd (Very Secure FTP Daemon) versions 2.3.4."
+}   
     # Ask the user for each script
     for script, description in script_descriptions.items():
         user_input = input(f"Do you want to use the {script} script? ({description}) [y/N]: ").lower()

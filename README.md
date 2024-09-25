@@ -562,8 +562,8 @@ Command Breakdown: <br />
    g. /ptt: This flag stands for "Pass The Ticket." It indicates that if the TGT is successfully obtained, it should be loaded into the current session, allowing the user to authenticate without needing to re-enter credentials. <br />
    h. /certificate: <NTLM hashes received from above command>: This option specifies NTLM hashes that might be used for authenticating or acquiring the TGT. The placeholder <NTLM hashes received from above command> should be replaced with actual NTLM hashes that were obtained previously, typically from another command or tool. <br />
 **For more information please visit the links below:** <br />
-`1. Summary of vulnerability with mitigation techniques: https://www.rapid7.com/blog/post/2021/08/03/petitpotam-novel-attack-chain-can-fully-compromise-windows-domains-running-ad-cs/ ` <br />
-`2. Another summary of the vulnerability with a guideline on how to setup a practice lab: https://medium.com/r3d-buck3t/domain-takeover-with-petitpotam-exploit-3900f89b38f7 ` <br />
+`1. Summary of vulnerability with mitigation techniques:` https://www.rapid7.com/blog/post/2021/08/03/petitpotam-novel-attack-chain-can-fully-compromise-windows-domains-running-ad-cs/ <br />
+`2. Another summary of the vulnerability with a guideline on how to setup and conduct a practice lab:` https://medium.com/r3d-buck3t/domain-takeover-with-petitpotam-exploit-3900f89b38f7 <br />
 `3. Practical usage of NTLM Hashes pth-toolkit and Impacket Guide: https://blog.ropnop.com/practical-usage-of-ntlm-hashes/ ` <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />

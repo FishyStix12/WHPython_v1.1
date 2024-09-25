@@ -564,7 +564,7 @@ Command Breakdown: <br />
 **For more information please visit the links below:** <br />
 `1. Summary of vulnerability with mitigation techniques:` https://www.rapid7.com/blog/post/2021/08/03/petitpotam-novel-attack-chain-can-fully-compromise-windows-domains-running-ad-cs/ <br />
 `2. Another summary of the vulnerability with a guideline on how to setup and conduct a practice lab:` https://medium.com/r3d-buck3t/domain-takeover-with-petitpotam-exploit-3900f89b38f7 <br />
-`3. Practical usage of NTLM Hashes pth-toolkit and Impacket Guide: https://blog.ropnop.com/practical-usage-of-ntlm-hashes/ ` <br />
+`3. Practical usage of NTLM Hashes pth-toolkit and Impacket Guide:` https://blog.ropnop.com/practical-usage-of-ntlm-hashes/ <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. tasktactician.py - The script above is a process monitoring tool designed to run on both Windows and Linux platforms. It continuously tracks and logs information about newly created processes, including their command line, creation time, executable path, parent process ID, process ID, user, and privileges. The script allows users to input the target host's IP address and port, enabling remote monitoring of processes on a specified machine. Leveraging platform-specific APIs such as WMI for Windows and system commands like `ps` for Linux, the script provides a platform-agnostic solution for process monitoring. Additionally, it employs exception handling to ensure robustness and reliability in capturing process information. Overall, this versatile script offers a flexible and accessible means to monitor and analyze system activities across diverse computing environments. <br />

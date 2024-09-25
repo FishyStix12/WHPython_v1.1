@@ -1,4 +1,4 @@
-# White Hat Python Version 1.02
+# White Hat Python Version 1.1
 ![image](https://github.com/user-attachments/assets/cfd01c2f-932c-44c7-9982-2a544c28ec5b) <br />
 # By: Nicholas Fisher
 

